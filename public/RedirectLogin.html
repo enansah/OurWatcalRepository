@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/RedirectLogin.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap"
+    />
+  </head>
+  <body>
+    <div class="login-page-desktop">
+      <section class="navbar-parent">
+        <header class="navbar">
+          <div class="text-button" id="textButton8">Home</div>
+          <div class="text-button1" id="textButton9">Help Desk</div>
+          <div class="text-button2" id="textButton10">About</div>
+          <div class="text-button3" id="textButton11">Security</div>
+          <div class="contact-us" id="contactUsText">Contact Us</div>
+        </header>
+        <div class="login-wrapper">
+          <form class="login">
+            <div class="login-heading">
+              <h1 class="heading">Login</h1>
+              <div class="paragraph">Welcome ! Dear Tenant.</div>
+            </div>
+            <div class="login-form-fields">
+              <div class="input-fields">
+                <div class="username">
+                  <img
+                    class="input-icons"
+                    loading="lazy"
+                    alt=""
+                    src="./images/user.svg"
+                  />
+
+                  <div class="text">
+                    <input
+                    autocomplete="on"
+                    id="username"
+                    class="placeholder"
+                    placeholder="Enter the LandLord ID"
+                    type="text"
+                    />
+                  </div>
+                </div>
+                <div class="password">
+                  <img
+                    class="vector-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/password.svg"
+                  />
+
+                  <input
+                  autocomplete="on"
+                  id="password"
+                  class="text1"
+                  placeholder="Enter your Tenant ID"
+                  type="password"
+                />
+                  <img
+                  id="togglePassword"
+                    class="icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/e.png"
+                  />
+                </div>
+              </div>
+              <div class="separator"></div>
+              <div class="button-wrapper">
+                <button class="button">
+                  <div class="social-button-labels">Login</div>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </section>
+      <section class="footer-section">
+        <div class="footer-content">
+          <div class="logo-parent">
+            <img
+              class="logo-icon"
+              loading="lazy"
+              alt=""
+              src="./images/biglogo.svg"
+            />
+
+            <h3 class="watcal">WatCal</h3>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="branding">
+            <div class="text-button4" id="textButtonA">Home</div>
+            <div class="text-button5" id="textButton1">Help Desk</div>
+            <div class="text-button6" id="textButton2">About</div>
+            <div class="text-button7" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="footer-content1">
+          <div class="footer-links1">
+            <div class="button1">
+              <div class="social-media-icons">
+                <img
+                  class="icon1"
+                  loading="lazy"
+                  alt=""
+                  src="./images/mail.svg"
+                />
+              </div>
+              <div class="text-button8">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button2">
+              <div class="icon-wrapper">
+                <img
+                  class="icon2"
+                  loading="lazy"
+                  alt=""
+                  src="./images/phone.svg"
+                />
+              </div>
+              <div class="text-button9">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="line1"></div>
+        <div class="container">
+          <div class="contact-details">
+            <div class="text2">WatCal All Rights Reserved</div>
+          </div>
+          <div class="contact-icons">
+            <div class="button3">
+              <img
+                class="icon3"
+                loading="lazy"
+                alt=""
+                src="./images/facebook.svg"
+              />
+            </div>
+            <div class="button4">
+              <img
+                class="icon4"
+                loading="lazy"
+                alt=""
+                src="./images/twitter.svg"
+              />
+            </div>
+            <div class="button5">
+              <img
+                class="icon5"
+                loading="lazy"
+                alt=""
+                src="./images/linkedin.svg"
+              />
+            </div>
+          </div>
+          <div class="newsletter">
+            <div class="legal-links">
+              <div class="text-button10" id="textButton6">Privacy Policy</div>
+              <div class="legal-separator"></div>
+              <div class="text-button11" id="textButton7">Terms of Service</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script>
+     var textButton8 = document.getElementById("textButton8");
+if (textButton8) {
+textButton8.addEventListener("click", function (e) {
+    window.location.href = "Home.html"; 
+});
+}
+
+var textButton9 = document.getElementById("textButton9");
+if (textButton9) {
+textButton9.addEventListener("click", function (e) {
+    window.location.href = "Helpdesk.html"; 
+});
+}
+
+var textButton10 = document.getElementById("textButton10");
+if (textButton10) {
+textButton10.addEventListener("click", function (e) {
+    window.location.href = "About.html"; 
+});
+}
+
+var textButton11 = document.getElementById("textButton11");
+if (textButton11) {
+textButton11.addEventListener("click", function (e) {
+    window.location.href = "Security.html"; 
+});
+}
+
+var contactUsText = document.getElementById("contactUsText");
+if (contactUsText) {
+contactUsText.addEventListener("click", function (e) {
+    window.location.href = "Contactus.html"; 
+});
+}
+
+var textButtonA = document.getElementById("textButtonA");
+if (textButtonA) {
+textButtonA.addEventListener("click", function (e) {
+    window.location.href = "Home.html"; 
+});
+}
+
+var textButton1 = document.getElementById("textButton1");
+if (textButton1) {
+textButton1.addEventListener("click", function (e) {
+    window.location.href = "Helpdesk.html"; 
+});
+}
+
+var textButton2 = document.getElementById("textButton2");
+if (textButton6) {
+textButton6.addEventListener("click", function (e) {
+    window.location.href = "About.html"; 
+});
+}
+
+var textButton3 = document.getElementById("textButton3");
+if (textButton3) {
+textButton3.addEventListener("click", function (e) {
+    window.location.href = "Security.html"; 
+});
+}
+
+var textButton6 = document.getElementById("textButton6");
+if (textButton6) {
+textButton6.addEventListener("click", function (e) {
+    window.location.href = "Privacy.html"; 
+});
+}
+
+var textButton7 = document.getElementById("textButton7");
+if (textButton7) {
+textButton7.addEventListener("click", function (e) {
+    window.location.href = "Terms.html"; 
+});
+}
+document.addEventListener("DOMContentLoaded", () => {
+    const passwordInput = document.getElementById("password");
+    const togglePassword = document.getElementById("togglePassword");
+
+    togglePassword.addEventListener("click", () => {
+        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+        passwordInput.setAttribute("type", type);
+        
+        // Toggle the eye icon image source
+        const iconSrc = type === "password" ? "./images/e.png" : "./images/closed-eye-white.png";
+        togglePassword.setAttribute("src", iconSrc);
+    });
+});
+      </script>
+  </body>
+</html>

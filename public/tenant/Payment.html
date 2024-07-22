@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/payment.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="payment-page-desktop">
+      <div class="material-symbolsarrow-back-io" onclick="goBack()">
+        <img
+          class="back-icon"
+          loading="lazy"
+          alt=""
+          src="./images/back.svg"
+        />
+      </div>
+      <main class="page-header">
+        <section class="title-wrapper-parent">
+          <div class="title-wrapper">
+            <div class="title-wrapper-inner">
+              <div class="total-consumption-parent">
+                <div class="total-consumption">
+                  <h1 class="total-consumption-amount">
+                    TOTAL CONSUMPTION AMOUNT :
+                  </h1>
+                  <b class="gh-2400000">GH₵--</b>
+                </div>
+              </div>
+            </div>
+            <div class="meter-selection">
+              <b class="click-on-the">click on the card to select the meter-type</b>
+              <div class="payment-options">
+                <div class="options-heading" id="prepaidOption">
+                  <h2 class="prepaid">PREPAID</h2>
+                  <img
+                    class="options-background-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/chip.png"
+                  />
+                </div>
+                <div class="options-heading1" id="postpaidOption">
+                  <h2 class="postpaid">POSTPAID</h2>
+                  <img
+                    class="options-heading-child"
+                    loading="lazy"
+                    alt=""
+                    src="./images/chip.png"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="prepaid-parent" id="paymentForm">
+            <h2 class="prepaid1" id="paymentTypeHeader">PREPAID</h2>
+            <div class="choose-your-payment">choose your payment method</div>
+            <div class="prepaid-input">
+              <div class="input-fields">
+                <img
+                  class="input-background-icon"
+                  loading="lazy"
+                  alt=""
+                  src="./images/telecel.png"
+                />
+
+                <form class="number-input">
+                  <div class="number-input1">
+                    <div class="mobile-input">
+                      <input
+                      id="vodafonePhoneNumber"
+                        class="enter-your-mobile"
+                        placeholder="Enter your mobile number "
+                        type="text"
+                      />
+                    </div>
+                    <div class="amount-input">
+                      <input
+                      id="vodafoneAmount"
+                        class="enter-amount"
+                        placeholder="Enter amount "
+                        type="text"
+                      />
+                    </div>
+                    <div class="meter-input">
+                      <input
+                      id="vodafoneMeterNumber"
+                        class="enter-your-meter"
+                        placeholder="Enter your meter number "
+                        type="text"
+                      />
+                    </div>
+                  </div>
+                  <button class="submission" onclick="processVodafonePayment()">
+                    <b class="submit">Submit</b>
+                  </button>
+                </form>
+              </div>
+              <img
+                class="input-divider-icon"
+                loading="lazy"
+                alt=""
+                src="./images/Line.png"
+              />
+
+              <div class="input-fields1">
+                <img
+                  class="input-fields-child"
+                  loading="lazy"
+                  alt=""
+                  src="./images/mtn.png"
+                />
+
+                <form class="frame-parent">
+                  <div class="frame-group">
+                    <div class="enter-your-mobile-number-wrapper">
+                      <input
+                      id="mtnPhoneNumber"
+                        class="enter-your-mobile1"
+                        placeholder="Enter your mobile number "
+                        type="text"
+                      />
+                    </div>
+                    <div class="enter-amount-wrapper">
+                      <input
+                      id="mtnAmount"
+                        class="enter-amount1"
+                        placeholder="Enter amount "
+                        type="text"
+                      />
+                    </div>
+                    <div class="enter-your-meter-number-wrapper">
+                      <input
+                      id="mtnMeterNumber"
+                      class="enter-your-meter1"
+                      placeholder="Enter your meter number "
+                      type="text"
+                    />
+                    </div>
+                  </div>
+                  <button class="submit-wrapper" onclick="processMtnPayment()">
+                    <b class="submit1">Submit</b>
+                  </button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+    <script src="./js/payment.js"></script>
+  </body>
+</html>

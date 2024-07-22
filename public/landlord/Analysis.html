@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/AnalysisIndex.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap"
+    />
+  </head>
+  <body>
+    <div class="overlay" id="overlay1">
+        <div class="popper" id="popup1">
+            <section class="popper-inner">
+              <img
+                class="kid"
+                loading="lazy"
+                alt=""
+                src="./images/avatar.png"
+                id="group"
+              />
+            </section>
+            <section class="chartbar">
+              <!-- added username in the side panel after login -->
+              <div class="mp"> <span id="panelUsername"></span></div>
+              <div class="mpcom-wrapper">
+                <!-- added user email in the side panel after login -->
+                <div class="mpcom"> <span id="panelEmail"></span></div>
+              </div>
+              <div class="chartbar-buttons">
+                <div class="chartbar-icons"></div>
+              </div>
+              <div class="chartbar-buttons1">
+                <div class="dbtn" id="dbtnContainer">
+                  <div class="house">
+                    <div class="chart-icons">
+                      <img
+                        class="v-icon"
+                        loading="lazy"
+                        alt=""
+                        src="./images/home.svg"
+                      />
+                    </div>
+                  </div>
+                  <div class="sidebar-labels">
+                    <div class="d_b">Dashboard</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chartbar-buttons2">
+                <div class="lenght"></div>
+              </div>
+              <div class="chartbar-buttons3">
+                <div class="pienabtn" id="pienabtnContainer">
+                  <div class="chart-bar">
+                    <div class="v-wrapper">
+                      <img
+                        class="v-icon1"
+                        loading="lazy"
+                        alt=""
+                        src="./images/stat.svg"
+                      />
+                    </div>
+                  </div>
+                  <div class="piena-wrapper">
+                    <div class="piena">Analysis</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chartbar-buttons4">
+                <div class="lenght1"></div>
+              </div>
+              <div class="mousebtn-wrapper">
+                <div class="mousebtn" id="mousebtnContainer">
+                  <img
+                    class="toolkit-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/tools.svg"
+                  />
+      
+                  <div class="mouses-wrapper">
+                    <div class="mouses">Settings</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chartbar-buttons5">
+                <div class="lenght2"></div>
+              </div>
+              <div class="chartbar-buttons6">
+                <div class="trendbtn" id="trendbtnContainer">
+                  <div class="trend">
+                    <div class="v-container">
+                      <img
+                        class="v-icon2"
+                        loading="lazy"
+                        alt=""
+                        src="./images/clk.svg"
+                      />
+                    </div>
+                  </div>
+                  <div class="trend-wrapper">
+                    <div class="trend1">History</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chartbar-buttons7">
+                <div class="lenght3"></div>
+              </div>
+              <div class="chartbar-buttons8">
+                <div class="opener-btn" id="openerBtnContainer">
+                  <img
+                    class="opener-alt-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/sign-out-alt.svg"
+                  />
+      
+                  <div class="opener">Logout</div>
+                </div>
+              </div>
+              <div class="lenght4"></div>
+            </section>
+            <div class="btt-bar">
+              <!-- <div class="txt-button" id="txtButton">Privacy Policy</div> -->
+              <a href="../Privacy.html" class="txt-button">Privacy Policy</a>
+              <div class="lenght5"></div>
+              <!-- <div class="txt-button1" id="txtButton1">Terms of Service</div> -->
+              <a href="../Terms.html" class="txt-button1">Terms of Service</a>
+            </div>
+          </div> 
+    </div>
+    <div class="overlay" id="overlay2">
+        <div class="downloadmenu" id="popup2">
+            <section class="Parent">
+              <div class="Child"></div>
+              <div class="downParent">
+                <a class="down">Download</a>
+                <div class="R-wrapper">
+                  <div class="R" onclick="downloadPDF()">
+                    <div class="file-pdf-regular-1-wrapper">
+                      <img
+                        class="file-pdf-regular-1-icon"
+                        loading="lazy"
+                        alt="PDF"
+                        src="./images/file-pdf-regular 1.svg"
+                      />
+                    </div>
+                    <div class="reports">Reports</div>
+                  </div>
+                </div>
+              </div>
+              <div class="cover">
+                <div class="close-parent">
+                  <img
+                    class="close-icon"
+                    loading="lazy"
+                    alt="Close"
+                    src="./images/close.svg"
+                  />
+      
+                  <div class="csvbtn" onclick="downloadCSV()">
+                    <div class="file-csv-solid-1-wrapper">
+                      <img
+                        class="file-csv-solid-1-icon"
+                        loading="lazy"
+                        alt="CSV"
+                        src="./images/file-csv-solid 1.svg"
+                      />
+                    </div>
+                    <div class="dt">Data</div>
+                  </div>
+                </div>
+              </div>
+            </section>
+        </div>
+    </div>
+    <div class="over" id="over">
+        <div class="deletepopper" id="pop">
+            <div class="vecpa">
+              <img class="eagle" alt="" src="./images/rectangle-36.svg" />
+      
+              <div class="delete-opt">
+                <a class="remuv">Deletion </a>
+                <img
+                  class="clo-icon"
+                  loading="lazy"
+                  alt=""
+                  src="./images/close.svg"
+                />
+              </div>
+              <a class="are-you-sure">Are you sure you want to remove this tenant?</a>
+              <div class="confirmable">
+                <div class="yes-no-buttons">
+                  <div class="no">
+                    <a class="no1">No</a>
+                  </div>
+                  <div class="yes">
+                    <a class="yes1">Yes</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+   <div class="tent blur-background"> 
+    <div class="analysis-page-desktop">
+      <section class="body">
+        <div class="navbar-parent">
+          <div class="navbar">
+            <div class="button-parent">
+              <div class="button" onclick="showPopup('popup1')" style="border: 0;">
+                <img
+                  class="icon"
+                  loading="lazy"
+                  alt=""
+                  src="./images/dash.svg"
+                />
+              </div>
+              <div class="analysis-wrapper">
+                <h2 class="analysis">Analysis</h2>
+              </div>
+            </div>
+            <div class="user-options">
+               <!-- added username in the header after login -->
+               <a class="melissa-peters"> <span id="username"></span></a>
+              <img
+                class="user-options-child"
+                loading="lazy"
+                alt=""
+                src="./images/avatar.png"
+              />
+            </div>
+          </div>
+          <div class="containers-wrapper">
+            <!-- container -->
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="footer-section">
+        <div class="footer-content">
+          <div class="logo-container">
+            <img
+              class="logo-icon"
+              loading="lazy"
+              alt=""
+              src="./images/biglogo.svg"
+            />
+
+            <h1 class="watcal">WatCal</h1>
+          </div>
+        </div>
+        <div class="navigation-links">
+          <div class="links-container">
+            <div class="text-button" id="textButton">Home</div>
+            <div class="text-button1" id="textButton1">Help Desk</div>
+            <div class="text-button2" id="textButton2">About</div>
+            <div class="text-button3" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="line7"></div>
+        <div class="social-icons">
+          <div class="social-buttons-container">
+            <div class="button1">
+              <div class="icon-button-container">
+                <img
+                  class="icon1"
+                  loading="lazy"
+                  alt=""
+                  src="./images/mail.svg"
+                />
+              </div>
+              <div class="text-button4">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button2">
+              <div class="icon-wrapper">
+                <img
+                  class="icon2"
+                  loading="lazy"
+                  alt=""
+                  src="./images/phone.svg"
+                />
+              </div>
+              <div class="text-button5">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="line8"></div>
+        <footer class="container1">
+          <div class="copyright">
+            <div class="text">WatCal All Rights Reserved</div>
+          </div>
+          <div class="social-media-icons">
+            <div class="button3">
+              <img
+                class="icon3"
+                loading="lazy"
+                alt=""
+                src="./images/facebook.svg"
+              />
+            </div>
+            <div class="button4">
+              <img
+                class="icon4"
+                loading="lazy"
+                alt=""
+                src="./images/twitter.svg"
+              />
+            </div>
+            <div class="button5">
+              <img
+                class="icon5"
+                loading="lazy"
+                alt=""
+                src="./images/linkedin.svg"
+              />
+            </div>
+          </div>
+          <div class="contact-us">
+            <div class="legal-buttons-container">
+                <a href="../Privacy.html" class="text-button6" >Privacy Policy</a>
+              <div class="theme-separator"></div>
+              <a href="../Terms.html" class="text-button7">Terms of Service</a>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </div>
+   </div>
+   <div id="success-popup" class="success-popup">
+    <div class="success-popup-content">
+      <span class="success-message">Room removed successfully!</span>
+      <button class="success-close-btn" onclick="hideSuccessPopup()">Close</button>
+    </div>
+  </div>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+   <script src="js/download.js"></script>
+    <script src="js/analysis.js"></script>
+  </body>
+</html>

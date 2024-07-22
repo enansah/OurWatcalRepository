@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/EditProfile.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="edit-profile-page-desktop">
+      <section class="edit-profile-page-desktop-inner">
+        <form class="top-navigation-container" id="profileForm">
+        <div class="frame-parent">
+          <div class="navbar-wrapper">
+            <button class="navbar" >
+              <div class="material-symbolsarrow-back-io" onclick="goBack()">
+                <img class="back-icon" alt="" src="./images/back.svg" />
+              </div>
+              <div class="edit-profile-wrapper">
+                <div class="edit-profile">Edit Profile</div>
+              </div>
+            </button>
+          </div>
+          <div class="content-wrapper">
+            <div class="profile-info">
+              <div class="outer-circle-parent">
+                <div class="outer-circle"></div>
+                <div class="picdefault-wrapper">
+                  <img
+                    class="picdefault-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/avata.png"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="address-field">
+                <div class="username-field">
+                  <div class="name-email-input">
+                    <b class="username">Username</b>
+                    <b class="email">Email</b>
+                  </div>
+                </div>
+                <div class="name-address">
+                  <div class="name-address-fields">
+                    <div class="rectangle-parent">
+                      <div class="frame-child"></div>
+                      <input
+                      autocomplete="on"
+                        id="username"
+                        class="melissa-peters"
+                        placeholder="Melissa Peters"
+                        type="text"
+                      />
+                    </div>
+                    <div class="address-field1">
+                      <b class="date-of-birth">Date of Birth</b>
+                    </div>
+                  </div>
+                  <div class="password-icon-field">
+                    <div class="rectangle-group">
+                      <div class="frame-item"></div>
+                      <input
+                      autocomplete="on"
+                        id="email"
+                        class="melpetersgmailcom"
+                        placeholder="melpeters@gmail.com"
+                        type="text"
+                      />
+                    </div>
+                    <div class="meter-details">
+                      <b class="meter-serial-number">Meter_Serial_Number</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="name-address1">
+                  <div class="additional-details">
+                    <div class="rectangle-container">
+                      <div class="frame-inner"></div>
+                      <input
+                      autocomplete="on"
+                        id="dateOfBirth"
+                        class="ddmmyyyy"
+                        placeholder="DD/MM/YYYY"
+                        type="date"
+                      />
+                    </div>
+                    <div class="user-email">
+                      <b class="house-address">House address</b>
+                    </div>
+                  </div>
+                  <div class="frame-group">
+                    <div class="group-div">
+                      <div class="rectangle-div"></div>
+                      <input
+                      autocomplete="on"
+                        id="meterSerialNumber"
+                        class="xxxxxxx"
+                        placeholder="131xxxxxxx"
+                        type="text"
+                      />
+                    </div>
+                    <div class="name-email-field">
+                      <b class="meter-type">Meter_type</b>
+                    </div>
+                  </div>
+                </div>
+                <div class="optional-field">
+                  <div class="rectangle-parent1">
+                    <div class="frame-child1"></div>
+                    <div class="optional-label">
+                        <input
+                        autocomplete="on"
+                        id="houseAddress"
+                        class="optional"
+                        placeholder="(Optional)"
+                        type="text"
+                      />
+                    </div>
+                    <img
+                      class="iconoutlinequestion"
+                      src="./images/q.svg"
+                    />
+                  </div>
+                  <div class="optional-field-inner">
+                    <div class="rectangle-parent2">
+                      <div class="frame-child2"></div>
+                      <select class="prepaidpostpaid" id="meterType" name="meterType" required>
+                        <option value="" disabled selected>Select meter-type</option>
+                        <option value="prepaid">Prepaid</option>
+                        <option value="postpaid">Postpaid</option>
+                    </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="add-room">
+                <button class="addroombtn">
+                  <img class="broom-icon" alt="" src="./images/broom.svg" />
+                  <div class="add-room-label">
+                    <div class="add-room1">Add room</div>
+                  </div>
+                </button>
+              </div>
+              <div class="add-room-container"></div> <!-- Container for dynamically added rooms -->
+            </div>
+          </div>
+          <div id="message"></div>
+          <div class="save-button">
+            <button type="submit" class="button" id="saveButton" loading="lazy">
+              <div class="save-changes" >Save changes</div>
+            </button>
+          </div>
+        </div>
+        </form>
+      </section>
+      <section class="footer-section">
+        <div class="footer-content">
+          <div class="logo">
+            <img
+              class="logo-icon"
+              loading="lazy"
+              alt=""
+              src="./images/biglogo.svg"
+            />
+
+            <h3 class="watcal">WatCal</h3>
+          </div>
+        </div>
+        <div class="navigation-links">
+          <div class="links">
+            <div class="text-button" id="textButton">Home</div>
+            <div class="text-button1" id="textButton1">Help Desk</div>
+            <div class="text-button2" id="textButton2">About</div>
+            <div class="text-button3" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="footer-dividers"></div>
+        <div class="social-icons">
+          <div class="icons">
+            <div class="button1">
+              <div class="icon-button-containers">
+                <img
+                  class="icon"
+                  loading="lazy"
+                  alt=""
+                  src="./images/mail.svg"
+                />
+              </div>
+              <div class="text-button4">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button2">
+              <div class="icon-wrapper">
+                <img
+                  class="icon1"
+                  loading="lazy"
+                  alt=""
+                  src="./images/phone.svg"
+                />
+              </div>
+              <div class="text-button5">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-dividers1"></div>
+        <div class="container1">
+          <div class="copyright">
+            <div class="info">WatCal All Rights Reserved</div>
+          </div>
+          <div class="contact-icons">
+            <div class="button3">
+              <img
+                class="icon2"
+                loading="lazy"
+                alt=""
+                src="./images/facebook.svg"
+              />
+            </div>
+            <div class="button4">
+              <img
+                class="icon3"
+                loading="lazy"
+                alt=""
+                src="./images/twitter.svg"
+              />
+            </div>
+            <div class="button5">
+              <img
+                class="icon4"
+                loading="lazy"
+                alt=""
+                src="./images/linkedin.svg"
+              />
+            </div>
+          </div>
+          <div class="contact-us">
+            <div class="legal-info">
+              <!-- <div class="text-button6" id="textButton6">Privacy Policy</div> -->
+              <a href="../Privacy.html"class="text-button6" >Privacy Policy</a>
+              <div class="info-divider"></div>
+              <!-- <div class="text-button7" id="textButton7">Terms of Service</div> -->
+              <a href="../Terms.html" class="text-button7">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/editProfile.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/Dashboard.css" />
+  
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+    
+  </head>
+  <body>
+    <div class="overlay" id="overlay2">
+      <div class="downloadmenu" id="popup2">
+          <section class="Parent">
+            <div class="Child"></div>
+            <div class="downParent">
+              <a class="down">Download</a>
+              <div class="R-wrapper">
+                <div class="R">
+                  <div class="file-pdf-regular-1-wrapper" id="downloadPdf">
+                    <img
+                      class="file-pdf-regular-1-icon"
+                      loading="lazy" alt="PDF"
+                      src="./images/file-pdf-regular 1.svg"
+                    />
+                  </div>
+                  <div class="reports">Reports</div>
+                </div>
+              </div>
+            </div>
+            <div class="cover">
+              <div class="close-parent">
+                <img
+                  class="close-icon"
+                  loading="lazy" alt="Close"
+                  src="./images/close.svg"
+                />
+    
+                <div class="csvbtn" id="downloadCsv">
+                  <div class="file-csv-solid-1-wrapper">
+                    <img
+                      class="file-csv-solid-1-icon"
+                      loading="lazy" alt="CSV"
+                      src="./images/file-csv-solid 1.svg"
+                    />
+                  </div>
+                  <div class="dt">Data</div>
+                </div>
+              </div>
+            </div>
+          </section>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay1">
+            <div class="popup-wrapper" id="popup1">
+                <section class="popup-wrapper-inner">
+                  <img
+                    class="avatar"
+                    loading="lazy"
+                    alt=""
+                    src="./images/avatar.png"
+                    id="genre"
+                  />
+                </section>
+                <section class="userkind-parent">
+                  <!-- added username in the side panel after login -->
+                  <div class="mp"> <span id="panelUsername"></span></div>
+                  <div class="usergmailcom-wrapper">
+                    <!-- added user email in the side panel after login -->
+                    <div class="mpcom"> <span id="panelEmail"></span></div>
+                  </div>
+                  <div class="U">
+                    <div class="meneuver"></div>
+                  </div>
+                  <div class="U1">
+                    <div class="boardbtn" id="boardbtnContainer">
+                      <img class="welcomeHome" loading="lazy"  alt=""
+                      src="./images/home.svg"/>
+          
+                      <div class="board-wrapper">
+                        <div class="board">Dashboard</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="U2">
+                    <div class="meneuver1"></div>
+                  </div>
+                  <div class="setbtn-wrapper">
+                    <div class="setbtn" id="setbtnContainer">
+                      <img
+                        class="menu_icon"
+                        loading="lazy"
+                        alt=""
+                        src="./images/tools.svg"
+                      />
+          
+                      <div class="sets-wrapper">
+                        <div class="sets">Settings</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="U3">
+                    <div class="meneuver2"></div>
+                  </div>
+                  <div class="U4">
+                    <div class="hisbtn" id="hisbtnContainer">
+                      <img class="his-icon" loading="lazy" alt=""
+                      src="./images/clk.svg"/>
+          
+                      <div class="his-wrapper">
+                        <div class="his">History</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="U5">
+                    <div class="meneuver3"></div>
+                  </div>
+                  <div class="U6">
+                    <div class="Out-btn" id="OutBtnContainer">
+                      <img
+                        class="sign-out-alt-icon"
+                        loading="lazy"
+                        alt=""
+                        src="./images/sign-out-alt.svg"
+                      />
+          
+                      <div class="Out">Logout</div>
+                    </div>
+                  </div>
+                  <div class="meneuver4"></div>
+                </section>
+                <section class="under">
+                 <!--  <div class="t-b" id="tB">Privacy Policy</div> -->
+                 <a href="../Privacy.html" class="t-b">Privacy Policy</a>
+                  <div class="line"></div>
+                  <!-- <div class="t-b1" id="tB1">Terms of Service</div> -->
+                  <a href="../Terms.html" class="t-b1">Terms of Service</a>
+                </section>
+            </div>
+    </div>
+
+   <div class="content blur-background">
+    <div class="tenant-dashboard-page-deskto">
+      <section class="tenant-dashboard-page-deskto-inner">
+        <div class="navbar-parent">
+          <div class="navbar">
+            <div class="button-parent">
+            
+              <button class="button" onclick="showPopup('popup1')" style="border: 0;">
+                <img
+                  class="icon"
+                  loading="lazy"
+                  alt=""
+                  src="./images/dash.svg"
+                />
+              </button>
+             
+              <div class="dashboard-wrapper">
+                <h2 class="dashboard">Dashboard</h2>
+              </div>
+            </div>
+            
+            <div class="user-panel">
+              <!-- added username in the header after login -->
+              <a class="melissa-peters"> <span id="username"></span></a>
+              <img
+                class="user-panel-child"
+                loading="lazy"
+                alt=""
+                src="./images/avatar.png"
+              />
+            </div>
+          </div>
+          <div class="body">
+            <div class="data-area-wrapper">
+              <div class="data-area">
+                <a class="container">container</a>
+                
+                <button class="downloadbtn" onclick="showPopup('popup2')" style="border: 0;">
+                  <img
+                    class="downloadbtn-child"
+                    alt=""
+                    src="./images/rectangle-31.svg"
+                  />
+                  <div class="export">Export</div>
+                </button> 
+            
+                <div class="data-table">
+                  <div class="table-header"></div>
+                  <div class="table-header1">
+                    <div class="header-row">
+                      <div class="date">Date :</div>
+                      <div class="header-units">
+                        <span class="empty-units">26/06/2023</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-header2"></div>
+                  <div class="table-header3">
+                    <div class="reading-time-parent">
+                      <div class="reading-time">Reading_time :</div>
+                      <span class="div">17:01</span>
+                    </div>
+                  </div>
+                  <div class="table-header4"></div>
+                  <div class="table-header5">
+                    <div class="reading-value-parent">
+                      <div class="reading-value">Reading_value :</div>
+                      <span class="kw">2400KW</span>
+                    </div>
+                  </div>
+                  <div class="table-header6"></div>
+                  <div class="table-header7">
+                    <div class="last-reading-time-parent">
+                      <div class="last-reading-time">Last_reading_time :</div>
+                      <div class="wrapper">
+                        <span class="div1">17:01</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-header8"></div>
+                  <div class="table-header9">
+                    <div class="last-reading-value-parent">
+                      <div class="last-reading-value">Last_reading_value :</div>
+                      <b class="kw1">1000KW</b>
+                    </div>
+                  </div>
+                  <div class="table-header10"></div>
+                  <div class="table-header11">
+                    <div class="last-reading-date-parent">
+                      <div class="last-reading-date">Last_reading_date :</div>
+                      <div class="frame">
+                        <span class="div2">26/06/2023</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="table-header12"></div>
+                </div>
+              </div>
+            </div>
+            <div class="frame-parent">
+              <div class="execution-recommendation-patte-wrapper">
+                <h2 class="execution-recommendation-patte-container">
+                  <p class="execution-recommendation">
+                    Execution Recommendation
+                  </p>
+                  <p class="pattern">Pattern</p>
+                </h2>
+              </div>
+              <div class="calendar">
+                <div class="rectangle-parent">
+                  <div class="frame-child"></div>
+                  <div class="calendar-days-row">
+                    <div class="week-days">
+                      <b class="sunday">Sunday</b>
+                      <div class="calendar-dates-row">
+                        <b class="june">10 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-12h">N/A</div>
+                </div>
+                <div class="vector-parent">
+                  <img
+                    class="frame-item"
+                    alt=""
+                    src="./images/rectangle-32.svg"
+                  />
+
+                  <div class="frame-wrapper">
+                    <div class="monday-parent">
+                      <b class="monday">Monday</b>
+                      <div class="june-wrapper">
+                        <b class="june1">11 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-10h">N/A</div>
+                </div>
+                <div class="rectangle-group">
+                  <div class="frame-inner"></div>
+                  <div class="frame-container">
+                    <div class="tuesday-parent">
+                      <b class="tuesday">Tuesday</b>
+                      <div class="june-container">
+                        <b class="june2">13 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-10h1">N/A</div>
+                </div>
+                <div class="current-day-highlight">
+                  <div class="highlight-shape"></div>
+                  <b class="june3">14 June</b>
+                  <b class="wednesday">Wednesday</b>
+                  <div class="h-10h2">N/A</div>
+                </div>
+                <div class="calendar-weeks">
+                  <div class="calendar-weeks-child"></div>
+                  <div class="calendar-weeks-inner">
+                    <div class="thursday-parent">
+                      <b class="thursday">Thursday</b>
+                      <div class="june-frame">
+                        <b class="june4">15 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-10h3">N/A</div>
+                </div>
+                <div class="calendar-weeks1">
+                  <div class="calendar-weeks-item"></div>
+                  <div class="frame-div">
+                    <div class="friday-parent">
+                      <b class="friday">Friday</b>
+                      <div class="june-wrapper1">
+                        <b class="june5">16 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-15h">N/A</div>
+                </div>
+                <div class="calendar-weeks2">
+                  <div class="rectangle-div"></div>
+                  <div class="calendar-weeks-inner1">
+                    <div class="saturday-parent">
+                      <b class="saturday">Saturday</b>
+                      <div class="june-wrapper2">
+                        <b class="june6">17 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-18h">N/A</div>
+                </div>
+                <div class="calendar-weeks3">
+                  <div class="calendar-weeks-child1"></div>
+                  <div class="calendar-weeks-inner2">
+                    <div class="sunday-parent">
+                      <b class="sunday1">Sunday</b>
+                      <div class="june-wrapper3">
+                        <b class="june7">18 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-12h1">N/A</div>
+                </div>
+                <div class="calendar-weeks4">
+                  <img
+                    class="rectangle-icon"
+                    alt=""
+                    src="./images/rectangle-32.svg"
+                  />
+
+                  <div class="calendar-weeks-inner3">
+                    <div class="monday-group">
+                      <b class="monday1">Monday</b>
+                      <div class="june-wrapper4">
+                        <b class="june8">19 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-10h4">N/A</div>
+                </div>
+                <div class="calendar-weeks5">
+                  <div class="calendar-weeks-child2"></div>
+                  <div class="calendar-weeks-inner4">
+                    <div class="tuesday-group">
+                      <b class="tuesday1">Tuesday</b>
+                      <div class="june-wrapper5">
+                        <b class="june9">20 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-10h5">N/A</div>
+                </div>
+                <div class="calendar-weeks6">
+                  <div class="calendar-weeks-child3"></div>
+                  <div class="calendar-weeks-inner5">
+                    <div class="wednesday-parent">
+                      <b class="wednesday1">Wednesday</b>
+                      <div class="june-wrapper6">
+                        <b class="june10">21 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-10h6">N/A</div>
+                </div>
+                <div class="calendar-weeks7">
+                  <div class="calendar-weeks-child4"></div>
+                  <div class="calendar-weeks-inner6">
+                    <div class="thursday-group">
+                      <b class="thursday1">Thursday</b>
+                      <div class="june-wrapper7">
+                        <b class="june11">22 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-10h7">N/A</div>
+                </div>
+                <div class="calendar-weeks8">
+                  <div class="calendar-weeks-child5"></div>
+                  <div class="calendar-weeks-inner7">
+                    <div class="friday-group">
+                      <b class="friday1">Friday</b>
+                      <div class="june-wrapper8">
+                        <b class="june12">23 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-15h1">N/A</div>
+                </div>
+                <div class="calendar-weeks9">
+                  <div class="calendar-weeks-child6"></div>
+                  <div class="calendar-weeks-inner8">
+                    <div class="saturday-group">
+                      <b class="saturday1">Saturday</b>
+                      <div class="june-wrapper9">
+                        <b class="june13">24 June</b>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="h-18h1">N/A</div>
+                </div>
+              </div>
+            </div>
+             
+          </div>
+        </div>
+      </section>
+      <section class="consumption-visualization">
+        <div class="dash-parent">
+          <div class="dash">
+            <h2 class="total-electricity-consumption">
+              Total electricity consumption
+            </h2>
+            <div class="chart-container">
+              <div class="chart">
+                <div class="chart-area">
+                  <div class="y-axis">
+                    <div class="y-axis-title">1000</div>
+                    <div class="y-axis-unit">
+                      <div class="unit-label">750</div>
+                    </div>
+                    <div class="y-axis-labels">500</div>
+                    <div class="y-axis-labels1">250</div>
+                    <div class="bar-label">0</div>
+                  </div>
+                  <div class="graph-area">
+                    <div class="vector-group">
+                      <img
+                        class="vector-icon"
+                        loading="lazy"
+                        alt=""
+                        src="./images/d.png"
+                      />
+
+                      <div class="consumption-bars">
+                        <div class="consumption-bar-parent">
+                          <img
+                            class="consumption-bar-icon"
+                            alt=""
+                            src="./images/d.png"
+                          />
+
+                          <div class="bar-segment">
+                            <img
+                              class="vector-icon1"
+                              loading="lazy"
+                              alt=""
+                              src="./images/.png"
+                            />
+
+                            <img
+                              class="lowest-point-icon"
+                              alt=""
+                              src="./images/.png"
+                            />
+
+                            
+                          </div>
+                          <img
+                            class="highest-point-icon"
+                            loading="lazy"
+                            alt=""
+                            src="./images/d.png"
+                          />
+
+                          <img
+                            class="group-icon"
+                            alt=""
+                            src="./images/grid.png"
+                          />
+
+                          <div class="week-highlights">
+                            <img
+                              class="highlight-bars-icon"
+                              loading="lazy"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon1"
+                              loading="lazy"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon2"
+                              loading="lazy"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon3"
+                              loading="lazy"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon4"
+                              loading="lazy"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon5"
+                              loading="lazy"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon6"
+                              loading="lazy"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon7"
+                              loading="lazy"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon8"
+                              loading="lazy"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon9"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon10"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="highlight-bars-icon11"
+                              alt=""
+                              src="./images/d.png"
+                            />
+
+                            <img
+                              class="group-icon1"
+                              alt=""
+                              src="./images/bluedots.png"
+                            />
+                          </div>
+                          <img
+                            class="group-icon2"
+                            alt=""
+                            src="./images/reddots.png"
+                          />
+                        </div>
+                        <div class="x-axis">
+                          <div class="x-axis-labels">
+                            <div class="empty-x-axis">0</div>
+                            <div class="empty-x-axis1">1</div>
+                            <div class="empty-x-axis2">2</div>
+                            <div class="empty-x-axis3">3</div>
+                            <div class="empty-x-axis4">4</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="consumption-breakdown">
+            <div class="percentage-wrapper">
+              <div class="percentage">
+                <b class="kwh">2400KWH</b>
+              </div>
+              <div class="cost">
+                <b class="ghs-120">Ghs 120</b>
+              </div>
+              <div class="payment-button">
+                <button class="payment-button1" id="pay">
+                  <b class="pay">Pay</b>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer-section">
+        <div class="footer-content">
+          <div class="company-info">
+            <img
+              class="logo-icon"
+              loading="lazy"
+              alt=""
+              src="./images/biglogo.svg"
+            />
+
+            <h1 class="watcal">WatCal</h1>
+          </div>
+        </div>
+        <div class="navigation-links">
+          <div class="text-button-parent">
+            <div class="text-button" id="textButton">Home</div>
+            <div class="text-button1" id="textButton1">Help Desk</div>
+            <div class="text-button2" id="textButton2">About</div>
+            <div class="text-button3" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="footer-dividers"></div>
+        <div class="social-media">
+          <div class="social-media-buttons">
+            <div class="button1">
+              <div class="icon-wrapper">
+                <img
+                  class="icon1"
+                  loading="lazy"
+                  alt=""
+                  src="./images/mail.svg"
+                />
+              </div>
+              <div class="text-button4">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button2">
+              <div class="icon-container">
+                <img
+                  class="icon2"
+                  loading="lazy"
+                  alt=""
+                  src="./images/phone.svg"
+                />
+              </div>
+              <div class="text-button5">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-dividers1"></div>
+        <div class="container1">
+          <div class="copyright-notice-wrapper">
+            <div class="copyright-notice">WatCal All Rights Reserved</div>
+          </div>
+          <div class="language-selector">
+            <div class="button3">
+              <img
+                class="icon3"
+                loading="lazy"
+                alt=""
+                src="./images/facebook.svg"
+              />
+            </div>
+            <div class="button4">
+              <img
+                class="icon4"
+                loading="lazy"
+                alt=""
+                src="./images/twitter.svg"
+              />
+            </div>
+            <div class="button5">
+              <img
+                class="icon5"
+                loading="lazy"
+                alt=""
+                src="./images/linkedin.svg"
+              />
+            </div>
+          </div>
+          <div class="legal-links">
+            <div class="action-buttons">
+                <a href="../Privacy.html" class="text-button6">Privacy Policy</a>
+              <div class="footer-divider"></div>
+              <a href="../Terms.html" class="text-button7">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+   </div> 
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+   <script src="js/download.js"></script>
+    <script src="js/dashboard.js"></script>
+  </body>
+</html>

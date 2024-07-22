@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/setpasscode.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@400&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap"
+    />
+  </head>
+  <body>
+    <div class="desktop-3">
+      <img
+        class="abstract-design-icon"
+        alt=""
+        src="./images/top.png"
+      />
+
+      <div class="frame-parent">
+        <div class="abstract-design-parent">
+          <img
+            class="abstract-design-icon1"
+            loading="lazy"
+            alt=""
+            src="./images/topl.png"
+          />
+
+          <div class="frame-wrapper">
+            <div class="frame-group">
+              <div class="frame-container">
+                <div class="ellipse-parent">
+                  <div class="frame-child"></div>
+                  <img
+                    class="logo-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/dlogo.png"
+                  />
+                </div>
+              </div>
+              <div class="watcal-wrapper">
+                <h1 class="watcal">WatCal</h1>
+              </div>
+            </div>
+          </div>
+          <div class="abstract-design-three">
+            <img
+              class="abstract-design-icon2"
+              loading="lazy"
+              alt=""
+              src="./images/topr.png"
+            />
+          </div>
+        </div>
+        <div class="frame-item"></div>
+        <form id="resetPasswordForm">
+        <div class="email-input-parent">
+          <div class="email-input">
+            <!-- div container to display error message -->
+            <div id="message"></div>
+            <b class="new-password">New Password</b>
+            <div class="rectangle-parent">
+              <div class="frame-inner"></div>
+              <input
+                id="password"
+                class="melpetersgmailcom"
+                placeholder="*********"
+                type="password"
+              />
+              <div class="icon-wrapper">
+                <img id="togglePassword" class="icon" alt="" src="./images/e.png" style="cursor: pointer;"/>
+              </div>
+            </div>
+          </div>
+          <div class="password-input">
+            <b class="confirm-password">Confirm Password</b>
+            <div class="rectangle-group">
+              <div class="rectangle-div"></div>
+              <input
+                id="confirmPassword"
+                class="input"
+                placeholder="*********"
+                type="password"
+              />
+
+              <div class="icon-container">
+                <img id="toggleConfirmPassword" class="icon1" alt="" src="./images/e.png" style="cursor: pointer;"/>
+              </div>
+            </div>
+          </div>
+          <div class="button-wrapper">
+            <button class="button" id="bat" loading="lazy">
+              <div class="text">Submit</div>
+            </button>
+          </div>
+        </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
+
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+    setTimeout(function() {
+        const buttonContainer = document.getElementById('bat');
+        const button = document.createElement('button');
+        button.setAttribute('loading', 'lazy'); // Set the loading attribute to lazy
+        buttonContainer.appendChild(button);
+    }, 5000); // delay time in milliseconds (5000ms = 5 seconds)
+});
+
+  document.getElementById('resetPasswordForm').addEventListener('submit', async function(event) {
+        event.preventDefault();
+
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('token');
+
+        const password = document.getElementById('password').value;
+        const confirmPassword = document.getElementById('confirmPassword').value;
+
+        if(password !== confirmPassword){
+          document.getElementById('message').innerHTML = `<p style="color: red;"> Passwords do not match. </p>`;
+          return;
+        }
+
+        try {
+            const response = await fetch('/api/resetPasswordTenant', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ token, newPassword: password })
+            });
+
+            const data = await response.json();
+
+            if (!response.ok) {
+            throw new Error(data.msg || 'Failed to reset password');
+            }
+            window.location.href = 'TLogin.html';
+        } catch (error) {
+          document.getElementById('message').innerHTML = `<p style="color: red;">${error.message}</p>`;
+          console.log("Error resetting password");
+        }
+        });
+
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const togglePasswordVisibility = (passwordInputId, toggleIconId) => {
+                const passwordInput = document.getElementById(passwordInputId);
+                const toggleIcon = document.getElementById(toggleIconId);
+
+                toggleIcon.addEventListener("click", () => {
+                    const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
+                    passwordInput.setAttribute("type", type);
+                    
+                    // Toggle the eye icon image source
+                    const iconSrc = type === "password" ? "./images/e.png" : "./images/closed-eye-white.png";
+                    toggleIcon.setAttribute("src", iconSrc);
+                });
+            };
+
+            togglePasswordVisibility("password", "togglePassword");
+            togglePasswordVisibility("confirmPassword", "toggleConfirmPassword");
+        });
+</script>

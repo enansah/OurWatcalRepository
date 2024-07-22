@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/LSignupIndex.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700&display=swap"
+    />
+    <title>Signup</title>
+  </head>
+  <body>
+    <div class="sign-up-page-desktop">
+      <section class="content-container-wrapper">
+        <div class="content-container">
+          <div class="navbar-wrapper">
+            <div class="navbar">
+              <div class="logo-container-wrapper">
+                <div class="logo-container">
+                  <img class="logo-icon" alt="" src="./images/logo.svg" />
+
+                  <div class="watcal">WatCal</div>
+                </div>
+              </div>
+              <div class="navigation-links">
+                <div class="links-container">
+                  <div class="text-button" id="textButton8">Home</div>
+                  <div class="text-button1" id="textButton9">Help Desk</div>
+                  <div class="text-button2" id="textButton10">About</div>
+                  <div class="text-button3" id="textButton11">Security</div>
+                  <div class="contact-us" id="contactUsText">Contact Us</div>
+                </div>
+              </div>
+              <div class="login-signup">
+                <div class="login-button-container-wrapper">
+                  <div class="login-button-container">
+                    <div class="text-button4">Sign Up</div>
+                  </div>
+                </div>
+                <div class="button" data-popup="popupMenu4">
+                  <div class="text">Login</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="sign-up">
+            <div class="signup-content">
+              <div class="signup-heading-image">
+                <div class="heading">
+                  <p class="sign-up1">
+                    <span class="sign-up2">
+                      <span>Sign Up</span>
+                    </span>
+                  </p>
+                  <p class="blank-line">
+                    <span>
+                      <span class="blank-line1">
+                        <span>&nbsp;</span>
+                      </span>
+                    </span>
+                  </p>
+                  <p class="as-a-landlord">
+                    <span>
+                      <span class="as-a-landlord1">As a Landlord</span>
+                    </span>
+                  </p>
+                </div>
+              </div>
+              <p class="paragraph">
+                Create an account to unlock exclusive features to personalize your billing.
+              </p>
+            </div>
+            <form id="signUpForm">
+            <div class="signup-form">
+              <!-- div container to display error message -->
+              <div id="message"></div>
+              <div class="form-container">
+                <div class="username-email-input">
+                  <b class="username">Username</b>
+                  <b class="email">Email</b>
+                </div>
+              </div>
+              <div class="frame-parent">
+                <div class="rectangle-parent">
+                  <div class="frame-child"></div>
+                  
+                  <input
+                  autocomplete="on"
+                  class="melissa-peters"
+                  placeholder="Melissa Peters"
+                  type="text"
+                  id="usernameInput"
+                  required
+                />
+                </div>
+                <div class="email-input">
+                  <div class="rectangle-group">
+                    <div class="frame-item"></div>
+                    
+                    <input
+                    autocomplete="on"
+                    class="melpetersgmailcom"
+                    placeholder="melpeters@gmail.com"
+                    type="text"
+                    id="emailInput"
+                    required
+                  />
+                  </div>
+                </div>
+              </div>
+              <div class="password-input">
+                <div class="password-fields-wrapper">
+                  <div class="password-fields">
+                    <b class="enter-password">Enter password</b>
+                    <b class="confirm-password">Confirm password</b>
+                  </div>
+                </div>
+                <div class="password-visibility">
+                  <div class="first-password-input">
+                    <div class="component-10">
+                      <div class="visibility-background"></div>
+                      <div class="password-placeholder">
+                        
+                        <input
+                        class="hidden-password"
+                        placeholder="*********"
+                        type="password"
+                        id="confirmPasswordInput"
+                        required
+                      />
+                      </div>
+                      <img id="toggleConfirmPassword" class="eye-icon" alt="" src="./images/eye.svg" style="cursor: pointer;">
+                    </div>
+                    <div class="date-of-birth-input-parent">
+                      <div class="date-of-birth-input">
+                        <b class="date-of-birth">Date of Birth</b>
+                      </div>
+                      <div class="rectangle-container">
+                        <div class="frame-inner"></div>
+                        
+                        <input
+                        autocomplete="on"
+                        class="ddmmyyyy"
+                        placeholder="DD/MM/YYYY"
+                        type="date"
+                        id="dateOfBirthInput"
+                        required
+                      />
+                      </div>
+                    </div>
+                    <div class="address-input">
+                      <div class="address-label">
+                        <b class="house-address">House address</b>
+                      </div>
+                      <div class="group-div">
+                        <div class="rectangle-div"></div>
+                        <div class="optional-container">
+                          
+                          <input
+                          autocomplete="on"
+                          class="optional"
+                          placeholder="(Optional)"
+                          type="text"
+                          id="houseAddressInput"
+                        />
+                        </div>
+                        <img
+                          class="iconoutlinequestion"
+                          alt=""
+                          src="./images/question.svg"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div class="meter-information">
+                    <div class="component-101">
+                      <div class="component-10-child"></div>
+                      <div class="meter-input">
+                        
+                        <input
+                        class="div"
+                        placeholder="*********"
+                        type="password"
+                        id="passwordInput"
+                        required
+                      /> 
+                      </div>
+                      <img id="togglePassword" class="eye-icon1" alt="" src="./images/eye.svg" style="cursor: pointer;"/>
+                    </div>
+                    <div class="meter-fields">
+                      <div class="serial-number-type">
+                        <b class="meter-serial-number">Meter_Serial_Number</b>
+                      </div>
+                      <div class="rectangle-parent1">
+                        <div class="frame-child1"></div>
+                        
+                        <input
+                        autocomplete="on"
+                        class="xxxxxxx"
+                        placeholder="131xxxxxxx"
+                        type="text"
+                        id="meterSerialNumberInput"
+                        required
+                      />
+                      </div>
+                    </div>
+                    <div class="meter-fields1">
+                      <div class="meter-type-wrapper">
+                        <b class="meter-type">Meter_type</b>
+                      </div>
+                      <div class="rectangle-parent2">
+                        <div class="frame-child2"></div>
+                        <select class="prepaidpostpaid" id="meterTypeInput" name="meterType" required>
+                          <option value="" disabled selected>Select meter-type</option>
+                          <option value="prepaid">Prepaid</option>
+                          <option value="postpaid">Postpaid</option>
+                      </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+               </div>
+               <div class="add-room-container-parent">
+                <div class="add-room-container">
+                  <div class="add-room-button">
+                    <button class="addroombtn">
+                      <img class="broom-icon" alt="" src="./images/br.svg" />
+
+                      <div class="add-room-label">
+                        <div class="add-room">Add room</div>
+                      </div>
+                    </button>
+                  </div>
+                  <!-- New room containers will be added here -->
+                </div>
+                  <div class="line"></div>
+               </div>
+                <div class="plan-selection">
+                  <div class="plan-options">
+                    <div class="plan-buttons">
+                      <button type="submit" class="button1" id="signupForm">
+                        <div class="plan-name">Sign Up</div>
+                      </button>
+                    </div>
+                    <div class="button-wrapper">
+                      <div class="button2" data-popup="popupMenu5">
+                        <div class="text1" >Login</div>
+                      </div>
+                    </div>
+                    <div class="plan-description">
+                      <div class="line-wrapper">
+                        <div class="line1"></div>
+                      </div>
+                      <div class="plan-description1">Or Continue with</div>
+                      <div class="line-container">
+                        <div class="line2"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div class="buttons-container-wrapper">
+                  <div class="buttons-container">
+                    <div class="icon-container">
+                      <div class="button3">
+                        <img class="icon" alt="" src="./images/google.svg" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="footer-section">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <img class="logo-icon1" alt="" src="./images/biglogo.svg" />
+
+            <div class="watcal1">WatCal</div>
+          </div>
+        </div>
+        <div class="footer-navigation">
+          <div class="footer-links">
+            <div class="text-button5" id="buttontext">Home</div>
+            <div class="text-button6" id="textButton1">Help Desk</div>
+            <div class="text-button7" id="textButton2">About</div>
+            <div class="text-button8" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="line3"></div>
+        <div class="footer-contact">
+          <div class="contact-info">
+            <div class="button4">
+              <div class="social-button">
+                <img class="icon1" alt="" src="./images/mail.svg" />
+              </div>
+              <div class="text-button9">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button5">
+              <div class="icon-wrapper">
+                <img class="icon2" alt="" src="./images/phone.svg" />
+              </div>
+              <div class="text-button10">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="line4"></div>
+        <div class="container">
+          <div class="legal-wrapper">
+            <div class="legal">WatCal All Rights Reserved</div>
+          </div>
+          <div class="language-selector">
+            <div class="button6">
+              <img class="icon3" alt="" src="./images/facebook.svg" />
+            </div>
+            <div class="button7">
+              <img class="icon4" alt="" src="./images/twitter.svg" />
+            </div>
+            <div class="button8">
+              <img class="icon5" alt="" src="./images/linkedin.svg" />
+            </div>
+          </div>
+          <div class="policy-links">
+            <div class="text-button-parent">
+              <div class="text-button11" id="textButton6">Privacy Policy</div>
+              <div class="language-divider"></div>
+              <div class="text-button12" id="textButton7">Terms of Service</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <div class="popup-menu" id="popupMenu4">
+      <div class="signupllt">
+          <div class="astenant" id="t4">As a Private User</div>
+          <div class="userroles">
+              <div class="aslandlord" id="l4">As a Landlord</div>
+          </div>
+      </div>
+  </div>
+    
+  <div class="popup-menu" id="popupMenu5">
+    <div class="signupllt">
+        <div class="astenant" id="t5">As a Private User</div>
+        <div class="userroles">
+            <div class="aslandlord" id="l5">As a Landlord</div>
+        </div>
+    </div>
+</div>
+
+    <script src="./js/LSignup.js"></script>
+
+      </body>
+</html>  
+    
+
