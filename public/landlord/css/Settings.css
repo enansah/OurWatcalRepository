@@ -1559,7 +1559,7 @@ body {
 position: relative;
 line-height: 150%;
 font-weight: 300;
-cursor: pointer
+cursor: pointer;
 }
 .aslandlord:hover,
 .astenant:hover{
@@ -1567,7 +1567,7 @@ cursor: pointer
 color: #06cc02;
 }
 .astenant {
-width: 145px;
+width: 180px;
 display: inline-block;
 flex-shrink: 0;
 }
@@ -1587,14 +1587,14 @@ justify-content: flex-start;
 flex: 1;
 }
 .signupllt {
-width: 30%;
+width: 300px;
 position: absolute;
-border-radius: 88px;
+border-radius: 20px;
 background-color: #1a1a1a;
-border: 1px solid #06cc02;
+border: 3px solid #06cc02;
 box-sizing: border-box;
 padding: 14px 16px;
-gap: 10px;
+gap: 20px;
 line-height: normal;
 letter-spacing: normal;
 text-align: center;

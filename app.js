@@ -7,6 +7,7 @@ const path = require('path');
 const session = require('express-session');
 const roomRoutes = require('./src/routes/roomRoutes');
 const dataroute = require('./src/routes/dataroute');
+const RedirectRoute = require('./src/routes/RedirectRoute');
 
 dotenv.config();
 
@@ -44,6 +45,7 @@ app.use('/api', require('./src/routes/tenantRoutes'));
 app.use('/api', require('./src/routes/landlordRoutes'));
 app.use('/api', roomRoutes);
 app.use('/api', dataroute);
+app.use('/api', RedirectRoute); // Integrate the RedirectRoute
 
 // const PORT = process.env.PORT || 3000;
 

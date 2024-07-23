@@ -968,6 +968,7 @@
   body {
     margin: 0;
     line-height: normal;
+    background-color: #1a1a1a;
   }
   
   :root {

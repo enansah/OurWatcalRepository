@@ -1,8 +1,17 @@
-const Landlord = require('../models/Landlord');
-const Room = require('../models/Room');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const Landlord = require('../models/Landlord');
+const Room = require('../models/Room');
 
+// Function to generate a random 8-character ID
+function generateUniqueId(length = 8) {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let result = '';
+    for (let i = 0; i < length; i++) {
+        result += characters.charAt(Math.floor(Math.random() * characters.length));
+    }
+    return result;
+}
 
 exports.updateUserProfile = async (req, res) => {
     const {
@@ -15,9 +24,6 @@ exports.updateUserProfile = async (req, res) => {
         roomsData
     } = req.body;
 
-    // console.log(username);
-    // console.log(roomsData);
-
     try {
         const landlord = await Landlord.findById(req.session.landlord._id);
 
@@ -28,7 +34,8 @@ exports.updateUserProfile = async (req, res) => {
         // Insert rooms
         const roomsToInsert = roomsData.map(room => ({
             roomNumber: room.room,
-            roomEmail: room.email
+            roomEmail: room.email,
+            uniqueRoomId: generateUniqueId()  // Add uniqueRoomId here
         }));
 
         const insertedRooms = await Room.insertMany(roomsToInsert);
@@ -55,10 +62,7 @@ exports.updateUserProfile = async (req, res) => {
     }
 };
 
-
 exports.getUserProfile = async (req, res) => {
-    // const username = req.params.username;
-
     try {
         const landlord = await Landlord.findById(req.session.landlord._id).select('-password');
         res.status(200).json(landlord);
@@ -67,4 +71,3 @@ exports.getUserProfile = async (req, res) => {
         res.status(500).send('Server error');
     }
 };
-

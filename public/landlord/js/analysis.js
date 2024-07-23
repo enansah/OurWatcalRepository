@@ -306,7 +306,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="room-name-parent">
               <h2 class="room-name">${room.roomNumber}</h2> <!--Display room name here-->
               <div class="room-name-value">
-                <div class="div">TenantID: ${uniqueRoomId}</div>
+                <div class="div">TenantID- ${uniqueRoomId}</div>
               </div>
               <div class="frame-parent">
                 <div class="rectangle-parent">

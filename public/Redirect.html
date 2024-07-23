@@ -29,7 +29,7 @@
           <div class="welcome-container">
             <div class="welcome-message">
               <h3 class="welcome-to-your">Welcome to your dashboard</h3>
-              <h3 class="username">Username</h3>
+              <h3 class="username" id="username">Username</h3>
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@
               <div class="date-parent">
                 <div class="date">Date :</div>
                 <div class="empty-value-wrapper">
-                  <div class="empty-value">26/06/2023</div>
+                  <div class="empty-value" id="currentDate">26/06/2023</div>
                 </div>
               </div>
             </div>
@@ -63,14 +63,14 @@
             <div class="frame-container">
               <div class="reading-time-parent">
                 <div class="reading-time">Reading_time :</div>
-                <div class="div">17:01</div>
+                <div class="div" id="readingTime">17:01</div>
               </div>
             </div>
             <div class="line2"></div>
             <div class="frame-div">
               <div class="reading-value-parent">
                 <div class="reading-value">Reading_value :</div>
-                <div class="kw">24000KW</div>
+                <div class="kw" id="readingValue">24000KW</div>
               </div>
             </div>
             <div class="line3"></div>
@@ -78,7 +78,7 @@
               <div class="last-reading-time-parent">
                 <div class="last-reading-time">Last_reading_time :</div>
                 <div class="wrapper">
-                  <div class="div1">17:01</div>
+                  <div class="div1" id="lastReadingTime">17:01</div>
                 </div>
               </div>
             </div>
@@ -86,7 +86,7 @@
             <div class="frame-wrapper2">
               <div class="last-reading-value-parent">
                 <div class="last-reading-value">Last_reading_value :</div>
-                <b class="kw1">1000KW</b>
+                <b class="kw1" id="lastReadingValue">1000KW</b>
               </div>
             </div>
             <div class="line5"></div>
@@ -94,7 +94,7 @@
               <div class="last-reading-date-parent">
                 <div class="last-reading-date">Last_reading_date :</div>
                 <div class="container">
-                  <div class="div2">26/06/2023</div>
+                  <div class="div2" id="lastReadingDate">26/06/2023</div>
                 </div>
               </div>
             </div>
@@ -248,6 +248,46 @@
             window.location.href = "Terms.html";
         });
       }
+
+
+
+      document.addEventListener('DOMContentLoaded', function() {
+    const tenantData = JSON.parse(localStorage.getItem('tenantData'));
+    if (!tenantData) {
+        window.location.href = 'login.html';
+        return;
+    }
+
+    document.getElementById('username').textContent = tenantData.username;
+    document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+
+    // Display tenant readings
+    if (tenantData.readings.length > 0) {
+        const lastReading = tenantData.readings[tenantData.readings.length - 1];
+        document.getElementById('readingTime').textContent = new Date(lastReading.timestamp).toLocaleTimeString();
+        document.getElementById('readingValue').textContent = `${lastReading.readingValue}KW`;
+
+        const previousReading = tenantData.readings[tenantData.readings.length - 2];
+        if (previousReading) {
+            document.getElementById('lastReadingTime').textContent = new Date(previousReading.timestamp).toLocaleTimeString();
+            document.getElementById('lastReadingValue').textContent = `${previousReading.readingValue}KW`;
+        } else {
+            document.getElementById('lastReadingTime').textContent = 'N/A';
+            document.getElementById('lastReadingValue').textContent = 'N/A';
+        }
+    } else {
+        // No readings available
+        document.getElementById('readingTime').textContent = 'N/A';
+        document.getElementById('readingValue').textContent = 'N/A';
+        document.getElementById('lastReadingTime').textContent = 'N/A';
+        document.getElementById('lastReadingValue').textContent = 'N/A';
+    }
+
+    // Display percentage usage and cost
+    document.querySelector('.percentage .b').textContent = `${tenantData.percentageUsage}%`;
+    document.querySelector('.amount-wrapper .ghs-12000').textContent = `Ghs ${tenantData.cost}`;
+});
+
       </script>
   </body>
 </html>

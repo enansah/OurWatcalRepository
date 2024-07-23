@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.getElementById('signUpForm').addEventListener('submit', async function(event) {
         event.preventDefault();
-
+    
         // Basic client-side validation
         const username = document.getElementById("usernameInput").value;
         const email = document.getElementById("emailInput").value;
@@ -68,21 +68,20 @@ document.addEventListener('DOMContentLoaded', function() {
         const houseAddress = document.getElementById("houseAddressInput").value;
         const meterSerialNumber = document.getElementById("meterSerialNumberInput").value;
         const meterType = document.getElementById("meterTypeInput").value;
-
+    
         if (!username || !email || !password || !confirmPassword || !dateOfBirth) {
             document.getElementById('message').innerHTML = `<p style="color: red;"> Please fill in all required fields. </p>`;
             return;
         }
-
+    
         if (password !== confirmPassword) {
             document.getElementById('message').innerHTML = `<p style="color: red;"> Passwords do not match. </p>`;
             return;
         }
-  
-
+    
         const inputs = document.querySelectorAll('.room-container .input-container');
         const roomsData = [];
-
+    
         inputs.forEach(inputContainer => {
             const roomInput = inputContainer.querySelector('input[name^="room"]');
             const emailInput = inputContainer.querySelector('input[name^="email"]');
@@ -94,15 +93,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 });
             }
         });
-
+    
         if (roomsData.length < 2) {
             document.getElementById('message').innerHTML = `<p style="color: red;"> You must add at least two rooms. </p>`;
-            // alert('You must add at least two rooms.');
             return;
         }
-
-
-
+    
         try {
             const response = await fetch('/api/landlordSignup', {
                 method: 'POST',
@@ -120,21 +116,22 @@ document.addEventListener('DOMContentLoaded', function() {
                     roomsData // Include rooms in the request body
                 })
             });
-
+    
             const data = await response.json();
-
+    
             if (!response.ok) {
                 throw new Error(data.msg || 'Registration failed');
             }
-
+    
             setTimeout(() => {
                 window.location.href = 'LLogin.html';
             }, 1000);
         } catch (error) {
-            document.getElementById('message').innerHTML = `<p style="color: red;">There was an error signing up</p>`;
-            console.log("Signup failed");
+            document.getElementById('message').innerHTML = `<p style="color: red;">Signup failed</p>`;
+            console.error("Signup failed", error);
         }
     });
+    
 
 
 

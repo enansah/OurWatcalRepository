@@ -5,31 +5,33 @@ document.getElementById('loginForm').addEventListener('submit', async function(e
     const password = document.getElementById('password').value;
 
     try {
-    const response = await fetch('/api/tenantLogin', {
-        method: 'POST',
-        headers: {
-        'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ username, password })
-    });
+        const response = await fetch('/api/landlordLogin', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ username, password })
+        });
 
-    const data = await response.json();
+        const data = await response.json();
 
-    if (!response.ok) {
-        throw new Error(data.msg || 'Login failed');
-    }
-    
-    // Save the username to local storage
-    localStorage.setItem('username', username);
-    
-    setTimeout(() => {
-        window.location.href = '/tenant/Dashboard.html';
-    }, 1000);
+        if (!response.ok) {
+            throw new Error(data.msg || 'Login failed');
+        }
+
+        // Save the username to local storage
+        localStorage.setItem('username', username);
+
+        // Redirect to the dashboard
+        setTimeout(() => {
+            window.location.href = '/landlord/Dashboard.html';
+        }, 1000);
     } catch (error) {
         document.getElementById('message').innerHTML = `<p style="color: red;">Sign in failed</p>`;
         console.log("Login Failed");
     }
 });
+
 
 
 
@@ -165,10 +167,9 @@ if (landlord2) {
 var forgotpassword = document.getElementById("forgotpassword");
 if (forgotpassword) {
     forgotpassword.addEventListener("click", function (e) {
-        window.location.href = "Tforgotpassword.html";
+        window.location.href = "Lforgotpassword.html";
     });
 }
-
 
 
 
@@ -185,6 +186,8 @@ document.addEventListener("DOMContentLoaded", () => {
         togglePassword.setAttribute("src", iconSrc);
     });
 });
+
+
 
 
 

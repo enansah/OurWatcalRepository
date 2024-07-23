@@ -20,37 +20,17 @@ const RoomSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  meterid: {
+    type: Number,
+    required: true,
+    unique: true,
+  },
   readings: [readingSchema],
   uniqueRoomId: {
     type: String,
     unique: true,
     required: true
   }
-});
-
-// Function to generate a random 8-character string
-function generateRandomString() {
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-  let result = '';
-  for (let i = 0; i < 8; i++) {
-    result += chars.charAt(Math.floor(Math.random() * chars.length));
-  }
-  return result;
-}
-
-// Pre-save hook to generate random uniqueRoomId
-RoomSchema.pre('save', async function(next) {
-  if (this.isNew) {
-    // Generate unique uniqueRoomId
-    let uniqueRoomId;
-    let exists;
-    do {
-      uniqueRoomId = generateRandomString();
-      exists = await mongoose.models.Room.findOne({ uniqueRoomId });
-    } while (exists);
-    this.uniqueRoomId = uniqueRoomId;
-  }
-  next();
 });
 
 module.exports = mongoose.model('Room', RoomSchema);

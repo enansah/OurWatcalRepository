@@ -14,15 +14,30 @@
     <div class="login-page-desktop">
       <section class="navbar-parent">
         <header class="navbar">
-          <div class="text-button" id="textButton8">Home</div>
-          <div class="text-button1" id="textButton9">Help Desk</div>
-          <div class="text-button2" id="textButton10">About</div>
-          <div class="text-button3" id="textButton11">Security</div>
+          <div class="text-button" id="text1">Home</div>
+          <div class="text-button1" id="text2">Help Desk</div>
+          <div class="text-button2" id="text3">About</div>
+          <div class="text-button3" id="text4">Security</div>
           <div class="contact-us" id="contactUsText">Contact Us</div>
         </header>
         <div class="login-wrapper">
-          <form class="login">
-            <div class="login-heading">
+          <div id="result"></div>
+          <form class="login"  id="loginForm">
+            <!-- <div class="login-heading">
+              <h1 class="heading">Login</h1>
+              <div class="paragraph">Welcome ! Dear Tenant.</div>
+            </div> -->
+            <div class="login-container">
+              <div class="login-fields-container">
+                <div class="login-elements-container">
+                  <img
+                    class="lg"
+                    loading="lazy"
+                    alt=""
+                    src="./images/lg.png"
+                  />
+                </div>
+              </div>
               <h1 class="heading">Login</h1>
               <div class="paragraph">Welcome ! Dear Tenant.</div>
             </div>
@@ -72,7 +87,7 @@
               </div>
               <div class="separator"></div>
               <div class="button-wrapper">
-                <button class="button">
+                <button class="button" type="button" id="loginButton">
                   <div class="social-button-labels">Login</div>
                 </button>
               </div>
@@ -170,96 +185,6 @@
       </section>
     </div>
 
-    <script>
-     var textButton8 = document.getElementById("textButton8");
-if (textButton8) {
-textButton8.addEventListener("click", function (e) {
-    window.location.href = "Home.html"; 
-});
-}
-
-var textButton9 = document.getElementById("textButton9");
-if (textButton9) {
-textButton9.addEventListener("click", function (e) {
-    window.location.href = "Helpdesk.html"; 
-});
-}
-
-var textButton10 = document.getElementById("textButton10");
-if (textButton10) {
-textButton10.addEventListener("click", function (e) {
-    window.location.href = "About.html"; 
-});
-}
-
-var textButton11 = document.getElementById("textButton11");
-if (textButton11) {
-textButton11.addEventListener("click", function (e) {
-    window.location.href = "Security.html"; 
-});
-}
-
-var contactUsText = document.getElementById("contactUsText");
-if (contactUsText) {
-contactUsText.addEventListener("click", function (e) {
-    window.location.href = "Contactus.html"; 
-});
-}
-
-var textButtonA = document.getElementById("textButtonA");
-if (textButtonA) {
-textButtonA.addEventListener("click", function (e) {
-    window.location.href = "Home.html"; 
-});
-}
-
-var textButton1 = document.getElementById("textButton1");
-if (textButton1) {
-textButton1.addEventListener("click", function (e) {
-    window.location.href = "Helpdesk.html"; 
-});
-}
-
-var textButton2 = document.getElementById("textButton2");
-if (textButton6) {
-textButton6.addEventListener("click", function (e) {
-    window.location.href = "About.html"; 
-});
-}
-
-var textButton3 = document.getElementById("textButton3");
-if (textButton3) {
-textButton3.addEventListener("click", function (e) {
-    window.location.href = "Security.html"; 
-});
-}
-
-var textButton6 = document.getElementById("textButton6");
-if (textButton6) {
-textButton6.addEventListener("click", function (e) {
-    window.location.href = "Privacy.html"; 
-});
-}
-
-var textButton7 = document.getElementById("textButton7");
-if (textButton7) {
-textButton7.addEventListener("click", function (e) {
-    window.location.href = "Terms.html"; 
-});
-}
-document.addEventListener("DOMContentLoaded", () => {
-    const passwordInput = document.getElementById("password");
-    const togglePassword = document.getElementById("togglePassword");
-
-    togglePassword.addEventListener("click", () => {
-        const type = passwordInput.getAttribute("type") === "password" ? "text" : "password";
-        passwordInput.setAttribute("type", type);
-        
-        // Toggle the eye icon image source
-        const iconSrc = type === "password" ? "./images/e.png" : "./images/closed-eye-white.png";
-        togglePassword.setAttribute("src", iconSrc);
-    });
-});
-      </script>
+    <script src="./js/RedirectLogin.js"> </script>
   </body>
 </html>

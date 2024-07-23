@@ -5,66 +5,75 @@ const nodemailer = require('nodemailer');
 const Landlord = require('../models/Landlord');
 const Room = require('../models/Room');
 
+// Function to generate a random 8-character string
+function generateRandomString() {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+  let result = '';
+  for (let i = 0; i < 8; i++) {
+    result += chars.charAt(Math.floor(Math.random() * chars.length));
+  }
+  return result;
+}
+
 exports.registerLandlord = async (req, res) => {
-    const {
-        username,
-        email,
-        password,
-        dateOfBirth,
-        houseAddress,
-        meterSerialNumber,
-        meterType,
-        roomsData
-    } = req.body;
+  const {
+    username,
+    email,
+    password,
+    dateOfBirth,
+    houseAddress,
+    meterSerialNumber,
+    meterType,
+    roomsData
+  } = req.body;
 
-    // console.log(username);
-    // console.log(roomsData);
-
-    try {
-        // Check if username or email already exists
-        let landlord = await Landlord.findOne({ username });
-        if (landlord) {
-            return res.status(400).json({ msg: 'Username already exists' });
-        }
-
-        landlord = await Landlord.findOne({ email });
-        if (landlord) {
-            return res.status(400).json({ msg: 'Email already exists' });
-        }
-
-        // Hash the password
-        const salt = await bcrypt.genSalt(10);
-        const hashedPassword = await bcrypt.hash(password, salt);
-
-        // Insert rooms
-        const roomsToInsert = roomsData.map(room => ({
-            roomNumber: room.room,
-            roomEmail: room.email
-        }));
-
-        const insertedRooms = await Room.insertMany(roomsToInsert);
-        const roomIds = insertedRooms.map(room => room._id);
-
-        // Save landlord to database
-        landlord = new Landlord({
-            username,
-            email,
-            password: hashedPassword,
-            dateOfBirth,
-            houseAddress,
-            meterSerialNumber,
-            meterType,
-            roomIds,
-        });
-
-        await landlord.save();
-
-        res.status(201).json({ msg: 'Landlord registered successfully' });
-        console.log("Landlord registered successfully");
-    } catch (err) {
-        console.error(err.message);
-        res.status(500).send('Server error');
+  try {
+    // Check if username or email already exists
+    let landlord = await Landlord.findOne({ username });
+    if (landlord) {
+      return res.status(400).json({ msg: 'Username already exists' });
     }
+
+    landlord = await Landlord.findOne({ email });
+    if (landlord) {
+      return res.status(400).json({ msg: 'Email already exists' });
+    }
+
+    // Hash the password
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
+
+    // Generate uniqueRoomId for each room and insert rooms
+    const roomsToInsert = roomsData.map(room => ({
+      roomNumber: room.room,
+      roomEmail: room.email,
+      uniqueRoomId: generateRandomString()
+    }));
+
+    const insertedRooms = await Room.insertMany(roomsToInsert);
+    const roomIds = insertedRooms.map(room => room._id);
+
+    let uniqueId = gene
+
+    // Save landlord to database
+    landlord = new Landlord({
+      username,
+      email,
+      password: hashedPassword,
+      dateOfBirth,
+      houseAddress,
+      meterSerialNumber,
+      meterType,
+      roomIds,
+    });
+
+    await landlord.save();
+
+    res.status(201).json({ msg: 'Landlord registered successfully' });
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server error');
+  }
 };
 
 

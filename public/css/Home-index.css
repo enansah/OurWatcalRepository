@@ -248,6 +248,7 @@ body {
 .view-as-a-tenant-wrapper:hover {
   background-color: #06cc02;
   color: #000;
+  transition: 0.7s;
 }
 .heading-paragraph-inner {
   align-self: stretch;
@@ -2302,7 +2303,7 @@ body {
       right: -300px;
       transform: translateY(-50%);
       background-color: #1c1c1c;
-      border: 1px solid #06cc02;
+      border: 3px solid #06cc02;
       border-radius: 20px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
       padding: 20px;
@@ -2333,7 +2334,7 @@ body {
       cursor: pointer;
       margin: 10px 0;
       padding: 10px;
-      border: 1px solid #06cc02;
+      border: 3px solid #06cc02;
       border-radius: 5px;
       transition: background-color 0.3s ease, color 0.3s ease;
   }
@@ -2341,6 +2342,7 @@ body {
   .astenant:hover, .aslandlord:hover {
       background-color: #06cc02;
       color: #1c1c1c;
+      transition: 0.7s;
   }
   
 
@@ -2394,7 +2396,7 @@ body {
     display: none;
     z-index: 9999;
     color: #000;
-    border: 1px solid #06cc02;
+    border: 3px solid #06cc02;
     transition: right 0.5s ease, transform 0.5s ease; /* Smooth slide-in effect */
 }
 
@@ -2421,6 +2423,7 @@ body {
 }
 
 .surface .option:hover {
+  transition: 0.7s;
     background-color: #04a702;
 }
 

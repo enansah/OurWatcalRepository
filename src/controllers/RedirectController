@@ -1,0 +1,75 @@
+// controllers/RedirectController.js
+const Landlord = require('../models/Landlord'); 
+
+// Function to fetch tenant data and calculate percentage usage and cost
+exports.getTenantData = async (req, res) => {
+    const { tenantId } = req.body; // Only need tenantId from the request body
+    const landlordId = req.landlordId; // Use landlordId from the middleware
+
+    try {
+        // Find the landlord
+        const landlord = await Landlord.findOne({ uniqueId: landlordId }).populate('roomIds');
+        if (!landlord) {
+            return res.status(404).json({ success: false, message: 'Landlord not found' });
+        }
+
+        // Find the tenant (room) by uniqueRoomId
+        const room = landlord.roomIds.find(room => room.uniqueRoomId === tenantId);
+        if (!room) {
+            return res.status(404).json({ success: false, message: 'Tenant not found' });
+        }
+
+        // Calculate total consumption for the landlord
+        const totalConsumption = landlord.roomIds.reduce((sum, room) => {
+            const lastReading = room.readings[room.readings.length - 1];
+            return sum + (lastReading ? lastReading.readingValue : 0);
+        }, 0);
+
+        // Calculate percentage usage
+        const lastReading = room.readings[room.readings.length - 1];
+        const percentageUsage = totalConsumption ? ((lastReading ? lastReading.readingValue : 0) / totalConsumption * 100).toFixed(1) : 0;
+
+        // Calculate cost
+        const consumption = lastReading ? lastReading.readingValue : 0;
+        const cost = calculateCost(consumption);
+
+        // Send response with tenant data, percentage usage, and cost
+        res.json({
+            success: true,
+            username: room.roomNumber,
+            readings: room.readings,
+            percentageUsage,
+            cost
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ success: false, message: 'Server error' });
+    }
+};
+
+// Function to calculate cost based on consumption
+function calculateCost(consumption) {
+    const tierRates = [
+        { upperLimit: 50, rate: 0.00 },
+        { upperLimit: 150, rate: 0.2460 },
+        { upperLimit: 300, rate: 0.3409 },
+        { upperLimit: 600, rate: 0.4642 },
+        { upperLimit: 1000, rate: 0.5693 },
+        { upperLimit: Infinity, rate: 0.6758 }
+    ];
+
+    let cost = 0;
+    let remainingConsumption = consumption;
+
+    for (const tier of tierRates) {
+        if (remainingConsumption > 0) {
+            const tierConsumption = Math.min(remainingConsumption, tier.upperLimit);
+            cost += tierConsumption * tier.rate;
+            remainingConsumption -= tierConsumption;
+        } else {
+            break;
+        }
+    }
+
+    return cost.toFixed(2); // Return as string formatted to two decimal places
+}
