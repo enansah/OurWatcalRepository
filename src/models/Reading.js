@@ -1,10 +1,25 @@
 const mongoose = require('mongoose');
 
-const readingSchema = new mongoose.Schema({
-    room: { type: mongoose.Schema.Types.ObjectId, ref: 'Room', required: true },
-    readingValue: { type: Number, required: true },
-    timestamp: { type: Date, default: Date.now }
-    // Other reading fields as needed
+const MBusDataSchema = new mongoose.Schema({
+  id: String,
+  manufacturer: String,
+  version: String,
+  productName: String,
+  medium: String,
+  accessNumber: Number,
+  status: String,
+  signature: String,
+  dataRecords: [{
+    function: String,
+    storageNumber: Number,
+    tariff: Number,
+    device: Number,
+    unit: String,
+    quantity: String,
+    value: Number,
+  }],
 });
 
-module.exports = mongoose.model('Reading', readingSchema);
+const Reading = mongoose.model('Reading', MBusDataSchema);
+
+module.exports = Reading;
