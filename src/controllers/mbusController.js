@@ -37,7 +37,8 @@ const parseAndSaveXML = async (url) => {
                 accessNumber: slaveInfo.AccessNumber[0],
                 status: slaveInfo.Status[0],
                 signature: slaveInfo.Signature[0],
-                dataRecords: dataRecords
+                dataRecords: dataRecords,
+		timestamp: new Date() // Add the current timestamp
             });
 
             reading.save()

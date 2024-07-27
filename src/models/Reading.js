@@ -18,6 +18,7 @@ const MBusDataSchema = new mongoose.Schema({
     quantity: String,
     value: Number,
   }],
+  timestamp: { type: Date, default: Date.now } // Add the timestamp field here
 });
 
 const Reading = mongoose.model('Reading', MBusDataSchema);
