@@ -1,0 +1,572 @@
+*{ margin: 0;
+    border: 0;
+    box-sizing: border-box;
+    font-family: 'Lexend', sans-serif;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 0px;
+  }
+  ::-webkit-scrollbar-track {
+    overflow: hidden;
+    background: #000;
+    text-decoration: none;
+    border-radius: 10px;
+  
+  }
+  ::-webkit-scrollbar-thumb {
+    background-color: #06cc02; 
+    border-radius: 10px;
+    border: 3px solid #000; 
+  }
+  .vector-icon {
+    height: 21.7px;
+    width: 12.8px;
+    position: relative;
+  }
+  .material-symbolsarrow-back-io:hover{
+    transition: 0.7s;
+    background-color: #06cc02;
+  }
+  .material-symbolsarrow-back-io {
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .report-a-problem {
+    align-self: stretch;
+    position: relative;
+    line-height: 18px;
+    font-weight: 300;
+  }
+  .navbar,
+  .navbar-wrapper,
+  .report-a-problem-wrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  .report-a-problem-wrapper {
+    flex: 1;
+    flex-direction: column;
+    padding: 11.8px 0 0;
+    min-width: 133px;
+  }
+  .navbar,
+  .navbar-wrapper {
+    flex-direction: row;
+    max-width: 100%;
+  }
+  .navbar {
+    flex: 1;
+    border-radius: 100px;
+    background-color: #1c1c1c;
+    border: 1px solid #262626;
+    flex-wrap: wrap;
+    padding: 4px 9px 4px 11px;
+    gap: 10px;
+  }
+  .navbar-wrapper {
+    width: 340px;
+    padding: 0 37px;
+    right: 100px;
+  }
+  .wrench-icon {
+    height: 25px;
+    width: 25px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .icon {
+    height: 57px;
+    width: 57px;
+    border-radius: 50px;
+    background: linear-gradient(
+      180deg,
+      rgba(202, 255, 51, 0.1),
+      rgba(202, 255, 51, 0) 46.77%
+    );
+    border: 1px solid rgba(202, 255, 51, 0.2);
+    box-sizing: border-box;
+    justify-content: flex-start;
+    padding: 16px 15px;
+  }
+  .f-a-q-content,
+  .icon,
+  .icon-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .icon-container {
+    height: 73px;
+    width: 73px;
+    border-radius: 70px;
+    background: linear-gradient(
+      180deg,
+      rgba(202, 255, 51, 0.05),
+      rgba(202, 255, 51, 0)
+    );
+    justify-content: flex-start;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  .f-a-q-content {
+    width: 800px;
+    justify-content: center;
+    max-width: 100%;
+  }
+  .f-a-q-divider {
+    width: 800px;
+    height: 1px;
+    position: relative;
+    border-top: 1px solid #262626;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .blank-line,
+  .blank-line1,
+  .if-you-encounter,
+  .our-team-will,
+  .thank-you-for,
+  .to-report-a {
+    margin: 0;
+  }
+  .paragraph {
+    width: 800px;
+    position: relative;
+    line-height: 150%;
+    font-weight: 300;
+    display: inline-block;
+    max-width: 100%;
+    max-height: 288px;
+    word-break: break-word;
+  }
+  .faq-item {
+    align-self: stretch;
+    border-radius: 20px;
+    border-left: 1px solid #06cc02;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 14.5px 20px 84.5px;
+    gap: 29.5px;
+    max-width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #bfbfbf;
+    font-family: Lexend;
+  }
+  .frame-parent,
+  .report-problem-page-desktop-inner {
+    display: flex;
+    align-items: flex-start;
+    max-width: 100%;
+  }
+  .frame-parent {
+    width: 1000px;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 92px;
+  }
+  .report-problem-page-desktop-inner {
+    align-self: stretch;
+    flex-direction: row;
+    justify-content: center;
+    padding: 0 20px;
+    box-sizing: border-box;
+    text-align: left;
+    font-size: 20px;
+    color: #fff;
+    font-family: 'Lexend', sans-serif;
+  }
+  .logo-icon {
+    height: 36px;
+    width: 36px;
+    position: relative;
+    object-fit: contain;
+    min-height: 36px;
+  }
+  .watcal {
+    margin: 0;
+    position: relative;
+    font-size: inherit;
+    line-height: 150%;
+    font-weight: 400;
+    font-family: inherit;
+    display: inline-block;
+    min-width: 86px;
+  }
+  .brand,
+  .footer-content {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .brand {
+    justify-content: flex-start;
+    gap: 6px;
+  }
+  .footer-content {
+    width: 1116px;
+    justify-content: center;
+    max-width: 100%;
+    font-size: 24px;
+    color: #fff;
+  }
+  .text-button {
+    position: relative;
+    line-height: 150%;
+    display: inline-block;
+    min-width: 47px;
+    cursor: pointer;
+  }
+  .text-button1,
+  .text-button2,
+  .text-button3 {
+    position: relative;
+    line-height: 150%;
+    display: inline-block;
+    cursor: pointer;
+  }
+  .text-button1 {
+    min-width: 79px;
+    white-space: nowrap;
+  }
+  .text-button2,
+  .text-button3 {
+    min-width: 47px;
+  }
+  .text-button3 {
+    min-width: 64px;
+  }
+  .footer-navigation,
+  .navigation-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .navigation-buttons {
+    justify-content: flex-start;
+    gap: 26px;
+  }
+  .footer-navigation {
+    width: 1116px;
+    justify-content: center;
+    max-width: 100%;
+  }
+  .footer-divider {
+    width: 1116px;
+    height: 1px;
+    position: relative;
+    border-top: 1px solid #262626;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .icon1 {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .icon-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2px 0 0;
+  }
+  .text-button4 {
+    position: relative;
+    line-height: 150%;
+    white-space: nowrap;
+  }
+  .button {
+    border-radius: 6px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+  .icon2 {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .icon-frame {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2px 0 0;
+  }
+  .text-button5 {
+    position: relative;
+    line-height: 150%;
+    display: inline-block;
+    min-width: 129px;
+    white-space: nowrap;
+  }
+  .button-parent,
+  .button1,
+  .social-buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .button1 {
+    border-radius: 6px;
+    justify-content: flex-start;
+    gap: 6px;
+  }
+  .button-parent,
+  .social-buttons {
+    max-width: 100%;
+  }
+  .button-parent {
+    justify-content: flex-start;
+    gap: 20px;
+  }
+  .social-buttons {
+    width: 1116px;
+    justify-content: center;
+  }
+  .footer-divider1 {
+    width: 1116px;
+    height: 1px;
+    position: relative;
+    border-top: 1px solid #262626;
+    box-sizing: border-box;
+    max-width: 100%;
+  }
+  .text {
+    position: relative;
+    line-height: 150%;
+    font-weight: 300;
+  }
+  .copyright {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 12px 0 0;
+  }
+  .icon3 {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .button2 {
+    height: 48px;
+    width: 48px;
+    border-radius: 100px;
+    background-color: #06cc02;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .icon4 {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .button3 {
+    height: 48px;
+    width: 48px;
+    border-radius: 100px;
+    background-color: #06cc02;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .icon5 {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .button4,
+  .legal-icons {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .button4 {
+    height: 48px;
+    width: 48px;
+    border-radius: 100px;
+    background-color: #06cc02;
+    flex-direction: column;
+    padding: 14px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  .legal-icons {
+    flex-direction: row;
+    gap: 14px;
+  }
+  .text-button6 {
+    position: relative;
+    line-height: 150%;
+    font-weight: 300;
+    display: inline-block;
+    min-width: 105px;
+    cursor: pointer;
+  }
+  .language-divider {
+    height: 25px;
+    width: 1px;
+    position: relative;
+    border-right: 1px solid #b3b3b3;
+    box-sizing: border-box;
+  }
+  .text-button7 {
+    position: relative;
+    line-height: 150%;
+    font-weight: 300;
+    display: inline-block;
+    min-width: 125px;
+    cursor: pointer;
+  }
+  .container,
+  .language,
+  .language-options {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .language-options {
+    height: 24px;
+    flex-direction: row;
+    gap: 11.5px;
+  }
+  .container,
+  .language {
+    flex-direction: column;
+    padding: 12px 0 0;
+  }
+  .container {
+    width: 1116px;
+    border-radius: 100px;
+    background-color: #1a1a1a;
+    border: 1px solid #262626;
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 6px 30px 6px 16px;
+    gap: 20px;
+    max-width: 100%;
+    color: #b3b3b3;
+  }
+  .footer-section,
+  .report-problem-page-desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  .footer-section {
+    align-self: stretch;
+    background-color: #1c1c1c;
+    border-top: 1px solid #000;
+    align-items: center;
+    padding: 98px 20px 50px;
+    gap: 49.6px;
+    max-width: 100%;
+    text-align: left;
+    font-size: 16px;
+    color: #e3e3e8;
+    font-family: Lexend;
+  }
+  .report-problem-page-desktop {
+    width: 100%;
+    position: relative;
+    background-image: url(../images/surf.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top;
+    overflow: hidden;
+    align-items: flex-start;
+    padding: 50px 0 0;
+    gap: 99px;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+  body {
+    background-color:#1a1a1a;
+  }
+  @media screen and (max-width: 1000px) {
+    .frame-parent {
+      gap: 46px;
+    }
+  }
+  @media screen and (max-width: 975px) {
+    .container {
+      flex-wrap: wrap;
+    }
+    .report-problem-page-desktop {
+      gap: 49px;
+    }
+  }
+  @media screen and (max-width: 725px) {
+    .faq-item {
+      padding-top: 20px;
+      padding-bottom: 55px;
+      box-sizing: border-box;
+    }
+    .frame-parent {
+      gap: 23px;
+    }
+    .footer-section {
+      gap: 25px;
+      padding-top: 64px;
+      padding-bottom: 32px;
+      box-sizing: border-box;
+    }
+  }
+/*   @media screen and (max-width: 450px) {
+    .report-a-problem {
+      font-size: 16px;
+      line-height: 14px;
+    }
+    .navbar {
+      gap: 25px;
+    }
+    .watcal {
+      font-size: 19px;
+      line-height: 29px;
+    }
+    .button-parent {
+      flex-wrap: wrap;
+    }
+    .report-problem-page-desktop {
+      gap: 25px;
+    }
+  } */

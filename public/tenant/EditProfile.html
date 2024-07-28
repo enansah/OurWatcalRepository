@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/EditProfile.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="tenant-edit-profile-page-des">
+      <section class="top-navigation-container-wrapper">
+        <form class="top-navigation-container" id="profileForm">
+          <div class="top-navigation">
+            <div class="navbar">
+              <div class="material-symbolsarrow-back-io" onclick="goBack()">
+                <img class="back-icon" alt="" src="./images/back.svg" />
+              </div>
+              <div class="edit-profile-title">
+                <div class="edit-profile">Edit Profile</div>
+              </div>
+            </div>
+          </div>
+          <div class="content">
+            <div class="profile-details">
+              <div class="ellipse-parent">
+                <div class="frame-child"></div>
+                <div class="picdefault-wrapper">
+                  <img
+                    class="picdefault-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/avata.png"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="container">
+              <div class="container-inner">
+                <div class="username-parent">
+                  <b class="username">Username</b>
+                  <b class="email">Email</b>
+                </div>
+              </div>
+              <div class="name-and-d-o-b">
+                <div class="name-row">
+                  <div class="rectangle-parent">
+                    <div class="frame-item"></div>
+                    <input
+                    autocomplete="on"
+                      class="melissa-peters"
+                      id="username"
+                      name="username"
+                      placeholder="Melissa Peters"
+                      type="text"
+                    />
+                  </div>
+                  <div class="d-o-b-row">
+                    <b class="date-of-birth">Date of Birth</b>
+                  </div>
+                </div>
+                <div class="password-input">
+                  <div class="rectangle-group">
+                    <div class="frame-inner"></div>
+                    <input
+                    autocomplete="on"
+                    id="email"
+                      class="melpetersgmailcom"
+                      name="email"
+                      placeholder="melpeters@gmail.com"
+                      type="text"
+                    />
+                  </div>
+                  <div class="meter-details">
+                    <b class="meter-serial-number">Meter_Serial_Number</b>
+                  </div>
+                </div>
+              </div>
+              <div class="name-and-d-o-b1">
+                <div class="frame-parent">
+                  <div class="rectangle-container">
+                    <div class="rectangle-div"></div>
+                    <input
+                    autocomplete="on"
+                    id="dateOfBirth"
+                      class="ddmmyyyy"
+                      name="dateOfBirth"
+                      placeholder="DD/MM/YYYY"
+                      type="date"
+                    />
+                  </div>
+                  <div class="house-address-wrapper">
+                    <b class="house-address">House address</b>
+                  </div>
+                </div>
+                <div class="frame-group">
+                  <div class="group-div">
+                    <div class="frame-child1"></div>
+                    <input
+                    autocomplete="on"
+                    id="meterSerialNumber"
+                      class="xxxxxxx"
+                      name="phoneNumber"
+                      placeholder="131xxxxxxx"
+                      type="text"
+                    />
+                  </div>
+                  <div class="meter-type-wrapper">
+                    <b class="meter-type">Meter_type</b>
+                  </div>
+                </div>
+              </div>
+              <div class="frame-container">
+                <div class="rectangle-parent1">
+                  <div class="frame-child2"></div>
+                  <div class="optional-label">
+                    <input
+                    autocomplete="on"
+                    id="houseAddress"
+                    class="optional"
+                    name="optional"
+                    placeholder="(Optional)"
+                    type="text"
+                  />
+                  </div>
+                  <img
+                    class="iconoutlinequestion"
+                    loading="lazy"
+                    alt=""
+                    src="./images/q.svg"
+                  />
+                </div>
+                <div class="frame-wrapper">
+                  <div class="rectangle-parent2">
+                    <div class="frame-child3"></div>
+                    <select class="prepaidpostpaid" id="meterType" name="meterType" name="prepaidPostpaid" required>
+                      <option value="" disabled selected>Select meter-type</option>
+                      <option value="prepaid">Prepaid</option>
+                      <option value="postpaid">Postpaid</option>
+                  </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div id="message"></div>
+          <div class="save-button-container">
+            <button type="submit" class="button" id="saveButton" loading="lazy">
+              <div class="save-changes" loading="lazy">Save changes</div>
+            </button>
+          </div>
+        </form>
+      </section>
+      <section class="footer-section">
+        <div class="footer-content">
+          <div class="logo-parent">
+            <img
+              class="logo-icon"
+              loading="lazy"
+              alt=""
+              src="./images/biglogo.svg"
+            />
+
+            <h3 class="watcal">WatCal</h3>
+          </div>
+        </div>
+        <div class="navigation-links">
+          <div class="text-button-parent">
+            <div class="text-button" id="textButton">Home</div>
+            <div class="text-button1" id="textButton1">Help Desk</div>
+            <div class="text-button2" id="textButton2">About</div>
+            <div class="text-button3" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="social-links">
+          <div class="button-parent">
+            <div class="button1">
+              <div class="social-icon-containers">
+                <img
+                  class="icon"
+                  loading="lazy"
+                  alt=""
+                  src="./images/mail.svg"
+                />
+              </div>
+              <div class="text-button4">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button2">
+              <div class="icon-wrapper">
+                <img
+                  class="icon1"
+                  loading="lazy"
+                  alt=""
+                  src="./images/phone.svg"
+                />
+              </div>
+              <div class="text-button5">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="line1"></div>
+        <footer class="container1">
+          <div class="text-wrapper">
+            <div class="text">WatCal All Rights Reserved</div>
+          </div>
+          <div class="button-group">
+            <div class="button3">
+              <img
+                class="icon2"
+                loading="lazy"
+                alt=""
+                src="./images/facebook.svg"
+              />
+            </div>
+            <div class="button4">
+              <img
+                class="icon3"
+                loading="lazy"
+                alt=""
+                src="./images/twitter.svg"
+              />
+            </div>
+            <div class="button5">
+              <img
+                class="icon4"
+                loading="lazy"
+                alt=""
+                src="./images/linkedin.svg"
+              />
+            </div>
+          </div>
+          <div class="legal-links">
+            <div class="text-button-group">
+              <a href="../Privacy.html"class="text-button6" >Privacy Policy</a>
+              <div class="info-divider"></div>
+              <a href="../Terms.html" class="text-button7">Terms of Service</a>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </div>
+    <script src="js/editProfile.js" defer></script>
+  </body>
+</html>

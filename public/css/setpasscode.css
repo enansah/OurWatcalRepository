@@ -1,0 +1,425 @@
+*{ margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: 'Lexend', sans-serif;
+}
+/* For Chrome */
+input:-webkit-autofill {
+  background-color: #1A1A1A !important;
+  -webkit-box-shadow: 0 0 0px 1000px #1A1A1A inset !important;
+  -webkit-text-fill-color: #FFFFFF !important;
+  outline: none !important;
+  border: none !important;
+}
+
+/* For Firefox */
+input:-moz-autofill {
+  box-shadow: 0 0 0px 1000px #1A1A1A inset !important;
+  -moz-text-fill-color: #FFFFFF !important;
+  outline: none !important;
+  border: none !important;
+}
+
+/* For IE */
+input:-ms-input-autofill {
+  background-color: #1A1A1A !important;
+  -ms-text-fill-color: #FFFFFF !important;
+  outline: none !important;
+  border: none !important;
+}
+body {
+  background-color:#1a1a1a;
+}
+::-webkit-scrollbar {
+  width: 8px;
+  height: 0px;
+}
+::-webkit-scrollbar-track {
+  overflow: hidden;
+  background: #000;
+  text-decoration: none;
+  border-radius: 10px;
+
+}
+::-webkit-scrollbar-thumb {
+  background-color: #06cc02; 
+  border-radius: 10px;
+  border: 3px solid #000; 
+}
+.abstract-design-icon {
+  position: absolute;
+  top: -139px;
+  left: -37px;
+  width: 573.5px;
+  height: 693.8px;
+  object-fit: contain;
+}
+.abstract-design-icon1 {
+  height: 173px;
+  width: 173px;
+  position: relative;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+}
+.frame-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 0 solid #262626;
+  box-sizing: border-box;
+  width: 100%;
+  height: 100%;
+}
+.logo-icon {
+  position: absolute;
+  top: 40px;
+  left: 34px;
+  width: 70px;
+  height: 70.4px;
+  object-fit: contain;
+  z-index: 1;
+}
+.ellipse-parent {
+  height: 150px;
+  flex: 1;
+  position: relative;
+}
+.frame-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.watcal {
+  margin: 0;
+  position: relative;
+  font-size: inherit;
+  line-height: 150%;
+  font-weight: 400;
+  font-family: inherit;
+  display: inline-block;
+  min-width: 128px;
+}
+.watcal-wrapper {
+  flex-direction: column;
+  padding: 48px 0 0;
+}
+.frame-group,
+.frame-wrapper,
+.watcal-wrapper {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.frame-group {
+  align-self: stretch;
+  flex-direction: row;
+}
+.frame-wrapper {
+  flex: 1;
+  flex-direction: column;
+  padding: 148px 0 0;
+  box-sizing: border-box;
+  min-width: 181px;
+}
+.abstract-design-icon2 {
+  width: 172px;
+  height: 172px;
+  position: relative;
+  object-fit: contain;
+  mix-blend-mode: lighten;
+}
+.abstract-design-parent,
+.abstract-design-three {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.abstract-design-three {
+  flex-direction: column;
+  padding: 1px 0 0;
+}
+.abstract-design-parent {
+  margin-top: -422px;
+  margin-left: -86px;
+  width: 678.5px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 27.8px;
+  max-width: 115%;
+  flex-shrink: 0;
+}
+.frame-item {
+  width: 579px;
+  height: 324px;
+  position: relative;
+  display: none;
+  max-width: 100%;
+}
+.new-password {
+  width: 150px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.frame-inner {
+  height: 54px;
+  width: 498px;
+  position: relative;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #262626;
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.icon,
+.melpetersgmailcom {
+  position: relative;
+  z-index: 1;
+}
+.melpetersgmailcom {
+  width: calc(100% - 54px);
+  border: 0;
+  outline: 0;
+  display: flex;
+  font-family: Nunito;
+  font-size: 18px;
+  background-color: transparent;
+  height: 25px;
+  flex: 1;
+  font-weight: 700;
+  color: #fff;
+  text-align: left;
+  align-items: center;
+  min-width: 281px;
+  max-width: 100%;
+  padding: 0;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.icon-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 2px 0 0;
+}
+.email-input,
+.rectangle-parent {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.rectangle-parent {
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #262626;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 12px 14px 13px 20px;
+  gap: 9.5px;
+  z-index: 1;
+}
+.email-input {
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 0 0 22px;
+}
+.confirm-password {
+  width: 180px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.rectangle-div {
+  height: 54px;
+  width: 498px;
+  position: relative;
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #262626;
+  box-sizing: border-box;
+  display: none;
+  max-width: 100%;
+}
+.icon1,
+.input {
+  position: relative;
+  z-index: 1;
+}
+.input {
+  width: calc(100% - 55px);
+  border: 0;
+  outline: 0;
+  display: flex;
+  font-family: Nunito;
+  font-size: 18px;
+  background-color: transparent;
+  height: 25px;
+  flex: 1;
+  font-weight: 700;
+  color: #fff;
+  text-align: left;
+  align-items: center;
+  min-width: 281px;
+  max-width: 100%;
+  padding: 0;
+}
+.icon1 {
+  width: 20px;
+  height: 20px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+.icon-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 1px 0 0;
+}
+.password-input,
+.rectangle-group {
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.rectangle-group {
+  border-radius: 20px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid #262626;
+  box-sizing: border-box;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 13px 14px 12px 21px;
+  gap: 8.5px;
+  z-index: 1;
+}
+.password-input {
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.text {
+  flex: 1;
+  position: relative;
+  font-size: 16px;
+  line-height: 150%;
+  font-family: Lexend;
+  color: #262626;
+  text-align: center;
+  display: inline-block;
+  max-width: 100%;
+}
+.button,
+.button-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.button {
+  cursor: pointer;
+  border: 0;
+  padding: 18px 20px;
+  background-color: #06cc02;
+  width: 400px;
+  border-radius: 63px;
+  justify-content: flex-start;
+}
+.button:hover {
+  transition: 0.7s;
+  background-color: #1fe61c;
+}
+.button-wrapper {
+  align-self: stretch;
+  justify-content: flex-end;
+  padding: 0 44px;
+}
+.email-input-parent,
+.frame-parent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.email-input-parent {
+  width: 518px;
+  align-items: flex-end;
+  padding: 0 20px 0 0;
+  gap: 59px;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 18px;
+  color: #bfbfbf;
+  font-family: Nunito;
+}
+.frame-parent {
+  position: absolute;
+  top: calc(50% - 439px);
+  left: calc(50% - 339px);
+  border-radius: 50px;
+  width: 678px;
+  height: 879px;
+  align-items: flex-start;
+  padding: 421px 0 100px 85px;
+  border: 1px solid #262626;
+  gap: 124px;
+  background-image: url(../images/paper.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+  z-index: 1;
+}
+.desktop-3 {
+  width: 100%;
+  height: 1024px;
+  position: relative;
+  background-color: #1a1a1a;
+  overflow: hidden;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: left;
+  font-size: 36px;
+  color: #fff;
+  font-family: Lexend;
+}
+@media screen and (max-width: 750px) {
+  .watcal {
+    font-size: 29px;
+    line-height: 43px;
+  }
+}
+@media screen and (max-width: 675px) {
+  .desktop-3,
+  .frame-parent {
+    height: auto;
+  }
+  .desktop-3 {
+    min-height: 1024;
+  }
+}
+/* @media screen and (max-width: 450px) {
+  .watcal {
+    font-size: 22px;
+    line-height: 32px;
+  }
+} */

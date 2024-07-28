@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/ReportP.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap"
+    />
+    <title>Report</title>
+  </head>
+  <body>
+    <div class="report-problem-page-desktop">
+      <section class="report-problem-page-desktop-inner">
+        <div class="frame-parent">
+          <div class="navbar-wrapper">
+            <div class="navbar">
+              <div class="material-symbolsarrow-back-io" onclick="goBack()">
+                <img
+                  class="vector-icon"
+                  loading="lazy"
+                  alt=""
+                  src="./images/back.svg"
+                />
+              </div>
+              <div class="report-a-problem-wrapper">
+                <div class="report-a-problem">Report a problem</div>
+              </div>
+            </div>
+          </div>
+          <div class="faq-item">
+            <div class="f-a-q-content">
+              <div class="icon-container">
+                <div class="icon">
+                  <img
+                    class="wrench-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/spanner.svg"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="f-a-q-divider"></div>
+            <div class="paragraph">
+              <p class="if-you-encounter">
+                If you encounter any issues or problems while using our billing
+                sharing website, we're here to help. Your feedback is valuable
+                to us, and we strive to address any issues promptly to ensure a
+                seamless user experience.
+              </p>
+              <p class="blank-line">&nbsp;</p>
+              <p class="to-report-a">
+                To report a problem, please reach out to our dedicated customer
+                support team. You can contact us via email
+                (manuelansah955@gmail.com), live chat (+233598296141), or phone
+                (0598296141) during our business hours. Please provide as much
+                detail as possible about the problem you're experiencing,
+                including any error messages or steps to reproduce the issue.
+              </p>
+              <p class="blank-line1">&nbsp;</p>
+              <p class="our-team-will">
+                Our team will investigate the problem and work diligently to
+                resolve it as quickly as possible. We appreciate your patience
+                and cooperation as we strive to deliver the best possible
+                service to you.
+              </p>
+              <p class="thank-you-for">
+                Thank you for helping us improve our platform and for being a
+                valued user of our billing sharing website.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer-section">
+        <div class="footer-content">
+          <div class="brand">
+            <img
+              class="logo-icon"
+              loading="lazy"
+              alt=""
+              src="./images/biglogo.svg"
+            />
+
+            <h3 class="watcal">WatCal</h3>
+          </div>
+        </div>
+        <div class="footer-navigation">
+          <div class="navigation-buttons">
+            <div class="text-button" id="textButton">Home</div>
+            <div class="text-button1" id="textButton1">Help Desk</div>
+            <div class="text-button2" id="textButton2">About</div>
+            <div class="text-button3" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="social-buttons">
+          <div class="button-parent">
+            <div class="button">
+              <div class="icon-wrapper">
+                <img
+                  class="icon1"
+                  loading="lazy"
+                  alt=""
+                  src="./images/mail.svg"
+                />
+              </div>
+              <div class="text-button4">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button1">
+              <div class="icon-frame">
+                <img
+                  class="icon2"
+                  loading="lazy"
+                  alt=""
+                  src="./images/phone.svg"
+                />
+              </div>
+              <div class="text-button5">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider1"></div>
+        <div class="container">
+          <div class="copyright">
+            <div class="text">WatCal All Rights Reserved</div>
+          </div>
+          <div class="legal-icons">
+            <div class="button2">
+              <img
+                class="icon3"
+                loading="lazy"
+                alt=""
+                src="./images/facebook.svg"
+              />
+            </div>
+            <div class="button3">
+              <img
+                class="icon4"
+                loading="lazy"
+                alt=""
+                src="./images/twitter.svg"
+              />
+            </div>
+            <div class="button4">
+              <img
+                class="icon5"
+                loading="lazy"
+                alt=""
+                src="./images/linkedin.svg"
+              />
+            </div>
+          </div>
+          <div class="language">
+            <div class="language-options">
+              <div class="text-button6" id="textButton6">Privacy Policy</div>
+              <div class="language-divider"></div>
+              <div class="text-button7" id="textButton7">Terms of Service</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+        function goBack() {
+      window.history.back();
+    }
+      var textButton1 = document.getElementById("textButton1");
+      if (textButton1) {
+        textButton1.addEventListener("click", function (e) {
+            window.location.href = "Helpdesk.html";
+        });
+      }
+      
+      var textButton = document.getElementById("textButton");
+      if (textButton) {
+        textButton.addEventListener("click", function (e) {
+            window.location.href = "Home.html";
+        });
+      }
+      
+      var textButton2 = document.getElementById("textButton2");
+      if (textButton2) {
+        textButton2.addEventListener("click", function (e) {
+            window.location.href = "About.html"; 
+        });
+      }
+      
+      var textButton3 = document.getElementById("textButton3");
+      if (textButton3) {
+        textButton3.addEventListener("click", function (e) {
+            window.location.href = "Security.html";
+        });
+      }
+      
+      var textButton6 = document.getElementById("textButton6");
+      if (textButton6) {
+        textButton6.addEventListener("click", function (e) {
+            window.location.href = "Privacy.html";
+        });
+      }
+      
+      var textButton7 = document.getElementById("textButton7");
+      if (textButton7) {
+        textButton7.addEventListener("click", function (e) {
+            window.location.href = "Terms.html";
+        });
+      }
+      </script>
+  </body>
+</html>

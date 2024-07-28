@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/Settings.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
+    />
+  </head>
+  <body>
+    <div class="overlay" id="overlay1">
+        <div class="popper" id="popup1">
+            <section class="popper-inner">
+              <img
+                class="kid"
+                loading="lazy"
+                alt=""
+                src="./images/avatar.png"
+                id="group"
+              />
+            </section>
+            <section class="chartbar">
+              <!-- added username in the side panel after login -->
+              <div class="mp"> <span id="panelUsername"></span></div>
+              <div class="mpcom-wrapper">
+                <!-- added user email in the side panel after login -->
+                <div class="mpcom"> <span id="panelEmail"></span></div>
+              </div>
+              <div class="chartbar-buttons">
+                <div class="chartbar-icons"></div>
+              </div>
+              <div class="chartbar-buttons1">
+                <div class="dbtn" id="dbtnContainer">
+                  <div class="house">
+                    <div class="chart-icons">
+                      <img
+                        class="v-icon"
+                        loading="lazy"
+                        alt=""
+                        src="./images/home.svg"
+                      />
+                    </div>
+                  </div>
+                  <div class="sidebar-labels">
+                    <div class="d_b">Dashboard</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chartbar-buttons2">
+                <div class="lenght"></div>
+              </div>
+              <div class="chartbar-buttons3">
+                <div class="pienabtn" id="pienabtnContainer">
+                  <div class="chart-bar">
+                    <div class="v-wrapper">
+                      <img
+                        class="v-icon1"
+                        loading="lazy"
+                        alt=""
+                        src="./images/stat.svg"
+                      />
+                    </div>
+                  </div>
+                  <div class="piena-wrapper">
+                    <div class="piena">Analysis</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chartbar-buttons4">
+                <div class="lenght1"></div>
+              </div>
+              <div class="mousebtn-wrapper">
+                <div class="mousebtn" id="mousebtnContainer">
+                  <img
+                    class="toolkit-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/tools.svg"
+                  />
+      
+                  <div class="mouses-wrapper">
+                    <div class="mouses">Settings</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chartbar-buttons5">
+                <div class="lenght2"></div>
+              </div>
+              <div class="chartbar-buttons6">
+                <div class="trendbtn" id="trendbtnContainer">
+                  <div class="trend">
+                    <div class="v-container">
+                      <img
+                        class="v-icon2"
+                        loading="lazy"
+                        alt=""
+                        src="./images/clk.svg"
+                      />
+                    </div>
+                  </div>
+                  <div class="trend-wrapper">
+                    <div class="trend1">History</div>
+                  </div>
+                </div>
+              </div>
+              <div class="chartbar-buttons7">
+                <div class="lenght3"></div>
+              </div>
+              <div class="chartbar-buttons8">
+                <div class="opener-btn" id="openerBtnContainer">
+                  <img
+                    class="opener-alt-icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/sign-out-alt.svg"
+                  />
+      
+                  <div class="opener">Logout</div>
+                </div>
+              </div>
+              <div class="lenght4"></div>
+            </section>
+            <div class="btt-bar">
+              <!-- <div class="txt-button" id="txtButton">Privacy Policy</div> -->
+              <a href="../Privacy.html" class="txt-button">Privacy Policy</a>
+
+              <div class="lenght5"></div>
+              <!-- <div class="txt-button1" id="txtButton1">Terms of Service</div> -->
+              <a href="../Terms.html" class="txt-button1">Terms of Service</a>
+            </div>
+          </div> 
+    </div>
+    <div class="overlay" id="overlay2">
+        <div class="signupllt" id="popup2">
+            <div class="astenant" id="tenant">As a Private User</div>
+      <div class="userroles">
+        <div class="aslandlord" id="landlord">As a Landlord</div>
+      </div>
+          </div>
+    </div>
+
+
+   
+    <div class="tenant-settings-page-desktop">
+      <header class="main">
+        <div class="top">
+          <div class="content">
+            <div class="navbar">
+              <div class="menu">
+                <button class="button" onclick="showPopup('popup1')" style="border: 0;">
+                  <img class="icon" alt="" src="./images/dash.svg" />
+                </button>
+                <div class="settings">Settings</div>
+              </div>
+            </div>
+          </div>
+          <div class="content-icons">
+            <div class="container">
+              <div class="icon-column">
+                <div class="icon-card">
+                  <div class="icon-container">
+                    <div class="icon1">
+                      <img
+                        class="accusoft-icon"
+                        loading="lazy"
+                        alt=""
+                        src="./images/accusoft.svg"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <h3 class="heading">Account</h3>
+              </div>
+              <div class="action-row">
+                <div class="action-column">
+                  <div
+                    class="iconamoonprofile-light-parent"
+                    id="groupContainer"
+                  >
+                    <img
+                      class="iconamoonprofile-light"
+                      loading="lazy"
+                      alt=""
+                      src="./images/user.svg"
+                    />
+
+                    <div class="profile-action-labels">
+                      <div class="edit-profile">
+                        <span>Edit </span>
+                        <span class="profile">profile</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="icoutline-lock-parent" id="groupContainer1">
+                    <img
+                      class="icoutline-lock-icon"
+                      loading="lazy"
+                      alt=""
+                      src="./images/padlock.svg"
+                    />
+
+                    <div class="account-action-labels">
+                      <div class="privacy">Privacy</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <img
+              class="line-icon"
+              loading="lazy"
+              alt=""
+              src="./images/padlock.svg"
+            />
+
+            <div class="container1">
+              <div class="frame-parent">
+                <div class="icon-container-wrapper">
+                  <div class="icon-container1">
+                    <div class="icon2">
+                      <img
+                        class="phabricator-icon"
+                        loading="lazy"
+                        alt=""
+                        src="./images/phabricator.svg"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <h3 class="heading1">Support & About</h3>
+              </div>
+              <div class="container-inner">
+                <div class="frame-group">
+                  <div
+                    class="mdiquestion-mark-circle-outli-parent"
+                    id="groupContainer2"
+                  >
+                    <img
+                      class="mdiquestion-mark-circle-outli-icon"
+                      loading="lazy"
+                      alt=""
+                      src="./images/q.svg"
+                    />
+
+                    <div class="help-support-wrapper">
+                      <div class="help-support">Help & Support</div>
+                    </div>
+                  </div>
+                  <div
+                    class="tablercircle-letter-i-parent"
+                    id="groupContainer3"
+                  >
+                    <img
+                      class="tablercircle-letter-i-icon"
+                      loading="lazy"
+                      alt=""
+                      src="./images/terms.svg"
+                    />
+
+                    <div class="terms-and-policies-wrapper">
+                      <div class="terms-and-policies">Terms and Policies</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="content-divider"></div>
+            <div class="container2">
+              <div class="frame-container">
+                <div class="icon-container-container">
+                  <div class="icon-container2">
+                    <div class="icon3">
+                      <img
+                        class="compact-disc-icon"
+                        loading="lazy"
+                        alt=""
+                        src="./images/compact-disc.svg"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <h3 class="heading2">Actions</h3>
+              </div>
+              <div class="container-child">
+                <div class="frame-div">
+                  <div class="icsharp-outlined-flag-parent" id="groupContainer4">
+                    <img
+                      class="icsharp-outlined-flag-icon"
+                      loading="lazy"
+                      alt=""
+                      src="./images/flag.svg"
+                    />
+
+                    <div class="report-a-problem-wrapper">
+                      <div class="report-a-problem">Report a problem</div>
+                    </div>
+                  </div>
+                  <div class="mdilogout-parent" id="logout">
+                    <img
+                      class="mdilogout-icon"
+                      loading="lazy"
+                      alt=""
+                      src="./images/logout.svg"
+                    />
+
+                    <div class="log-out-wrapper">
+                      <b class="log-out">Log out</b>
+                    </div>
+                  </div>
+                  <div class="icsharp-people-outline-parent">
+                    <img
+                      class="icsharp-people-outline-icon"
+                      loading="lazy"
+                      alt=""
+                      src="./images/adduser.svg"
+                    />
+
+                    <div class="add-account-wrapper" onclick="showPopup('popup2')" style="border: 0;">
+                      <b class="add-account">Add account</b>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <footer class="footer-section">
+        <div class="footer-content">
+          <div class="brand">
+            <img
+              class="logo-icon"
+              loading="lazy"
+              alt=""
+              src="./images/biglogo.svg"
+            />
+
+            <h3 class="watcal">WatCal</h3>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="text-button-parent">
+            <div class="text-button" id="textButton">Home</div>
+            <div class="text-button1" id="textButton1">Help Desk</div>
+            <div class="text-button2" id="textButton2">About</div>
+            <div class="text-button3" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="footer-divider"></div>
+        <div class="social-links">
+          <div class="button-parent">
+            <div class="button1">
+              <div class="social-icon">
+                <img
+                  class="icon4"
+                  loading="lazy"
+                  alt=""
+                  src="./images/mail.svg"
+                />
+              </div>
+              <div class="text-button4">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button2">
+              <div class="icon-wrapper">
+                <img
+                  class="icon5"
+                  loading="lazy"
+                  alt=""
+                  src="./images/phone.svg"
+                />
+              </div>
+              <div class="text-button5">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="footer-divider1"></div>
+        <div class="container3">
+          <div class="copyright">
+            <div class="text">WatCal All Rights Reserved</div>
+          </div>
+          <div class="language-selector">
+            <div class="button3">
+              <img
+                class="icon6"
+                loading="lazy"
+                alt=""
+                src="./images/facebook.svg"
+              />
+            </div>
+            <div class="button4">
+              <img
+                class="icon7"
+                loading="lazy"
+                alt=""
+                src="./images/twitter.svg"
+              />
+            </div>
+            <div class="button5">
+              <img
+                class="icon8"
+                loading="lazy"
+                alt=""
+                src="./images/linkedin.svg"
+              />
+            </div>
+          </div>
+          <div class="legal-links">
+            <div class="text-button-group">
+              <a href="../Privacy.html"class="text-button6" >Privacy Policy</a>
+              <div class="legal-divider"></div>
+              <a href="../Terms.html" class="text-button7">Terms of Service</a>           
+             </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  
+
+    <script src="./js/settings.js"></script>
+  </body>
+</html>

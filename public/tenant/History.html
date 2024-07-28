@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/History.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@500;600;700;800&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400&display=swap"
+    />
+  </head>
+  <body>
+    <div class="overlay" id="overlay2">
+      <div class="downloadmenu" id="popup2">
+          <section class="Parent">
+            <div class="Child"></div>
+            <div class="downParent">
+              <a class="down">Download</a>
+              <div class="R-wrapper">
+                <div class="R">
+                  <div class="file-pdf-regular-1-wrapper" id="downloadPdf">
+                    <img
+                      class="file-pdf-regular-1-icon"
+                      loading="lazy" alt="PDF"
+                      src="./images/file-pdf-regular 1.svg"
+                    />
+                  </div>
+                  <div class="reports">Reports</div>
+                </div>
+              </div>
+            </div>
+            <div class="cover">
+              <div class="close-parent">
+                <img
+                  class="close-icon"
+                  loading="lazy" alt="Close"
+                  src="./images/close.svg"
+                />
+    
+                <div class="csvbtn" id="downloadCsv">
+                  <div class="file-csv-solid-1-wrapper">
+                    <img
+                      class="file-csv-solid-1-icon"
+                      loading="lazy" alt="CSV"
+                      src="./images/file-csv-solid 1.svg"
+                    />
+                  </div>
+                  <div class="dt">Data</div>
+                </div>
+              </div>
+            </div>
+          </section>
+      </div>
+    </div>
+
+    <div class="overlay" id="overlay1">
+          <div class="popup-wrapper" id="popup1">
+              <section class="popup-wrapper-inner">
+                <img
+                  class="avatar"
+                  loading="lazy"
+                  alt=""
+                  src="./images/avatar.png"
+                  id="genre"
+                />
+              </section>
+              <section class="userkind-parent">
+                <!-- added username in the side panel after login -->
+                <div class="mp"> <span id="panelUsername"></span></div>
+                <div class="usergmailcom-wrapper">
+                  <!-- added user email in the side panel after login -->
+                  <div class="mpcom"> <span id="panelEmail"></span></div>
+                </div>
+                <div class="U">
+                  <div class="meneuver"></div>
+                </div>
+                <div class="U1">
+                  <div class="boardbtn" id="boardbtnContainer">
+                    <img class="welcomeHome" loading="lazy"  alt=""
+                    src="./images/home.svg"/>
+        
+                    <div class="board-wrapper">
+                      <div class="board">Dashboard</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="U2">
+                  <div class="meneuver1"></div>
+                </div>
+                <div class="setbtn-wrapper">
+                  <div class="setbtn" id="setbtnContainer">
+                    <img
+                      class="menu_icon"
+                      loading="lazy"
+                      alt=""
+                      src="./images/tools.svg"
+                    />
+        
+                    <div class="sets-wrapper">
+                      <div class="sets">Settings</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="U3">
+                  <div class="meneuver2"></div>
+                </div>
+                <div class="U4">
+                  <div class="hisbtn" id="hisbtnContainer">
+                    <img class="his-icon" loading="lazy" alt=""
+                    src="./images/clk.svg"/>
+        
+                    <div class="his-wrapper">
+                      <div class="his">History</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="U5">
+                  <div class="meneuver3"></div>
+                </div>
+                <div class="U6">
+                  <div class="Out-btn" id="OutBtnContainer">
+                    <img
+                      class="sign-out-alt-icon"
+                      loading="lazy"
+                      alt=""
+                      src="./images/sign-out-alt.svg"
+                    />
+        
+                    <div class="Out">Logout</div>
+                  </div>
+                </div>
+                <div class="meneuver4"></div>
+              </section>
+              <div class="under">
+               <a href="../Privacy.html" class="t-b">Privacy Policy</a>
+                <div class="line"></div>
+                <a href="../Terms.html" class="t-b1">Terms of Service</a>
+              </div>
+          </div>
+    </div>
+
+   <div class="content-content-blur-background">
+    <div class="tenant-history-page-desktop">
+      <section class="main">
+        <div class="content">
+          <div class="content-body">
+            <div class="navbar">
+              <div class="button-parent">
+                <button class="button" onclick="showPopup('popup1')" style="border: 0;">
+                  <img
+                    class="icon"
+                    loading="lazy"
+                    alt=""
+                    src="./images/dash.svg"
+                  />
+                </button>
+                <div class="history-wrapper">
+                  <div class="history">
+                    <p class="history1">History</p>
+                  </div>
+                </div>
+              </div>
+              <div class="melissa-peters-parent">
+                <!-- added username in the header after login -->
+                <a class="melissa-peters"> <span id="username"></span></a>
+                <img
+                  class="frame-child"
+                  loading="lazy"
+                  alt=""
+                  src="./images/avatar.png"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="body">
+            <nav id="month-buttons" class="rectangle-parent">
+              
+            </nav>
+          </div>
+          <div class="data">
+            <div class="data-container">
+              <div class="data-container1">
+                <div class="container-parent">
+                  <a class="container">container</a>
+                  <button class="downloadbtn" onclick="showPopup('popup2')" style="border: 0;">
+                      <b class="export">Export</b>
+                      <img
+                        class="downloadbtn-child"
+                        alt=""
+                        src="./images/rectangle-31.svg"
+                      />
+
+                      <div class="export1">Export</div>
+                  </button>
+                  <div class="table-headers">
+                    <div class="table-header-rows"></div>
+                    <div class="units">
+                      <div class="data-cells">
+                        <div class="date">Date :</div>
+                        <div class="column-dividers">
+                          <div class="empty-units">N/A</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="table-header-rows1"></div>
+                    <div class="row-separators">
+                      <div class="table-header-cells">
+                        <div class="reading-time">Reading_time :</div>
+                        <div class="div">N/A</div>
+                      </div>
+                    </div>
+                    <div class="table-header-rows2"></div>
+                    <div class="row-separators1">
+                      <div class="reading-value-parent">
+                        <div class="reading-value">Reading_value :</div>
+                        <div class="kw">0kWh</div>
+                      </div>
+                    </div>
+                    <div class="table-header-rows3"></div>
+                    <div class="row-separators2">
+                      <div class="last-reading-time-parent">
+                        <div class="last-reading-time">Last_reading_time :</div>
+                        <div class="column-dividers1">
+                          <div class="div1">N/A</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="table-header-rows4"></div>
+                    <div class="row-separators3">
+                      <div class="last-reading-value-parent">
+                        <div class="last-reading-value">
+                          Last_reading_value :
+                        </div>
+                        <b class="kw1">0kWh</b>
+                      </div>
+                    </div>
+                    <div class="table-header-rows5"></div>
+                    <div class="row-separators4">
+                      <div class="last-reading-date-parent">
+                        <div class="last-reading-date">Last_reading_date :</div>
+                        <div class="column-dividers2">
+                          <div class="div2">N/A</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="table-header-rows6"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="insight-header-parent">
+                <div class="insight-header">
+                  <h3 class="execution-recommendation-patte-container">
+                    <span>
+                      <p class="execution-recommendation">
+                        Consumption & Recommendation
+                      </p>
+                      <p class="pattern">Pattern</p>
+                    </span>
+                  </h3>
+                </div>
+                <div class="frame-parent">
+                  <div class="rectangle-group">
+                    <div class="frame-inner"></div>
+                    <div class="day-columns">
+                      <div class="calendar-cells">
+                        <div class="sunday">Sunday</div>
+                        <div class="schedule-months">
+                          <b class="june">10 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-12h">N/A</div>
+                  </div>
+                  <div class="vector-parent">
+                    <img
+                      class="rectangle-icon"
+                      alt=""
+                      src="./images/rectangle-32.svg"
+                    />
+
+                    <div class="frame-wrapper">
+                      <div class="monday-parent">
+                        <div class="monday">Monday</div>
+                        <div class="june-wrapper">
+                          <b class="june1">11 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-10h">N/A</div>
+                  </div>
+                  <div class="rectangle-container">
+                    <div class="rectangle-div"></div>
+                    <div class="frame-container">
+                      <div class="tuesday-parent">
+                        <div class="tuesday">Tuesday</div>
+                        <div class="june-container">
+                          <b class="june2">13 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-10h1">N/A</div>
+                  </div>
+                  <div class="weekly-chart-highlight">
+                    <div class="weekly-chart-highlight-bar"></div>
+                    <b class="june3">14 June</b>
+                    <div class="wednesday">Wednesday</div>
+                    <div class="h-10h2">N/A</div>
+                  </div>
+                  <div class="weekly-chart-columns">
+                    <div class="weekly-chart-columns-child"></div>
+                    <div class="weekly-chart-columns-inner">
+                      <div class="thursday-parent">
+                        <div class="thursday">Thursday</div>
+                        <div class="june-frame">
+                          <b class="june4">15 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-10h3">N/A</div>
+                  </div>
+                  <div class="weekly-chart-columns1">
+                    <div class="weekly-chart-columns-item"></div>
+                    <div class="frame-div">
+                      <div class="friday-parent">
+                        <div class="friday">Friday</div>
+                        <div class="june-wrapper1">
+                          <b class="june5">16 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-15h">N/A</div>
+                  </div>
+                  <div class="weekly-chart-columns2">
+                    <div class="weekly-chart-columns-child1"></div>
+                    <div class="weekly-chart-columns-inner1">
+                      <div class="saturday-parent">
+                        <div class="saturday">Saturday</div>
+                        <div class="june-wrapper2">
+                          <b class="june6">17 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-18h">N/A</div>
+                  </div>
+                  <div class="weekly-chart-columns3">
+                    <div class="weekly-chart-columns-child2"></div>
+                    <div class="weekly-chart-columns-inner2">
+                      <div class="sunday-parent">
+                        <div class="sunday1">Sunday</div>
+                        <div class="june-wrapper3">
+                          <b class="june7">18 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-12h1">N/A</div>
+                  </div>
+                  <div class="weekly-chart-columns4">
+                    <img
+                      class="weekly-chart-columns-child3"
+                      alt=""
+                      src="./images/rectangle-32.svg"
+                    />
+
+                    <div class="weekly-chart-columns-inner3">
+                      <div class="monday-group">
+                        <div class="monday1">Monday</div>
+                        <div class="june-wrapper4">
+                          <b class="june8">19 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-10h4">N/A</div>
+                  </div>
+                  <div class="weekly-chart-columns5">
+                    <div class="weekly-chart-columns-child4"></div>
+                    <div class="weekly-chart-columns-inner4">
+                      <div class="tuesday-group">
+                        <div class="tuesday1">Tuesday</div>
+                        <div class="june-wrapper5">
+                          <b class="june9">20 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-10h5">N/A</div>
+                  </div>
+                  <div class="weekly-chart-columns6">
+                    <div class="weekly-chart-columns-child5"></div>
+                    <div class="weekly-chart-columns-inner5">
+                      <div class="wednesday-parent">
+                        <div class="wednesday1">Wednesday</div>
+                        <div class="june-wrapper6">
+                          <b class="june10">21 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-10h6">N/A</div>
+                  </div>
+                  <div class="weekly-chart-columns7">
+                    <div class="weekly-chart-columns-child6"></div>
+                    <div class="weekly-chart-columns-inner6">
+                      <div class="thursday-group">
+                        <div class="thursday1">Thursday</div>
+                        <div class="june-wrapper7">
+                          <b class="june11">22 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-10h7">N/A</div>
+                  </div>
+                  <div class="weekly-chart-columns8">
+                    <div class="weekly-chart-columns-child7"></div>
+                    <div class="weekly-chart-columns-inner7">
+                      <div class="friday-group">
+                        <div class="friday1">Friday</div>
+                        <div class="june-wrapper8">
+                          <b class="june12">23 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-15h1">N/A</div>
+                  </div>
+                  <div class="weekly-chart-columns9">
+                    <div class="weekly-chart-columns-child8"></div>
+                    <div class="weekly-chart-columns-inner8">
+                      <div class="saturday-group">
+                        <div class="saturday1">Saturday</div>
+                        <div class="june-wrapper9">
+                          <b class="june13">24 June</b>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="h-18h1">N/A</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dash-parent">
+              <div class="dash">
+                <h3 class="total-electricity-consumption">
+                  Total electricity consumption
+                </h3>
+                <div class="chart-container" id="chart-container">
+                  <canvas id="myChart"></canvas>
+                </div>
+              </div>
+              <div class="percentage-container">
+                <div class="percentage-wrapper">
+                  <div class="percentage">
+                    <b class="kwh">0kWh</b>
+                    <div class="cost">
+                      <b class="ghs-120">Gh₵ 0.00</b>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="footer-section">
+        <div class="footer-content">
+          <div class="brand">
+            <img
+              class="logo-icon"
+              loading="lazy"
+              alt=""
+              src="./images/biglogo.svg"
+            />
+
+            <h3 class="watcal">WatCal</h3>
+          </div>
+        </div>
+        <div class="navigation-menu">
+          <div class="text-button-parent">
+            <div class="text-button" id="textButton">Home</div>
+            <div class="text-button1" id="textButton1">Help Desk</div>
+            <div class="text-button2" id="textButton2">About</div>
+            <div class="text-button3" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="social-links">
+          <div class="footer-links">
+            <div class="button1">
+              <div class="social-icons">
+                <img
+                  class="icon1"
+                  loading="lazy"
+                  alt=""
+                  src="./images/mail.svg"
+                />
+              </div>
+              <div class="text-button4">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button2">
+              <div class="icon-wrapper">
+                <img
+                  class="icon2"
+                  loading="lazy"
+                  alt=""
+                  src="./images/phone.svg"
+                />
+              </div>
+              <div class="text-button5">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="line1"></div>
+        <div class="container1">
+          <div class="copyright">
+            <div class="legal">WatCal All Rights Reserved</div>
+          </div>
+          <div class="language">
+            <div class="button3">
+              <img
+                class="icon3"
+                loading="lazy"
+                alt=""
+                src="./images/facebook.svg"
+              />
+            </div>
+            <div class="button4">
+              <img
+                class="icon4"
+                loading="lazy"
+                alt=""
+                src="./images/twitter.svg"
+              />
+            </div>
+            <div class="button5">
+              <img
+                class="icon5"
+                loading="lazy"
+                alt=""
+                src="./images/linkedin.svg"
+              />
+            </div>
+          </div>
+          <div class="legal-links">
+            <div class="social-media-icons">
+              <a href="../Privacy.html" class="text-button6">Privacy Policy</a>
+              <div class="footer-divider"></div>
+              <a href="../Terms.html" class="text-button7">Terms of Service</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+   </div>
+   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+   <script src="js/download.js"></script>
+    <script src="js/history.js"></script>
+    <script src="js/scrpt.js"></script>
+  </body>
+</html>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/login_index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap"
+    />
+    <title>Login</title>
+  </head>
+  <body>
+   <div class="wrap">  
+    <div class="login-page-desktop">
+      <header class="navbar-wrapper">
+        <div class="navbar">
+          <div class="logo-container-wrapper">
+            <div class="logo-container">
+              <img class="logo-icon" alt="" src="./images/logo.svg" />
+
+              <div class="watcal">WatCal</div>
+            </div>
+          </div>
+          <div class="menu-container-wrapper">
+            <div class="menu-container">
+              <div class="text-button" id="textButton8">Home</div>
+              <div class="text-button1" id="textButton9">Help Desk</div>
+              <div class="text-button2" id="textButton10">About</div>
+              <div class="text-button3" id="textButton11">Security</div>
+              <div class="contact-us" id="contactUsText">Contact Us</div>
+            </div>
+          </div>
+          <div class="user-actions-container-parent">
+            <div class="user-actions-container">
+              <div class="text-button-wrapper" data-popup="popupMenu1">
+                <div class="text-button4">Sign Up</div>
+              </div>
+            </div>
+            <div class="button" id="buttonContainer">
+              <div class="login-description">Login</div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="login-wrapper">
+        <div class="login">
+          <div class="heading-parent">
+            <h1 class="heading">Login</h1>
+            <div class="paragraph">
+              Welcome back! Please log in to access your account.
+            </div>
+          </div>
+          <form id="loginForm">
+          <div class="input-fields-container-parent">
+            <!-- div container to display error message -->
+            <div id="message"></div>
+            <div class="input-fields-container">
+              <div class="username">
+                <img
+                  class="input-icons"
+                  loading="lazy"
+                  alt=""
+                  src="./images/user.svg"
+                />
+
+                <div class="text">
+                  <!-- <div class="text1">Enter your username</div> -->
+                  <input
+                  autocomplete="on"
+                  id="username"
+                  class="text1"
+                  placeholder="Enter your username"
+                  type="text"
+                  />
+                </div>
+              </div>
+              <div class="password">
+                <img
+                  class="vector-icon"
+                  loading="lazy"
+                  alt=""
+                  src="./images/password.svg"
+                  style="cursor: pointer;"
+                />
+
+                <!-- <div class="text2">Enter password</div> -->
+                <input
+                autocomplete="on"
+                id="password"
+                class="text2"
+                placeholder="Enter password"
+                type="password"
+              />
+                <img
+                id="togglePassword"
+                  class="icon"
+                  loading="lazy"
+                  alt=""
+                  src="./images/e.png"
+                  style="cursor: pointer;"
+                />
+
+                
+              </div>
+            </div>
+            <div class="line"></div>
+            <div class="frame-parent">
+              <div class="submit-button-container-parent">
+                <div class="submit-button-container" >
+                  <u class="text-button5" id="forgotpassword">Forgot Password?</u>
+                </div>
+                <div class="social-login-options">
+                  <div class="options-container">
+                    <button type="submit" class="button1">
+                      <div class="social-button-labels">Login</div>
+                    </button>
+                    <button class="button2" data-popup="popupMenu2">
+                      <div class="text3">Sign Up</div>
+                    </button>
+                  </div>
+                </div>
+                <div class="social-logins-container-wrapper">
+                  <div class="social-logins-container">
+                    <div class="password-reset-container">
+                      <div class="line1"></div>
+                    </div>
+                    <div class="text4">Or Continue with</div>
+                    <div class="social-login-options1">
+                      <div class="line2"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="social-icons">
+                <div class="buttons-container">
+                  <div class="icon-container">
+                    <div class="button3">
+                      <img
+                        class="icon1"
+                        loading="lazy"
+                        alt=""
+                        src="./images/google.svg"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+        </div>
+      </section>
+      <section class="footer-section">
+        <div class="footer-content">
+          <div class="footer-branding">
+            <img class="logo-icon1" alt="" src="./images/biglogo.svg" />
+
+            <div class="watcal1">WatCal</div>
+          </div>
+        </div>
+        <div class="footer-menu">
+          <div class="footer-links-container">
+            <div class="text-button6" id="textButtonA">Home</div>
+            <div class="text-button7" id="textButton1">Help Desk</div>
+            <div class="text-button8" id="textButton2">About</div>
+            <div class="text-button9" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="line3"></div>
+        <div class="footer-content1">
+          <div class="social-media-container">
+            <div class="button4">
+              <div class="social-link-buttons">
+                <img class="icon2" alt="" src="./images/mail.svg" />
+              </div>
+              <div class="text-button10">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button5">
+              <div class="icon-wrapper">
+                <img class="icon3" alt="" src="./images/phone.svg" />
+              </div>
+              <div class="text-button11">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="line4"></div>
+        <div class="container">
+          <div class="text-wrapper">
+            <div class="text5">WatCal All Rights Reserved</div>
+          </div>
+          <div class="social-icons1">
+            <div class="button6">
+              <img class="icon4" alt="" src="./images/facebook.svg" />
+            </div>
+            <div class="button7">
+              <img class="icon5" alt="" src="./images/twitter.svg" />
+            </div>
+            <div class="button8">
+              <img class="icon6" alt="" src="./images/linkedin.svg" />
+            </div>
+          </div>
+          <div class="contact">
+            <div class="legal-container">
+              <div class="text-button12" id="textButton6">Privacy Policy</div>
+              <div class="line5"></div>
+              <div class="text-button13" id="textButton7">Terms of Service</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+   </div>
+
+   <div class="overlay" id="overlay"></div>
+
+   <div class="popup-menu" id="popupMenu1">
+       <div class="signupllt">
+           <div class="astenant" id="tenant1">As a Private User</div>
+           <div class="userroles">
+               <div class="aslandlord" id="landlord1">As a Landlord</div>
+           </div>
+       </div>
+   </div>
+
+   <div class="popup-menu" id="popupMenu2">
+       <div class="signupllt">
+           <div class="astenant" id="tenant2">As a Private User</div>
+           <div class="userroles">
+               <div class="aslandlord" id="landlord2">As a Landlord</div>
+           </div>
+       </div>
+   </div>
+
+    <Script src="./js/LLogin.js"></Script>
+  </body>
+</html>

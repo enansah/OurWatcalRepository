@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+
+    <link rel="stylesheet" href="./css/Contactus-index.css " />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap"
+    />
+    <title>Contact Us</title>
+  </head>
+  <body>
+   <div class="wrap">   
+    <div class="contact-page-desktop">
+      <section class="contact-page-desktop-inner">
+        <div class="frame-parent">
+          <div class="navbar-wrapper">
+            <div class="navbar">
+              <div class="navbar-inner">
+                <div class="logo-parent">
+                  <img class="logo-icon" alt="" src="./images/logo.svg" />
+
+                  <div class="watcal">WatCal</div>
+                </div>
+              </div>
+              <div class="menu-buttons-wrapper">
+                <div class="menu-buttons">
+                  <div class="text-button" id="textButton8">Home</div>
+                  <div class="text-button1" id="textButton9">Help Desk</div>
+                  <div class="text-button2" id="textButton10">About</div>
+                  <div class="text-button3" id="textButton11">Security</div>
+                  <div class="contact-us" id="contact">Contact Us</div>
+                </div>
+              </div>
+              <div class="frame-group">
+                <div class="hero-button-wrapper">
+                  <div class="hero-button" data-popup="popupMenu1">
+                    <div class="text-button4">Sign Up</div>
+                  </div>
+                </div>
+                <div class="button" data-popup="popupMenu4">
+                  <div class="button-label">Login</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="container">
+            <div class="text-container">
+              <div class="welcome-to-watcal">Welcome to WatCal</div>
+              <div class="heading">
+                <span>BILLING MADE </span>
+                <span class="transparent">TRANSPARENT</span>!
+              </div>
+              <div class="paragraph">
+                <p class="at-watcal-we">
+                  At WatCal, we see billing as more than just figures on a page.
+                  It's about giving homeowners, landlords, and tenants the tools
+                  to manage their electricity usage effectively and equitably.
+                  As a devoted platform, we're dedicated to providing a billing
+                  process that surpasses expectations. By leveraging
+                  cutting-edge technology, tailoring solutions to individual
+                  needs, and prioritizing transparency, we strive to redefine
+                  how electricity expenses are managed. Come join us on this
+                  journey of transformation and experience a new level of
+                  billing excellence.You can contact us via email
+                  (manuelansah955@gmail.com), live chat (+233598296141), or
+                  phone (0598296141) during our business hours.
+                </p>
+                <p class="welcome-to-the">Welcome.</p>
+              </div>
+            </div>
+            <img class="image-icon" alt="" src="./images/contactus.png" />
+
+            <img
+              class="abstract-design-icon"
+              alt=""
+              src="./images/tr.png"
+            />
+          </div>
+        </div>
+      </section>
+      <footer class="footer-section">
+        <div class="footer-content">
+          <div class="footer-brand">
+            <img class="logo-icon1" alt="" src="./images/biglogo.svg" />
+
+            <div class="watcal1">WatCal</div>
+          </div>
+        </div>
+        <div class="footer-menu">
+          <div class="text-button-parent">
+            <div class="text-button5" id="textButton">Home</div>
+            <div class="text-button6" id="textButton1">Help Desk</div>
+            <div class="text-button7" id="textButton2">About</div>
+            <div class="text-button8" id="textButton3">Security</div>
+          </div>
+        </div>
+        <div class="line"></div>
+        <div class="social-links">
+          <div class="button-parent">
+            <div class="button1">
+              <div class="icon-wrapper">
+                <img class="icon" alt="" src="./images/mail.svg"/>
+              </div>
+              <div class="text-button9">manuelansah955@gmail.com</div>
+            </div>
+            <div class="button2">
+              <div class="icon-container">
+                <img class="icon1" alt="" src="./images/phone.svg" />
+              </div>
+              <div class="text-button10">+233 59 829 6141</div>
+            </div>
+          </div>
+        </div>
+        <div class="line1"></div>
+        <div class="container1">
+          <div class="text-wrapper">
+            <div class="text">WatCal All Rights Reserved</div>
+          </div>
+          <div class="social-media-icons">
+            <div class="button3">
+              <img class="icon2" alt="" src="./images/facebook.svg" />
+            </div>
+            <div class="button4">
+              <img class="icon3" alt="" src="./images/twitter.svg" />
+            </div>
+            <div class="button5">
+              <img class="icon4" alt="" src="./images/linkedin.svg" />
+            </div>
+          </div>
+          <div class="legal-links">
+            <div class="text-button-group">
+              <div class="text-button11" id="textButton6">Privacy Policy</div>
+              <div class="link-separator"></div>
+              <div class="text-button12" id="textButton7">Terms of Service</div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+   </div> 
+
+   <div class="overlay" id="overlay"></div>
+
+   <div class="popup-menu" id="popupMenu1">
+       <div class="signupllt">
+           <div class="astenant" id="tenant1">As a Private User</div>
+           <div class="userroles">
+               <div class="aslandlord" id="landlord1">As a Landlord</div>
+           </div>
+       </div>
+   </div>
+
+   <div class="popup-menu" id="popupMenu4">
+    <div class="signupllt">
+        <div class="astenant" id="t4">As a Private User</div>
+        <div class="userroles">
+            <div class="aslandlord" id="l4">As a Landlord</div>
+        </div>
+    </div>
+</div>
+
+    <script>
+         document.querySelectorAll(".hero-button, .button").forEach(button => {
+            button.addEventListener("click", function() {
+                const popupId = button.getAttribute("data-popup");
+                const popup = document.getElementById(popupId);
+                popup.style.display = 'block';
+                setTimeout(() => {
+                    popup.classList.add("active");
+                }, 10); // Small delay to allow the display change to take effect
+                document.getElementById("overlay").classList.add("active");
+                document.querySelector('.content').classList.add('blur-background');
+            });
+        });
+
+        document.getElementById("overlay").addEventListener("click", function() {
+            document.querySelectorAll(".popup-menu").forEach(popup => {
+                popup.classList.remove("active");
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500); // Match this timeout with the animation duration
+            });
+            document.getElementById("overlay").classList.remove("active");
+            document.querySelector('.content').classList.remove('blur-background');
+        });
+      var textButton8 = document.getElementById("textButton8");
+      if (textButton8) {
+        textButton8.addEventListener("click", function (e) {
+          window.location.href = "Home.html";
+        });
+      }
+      
+      var textButton9 = document.getElementById("textButton9");
+      if (textButton9) {
+        textButton9.addEventListener("click", function (e) {
+          window.location.href = "Helpdesk.html";
+        });
+      }
+      
+      var contact = document.getElementById("contact");
+      if (contact) {
+        contact.addEventListener("click", function (e) {
+          window.location.href = "Contactus.html";
+        });
+      }
+      
+      var textButton10 = document.getElementById("textButton10");
+      if (textButton10) {
+        textButton10.addEventListener("click", function (e) {
+          window.location.href = "About.html"; 
+        });
+      }
+      
+      var textButton11 = document.getElementById("textButton11");
+      if (textButton11) {
+        textButton11.addEventListener("click", function (e) {
+          window.location.href = "Security.html";
+        });
+      }
+      
+      var textButton = document.getElementById("textButton");
+      if (textButton) {
+        textButton.addEventListener("click", function (e) {
+          window.location.href = "Home.html";
+        });
+      }
+      
+      var textButton1 = document.getElementById("textButton1");
+      if (textButton1) {
+        textButton1.addEventListener("click", function (e) {
+          window.location.href = "Helpdesk.html";
+        });
+      }
+      
+      var textButton2 = document.getElementById("textButton2");
+      if (textButton2) {
+        textButton2.addEventListener("click", function (e) {
+          window.location.href = "About.html"; 
+        });
+      }
+      
+      var textButton3 = document.getElementById("textButton3");
+      if (textButton3) {
+        textButton3.addEventListener("click", function (e) {
+          window.location.href = "Security.html";
+        });
+      }
+      
+      var textButton6 = document.getElementById("textButton6");
+      if (textButton6) {
+        textButton6.addEventListener("click", function (e) {
+          window.location.href = "Privacy.html";
+        });
+      }
+      
+      var textButton7 = document.getElementById("textButton7");
+      if (textButton7) {
+        textButton7.addEventListener("click", function (e) {
+          window.location.href = "Terms.html";
+        });
+      }
+
+      var tenant1 = document.getElementById("tenant1");
+        if (tenant1) {
+            tenant1.addEventListener("click", function (e) {
+                window.location.href = "TSignup.html";
+            });
+        }
+
+        var landlord1 = document.getElementById("landlord1");
+        if (landlord1) {
+            landlord1.addEventListener("click", function (e) {
+                window.location.href = "LSignup.html";
+            });
+        }
+
+        var t4 = document.getElementById("t4");
+        if (t4) {
+          t4.addEventListener("click", function (e) {
+                window.location.href = "TLogin.html";
+            });
+        }
+
+        var l4 = document.getElementById("l4");
+        if (l4) {
+          l4.addEventListener("click", function (e) {
+                window.location.href = "LLogin.html";
+            });
+        }
+      </script>
+  </body>
+</html>
