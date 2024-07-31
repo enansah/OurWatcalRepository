@@ -2555,6 +2555,57 @@ body {
   align-items: flex-start;
   max-width: 100%;
 }
+
+
+.cost-ghs-000,
+.total-monthy-consumption-nak {
+  position: relative;
+  line-height: 38px;
+  font-weight: 300;
+  font-size: large;
+  display: inline-block;
+}
+.total-monthy-consumption-nak {
+  margin: 0;
+  flex: 1;
+  font-family: inherit;
+  min-width: 360px;
+  max-width: 100%;
+}
+.cost-ghs-000 {
+  width: 240px;
+  flex-shrink: 0;
+}
+.main,
+.main-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  max-width: 100%;
+}
+.main {
+  color: #06cc02;
+  width: 800px;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  gap: var(--gap-xl);
+}
+.main-wrapper {
+  border:1px solid #06cc02;
+  padding: 5px 5px;
+  border-radius: 5px;
+  align-self: stretch;
+  justify-content: center;
+  padding: 0 var(--padding-xl) 0 var(--padding-2xl);
+  box-sizing: border-box;
+  text-align: left;
+  font-size: var(--font-size-6xl);
+  font-family: var(--font-lexend);
+}
+
+
+
+
 .frame-wrapper3 {
   height: 442px;
   width: 349.5px;

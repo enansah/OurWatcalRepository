@@ -14,6 +14,7 @@ exports.login = async (req, res) => {
         if (!room) {
             return res.status(400).json({ msg: 'Invalid Tenant ID' });
         }
+        console.log('tenantId:',tenantId)
 
         // Ensure the room belongs to the landlord
         if (!landlord.roomIds.includes(room._id)) {
@@ -39,7 +40,7 @@ exports.login = async (req, res) => {
 // Function to fetch tenant data and calculate percentage usage and cost
 exports.getTenantData = async (req, res) => {
     const { tenantId } = req.body;
-    console.log('your id is:',tenantId);
+    console.log('your id is:', tenantId);
 
     try {
         const room = await Room.findOne({ uniqueRoomId: tenantId });
@@ -52,15 +53,75 @@ exports.getTenantData = async (req, res) => {
             return res.status(404).json({ success: false, message: 'Landlord not found' });
         }
 
-        const totalConsumption = landlord.roomIds.reduce((sum, room) => {
-            const lastReading = room.readings[room.readings.length - 1];
-            return sum + (lastReading ? lastReading.readingValue : 0);
+        const today = new Date();
+        const oneMonthAgo = new Date();
+        oneMonthAgo.setMonth(today.getMonth() - 1);
+
+        // Calculate total monthly consumption for all rooms
+        const totalMonthlyConsumption = landlord.roomIds.reduce((sum, room) => {
+            const monthlyReadings = room.readings.filter(reading => {
+                const readingDate = new Date(reading.timestamp);
+                return readingDate >= oneMonthAgo && readingDate <= today;
+            });
+            const monthlyConsumption = monthlyReadings.reduce((sum, reading) => sum + reading.readingValue, 0);
+            return sum + monthlyConsumption;
         }, 0);
 
-        const lastReading = room.readings[room.readings.length - 1];
-        const consumption = lastReading ? lastReading.readingValue : 0;
-        const percentageUsage = totalConsumption ? ((consumption / totalConsumption) * 100).toFixed(1) : 0;
-        const cost = calculateCost(consumption);
+        // Calculate monthly consumption for the specific room
+        const roomMonthlyReadings = room.readings.filter(reading => {
+            const readingDate = new Date(reading.timestamp);
+            return readingDate >= oneMonthAgo && readingDate <= today;
+        });
+        const roomMonthlyConsumption = roomMonthlyReadings.reduce((sum, reading) => sum + reading.readingValue, 0);
+        const monthlyPercentageUsage = totalMonthlyConsumption ? ((roomMonthlyConsumption / totalMonthlyConsumption) * 100).toFixed(1) : 0;
+        const monthlyCost = calculateCost(roomMonthlyConsumption);
+
+        // Calculate daily consumption for the current day
+        const startOfToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+        const endOfToday = new Date(startOfToday);
+        endOfToday.setDate(startOfToday.getDate() + 1);
+
+        const totalDailyConsumption = landlord.roomIds.reduce((sum, room) => {
+            const dailyReadings = room.readings.filter(reading => {
+                const readingDate = new Date(reading.timestamp);
+                return readingDate >= startOfToday && readingDate < endOfToday;
+            });
+            const dailyConsumption = dailyReadings.reduce((sum, reading) => sum + reading.readingValue, 0);
+            return sum + dailyConsumption;
+        }, 0);
+
+        const roomDailyReadings = room.readings.filter(reading => {
+            const readingDate = new Date(reading.timestamp);
+            return readingDate >= startOfToday && readingDate < endOfToday;
+        });
+        const roomDailyConsumption = roomDailyReadings.reduce((sum, reading) => sum + reading.readingValue, 0);
+        const dailyPercentageUsage = totalDailyConsumption ? ((roomDailyConsumption / totalDailyConsumption) * 100).toFixed(1) : 0;
+        const dailyCost = calculateCost(roomDailyConsumption);
+
+        // Calculate consumption for the last 2 weeks
+        const twoWeeksAgo = new Date();
+        twoWeeksAgo.setDate(today.getDate() - 13);
+
+        const totalTwoWeeksConsumption = landlord.roomIds.reduce((sum, room) => {
+            const twoWeeksReadings = room.readings.filter(reading => {
+                const readingDate = new Date(reading.timestamp);
+                return readingDate >= twoWeeksAgo && readingDate <= today;
+            });
+            const twoWeeksConsumption = twoWeeksReadings.reduce((sum, reading) => sum + reading.readingValue, 0);
+            return sum + twoWeeksConsumption;
+        }, 0);
+
+        const roomTwoWeeksReadings = room.readings.filter(reading => {
+            const readingDate = new Date(reading.timestamp);
+            return readingDate >= twoWeeksAgo && readingDate <= today;
+        });
+        const roomTwoWeeksConsumption = roomTwoWeeksReadings.reduce((sum, reading) => sum + reading.readingValue, 0);
+        const twoWeeksPercentageUsage = totalTwoWeeksConsumption ? ((roomTwoWeeksConsumption / totalTwoWeeksConsumption) * 100).toFixed(1) : 0;
+        const twoWeeksCost = calculateCost(roomTwoWeeksConsumption);
+
+        // Determine the reading date (current day's reading) and the last reading date
+        const readingDate = roomDailyReadings.length > 0 ? roomDailyReadings[0].timestamp : null;
+        const lastReadingDate = room.readings.length > 0 ? room.readings[room.readings.length - 1].timestamp : null;
 
         // Update and save the last access time
         const currentTime = new Date();
@@ -68,13 +129,26 @@ exports.getTenantData = async (req, res) => {
         room.lastAccessTime = currentTime;
         await room.save();
 
+        // Get the month in 'YYYY-MM' format
+        const month = oneMonthAgo.toISOString().slice(0, 7);
+
         res.json({
             success: true,
             readings: room.readings,
-            percentageUsage,
-            cost,
+            monthlyReading: roomMonthlyConsumption,
+            monthlyPercentageUsage,
+            monthlyCost,
+            roomDailyConsumption,
+            dailyCost,
+            dailyPercentageUsage,
+            roomTwoWeeksConsumption,
+            twoWeeksCost,
+            twoWeeksPercentageUsage,
+            readingDate,
+            lastReadingDate,
             lastAccessTime,
-            roomNumber: room.roomNumber
+            roomNumber: room.roomNumber,
+            month
         });
     } catch (error) {
         console.error('Error fetching tenant data:', error);

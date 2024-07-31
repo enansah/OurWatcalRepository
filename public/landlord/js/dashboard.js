@@ -225,31 +225,34 @@ async function fetchReadingsForLast14Days(username) {
 
 
 async function fetchTotalReadingAndCost() {
-    const username = localStorage.getItem('username'); // Assuming the username is stored in local storage
+  const username = localStorage.getItem('username'); // Assuming the username is stored in local storage
 
-    if (!username) {
-        console.error('Username is not available in local storage');
-        return;
-    }
-    
+  if (!username) {
+      console.error('Username is not available in local storage');
+      return;
+  }
 
-    try {
-      
-        const response = await fetch(`/api/rooms/total?username=${encodeURIComponent(username)}`);
-        const data = await response.json();
+  try {
+      const response = await fetch(`/api/rooms/total?username=${encodeURIComponent(username)}`);
+      const data = await response.json();
 
-        const totalReading = data.totalReading !== undefined ? `${data.totalReading}kWh` : '0kWh';
-        const totalCost = data.totalCost !== undefined ? data.totalCost : 'GHs 0.00';
+      const totalReading = data.totalReading !== undefined ? `${data.totalReading}kWh` : '0kWh';
+      const totalCost = data.totalCost !== undefined ? data.totalCost : 'GHs 0.00';
+      const monthlyConsumption = data.monthlyConsumption !== undefined ? `${data.monthlyConsumption}kWh` : 'N/AkWh';
+      const monthlyCost = data.monthlyCost !== undefined ? data.monthlyCost : 'GHs 0.00';
 
-        document.querySelector('.kwh').textContent = totalReading;
-        document.querySelector('.ghs-120').textContent = totalCost;
-    } catch (error) {
-        console.error('Error fetching total reading and cost:', error);
-    }
+      document.querySelector('.kwh').textContent = totalReading;
+      document.querySelector('.ghs-120').textContent = totalCost;
+      document.querySelector('.total-monthy-consumption-nak').textContent = `Total_Monthy_Consumption: ${monthlyConsumption}`;
+      document.querySelector('.cost-ghs-000').textContent = `Monthly_Cost: ${monthlyCost}`;
+  } catch (error) {
+      console.error('Error fetching total reading and cost:', error);
+  }
 }
 
 // Initialize data fetch on page load
 document.addEventListener('DOMContentLoaded', fetchTotalReadingAndCost);
+
 
 
 
@@ -323,119 +326,111 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Function to fetch data from the API
 async function fetchData(username) {
-    try {
-      const response = await fetch(`/api/rooms/total?username=${encodeURIComponent(username)}`);
-      const data = await response.json();
-      if (data.message) {
-        console.error('API error:', data.message);
-        return []; // Return an empty array in case of an error message
-      }
-      if (!Array.isArray(data)) {
-        console.error('Expected an array but received:', data);
-        return [];
-      }
-      return data;
-    } catch (error) {
-      console.error('Error fetching data:', error);
-      return [];
+  try {
+    const response = await fetch(`/api/readings/last14days?username=${username}`);
+    const data = await response.json();
+    if (data.error) {
+      console.error('API error:', data.error);
+      return []; // Return an empty array in case of an error message
     }
+    return data.readings;
+  } catch (error) {
+    console.error('Error fetching data:', error);
+    return [];
   }
-  
-  // Function to generate the chart
-  async function generateChart() {
-    // Obtain the username from local storage
-    const username = localStorage.getItem('username');
-    if (!username) {
-      console.error('No username found in local storage');
-      return;
-    }
-  
-    // Fetch the readings data
-    const readings = await fetchData(username);
-  
-    // Prepare the data for Chart.js
-    let labels, dataValues;
-    if (readings.length === 0) {
-      // Dummy data for when there is no data
-      labels = ['1h', '2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', '10h']; // Extended labels
-      dataValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
-    } else {
-      labels = readings.map((reading, index) => `${index + 1}h`); // Label x-axis as hours
-      dataValues = readings.map(reading => reading.value); // Adjust according to your data structure
-    }
-  
-    const data = {
-      labels: labels,
-      datasets: [{
-        label: 'Meter Readings (kWh)',
-        data: dataValues,
-        backgroundColor: 'rgba(75, 192, 192, 0.2)',
-        borderColor: '#06cc02', // Line color for plotting readings
-        borderWidth: 2,
-        fill: false
-      }]
-    };
-  
-    const config = {
-      type: 'line', // Use line chart to plot the readings
-      data: data,
-      options: {
-        responsive: true, // Make chart responsive to container size
-        maintainAspectRatio: false, // Allow the chart to fit the container size
-        scales: {
-          y: {
-            beginAtZero: true,
-            ticks: {
-              stepSize: 50, // Set y-axis labels to be multiples of 50
-              callback: function(value) { return value + ' kWh'; }, // Add ' kWh' to y-axis labels
-              color: '#ffffff' // Set y-axis label color to white
-            },
-            grid: {
-              color: '#bfbfbf', // Set grid line color to #bfbfbf
-              drawBorder: false // Remove border for cleaner grid
-            },
-            title: {
-              display: true,
-              text: 'Kilowatt-Hours (kWh)',
-              color: '#ffffff' // Set y-axis title color to white
-            }
+}
+
+// Function to generate the chart
+async function generateChart() {
+  // Obtain the username from local storage
+  const username = localStorage.getItem('username');
+  if (!username) {
+    console.error('No username found in local storage');
+    return;
+  }
+
+  // Fetch the readings data
+  const readings = await fetchData(username);
+
+  // Prepare the data for Chart.js
+  let labels, dataValues;
+  if (readings.length === 0) {
+    // Dummy data for when there is no data
+    labels = Array.from({ length: 14 }, (_, i) => `d${i + 1}`);
+    dataValues = Array(14).fill(0);
+  } else {
+    labels = Array.from({ length: readings.length }, (_, i) => `${i + 1}d`);
+    dataValues = readings.map(reading => reading === 'N/A' ? 0 : reading);
+  }
+
+  const data = {
+    labels: labels,
+    datasets: [{
+      label: 'Meter Readings (kWh)',
+      data: dataValues,
+      backgroundColor: 'rgba(75, 192, 192, 0.2)',
+      borderColor: '#06cc02',
+      borderWidth: 2,
+      fill: false
+    }]
+  };
+
+  const config = {
+    type: 'line',
+    data: data,
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        y: {
+          beginAtZero: true,
+          ticks: {
+            stepSize: 50,
+            callback: function(value) { return value + ' kWh'; },
+            color: '#ffffff'
           },
-          x: {
-            grid: {
-              color: '#bfbfbf', // Set grid line color to #bfbfbf
-            },
-            ticks: {
-              maxRotation: 0, // Ensure labels are not rotated
-              autoSkip: false, // Show all labels
-              callback: function(value) {
-                return labels[value]; // Use labels array to display x-axis labels
-              },
-              color: '#ffffff' // Set x-axis label color to white
-            },
-            title: {
-              display: true,
-              text: 'Hours',
-              color: '#ffffff' // Set x-axis title color to white
-            }
+          grid: {
+            color: '#bfbfbf',
+            drawBorder: false
+          },
+          title: {
+            display: true,
+            text: 'Kilowatt-Hours (kWh)',
+            color: '#ffffff'
           }
         },
-        plugins: {
-          legend: {
-            labels: {
-              color: '#ffffff' // Set the legend label color to white
-            }
+        x: {
+          grid: {
+            color: '#bfbfbf',
+          },
+          ticks: {
+            maxRotation: 0,
+            autoSkip: false,
+            color: '#ffffff'
+          },
+          title: {
+            display: true,
+            text: 'Days',
+            color: '#ffffff'
+          }
+        }
+      },
+      plugins: {
+        legend: {
+          labels: {
+            color: '#ffffff'
           }
         }
       }
-    };
-  
-    // Render the chart
-    const myChart = new Chart(
-      document.getElementById('myChart'),
-      config
-    );
-  }
-  
-  // Wait for the DOM to fully load before generating the chart
-  document.addEventListener('DOMContentLoaded', generateChart);
-  
+    }
+  };
+
+  // Render the chart
+  const myChart = new Chart(
+    document.getElementById('myChart'),
+    config
+  );
+}
+
+// Wait for the DOM to fully load before generating the chart
+document.addEventListener('DOMContentLoaded', generateChart);

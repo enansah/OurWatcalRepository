@@ -1,29 +1,29 @@
 function showPopup(popupId) {
-    const popup = document.getElementById(popupId);
-    const overlay = document.getElementById('overlay' + popupId.replace('popup', ''));
-    const content = document.querySelector('.tent');
+  const popup = document.getElementById(popupId);
+  const overlay = document.getElementById('overlay' + popupId.replace('popup', ''));
+  const content = document.querySelector('.tent');
 
-    overlay.style.display = 'flex';
-    popup.style.display = 'block';
-    content.classList.add('blur-background');
-    document.body.classList.add('disable-scroll');
-    document.body.classList.add('popup-open');
+  overlay.style.display = 'flex';
+  popup.style.display = 'block';
+  content.classList.add('blur-background');
+  document.body.classList.add('disable-scroll');
+  document.body.classList.add('popup-open');
 
-    overlay.onclick = function() {
-        hidePopup(popupId);
-    };
+  overlay.onclick = function() {
+      hidePopup(popupId);
+  };
 }
 
 function hidePopup(popupId) {
-    const popup = document.getElementById(popupId);
-    const overlay = document.getElementById('overlay' + popupId.replace('popup', ''));
-    const content = document.querySelector('.tent');
+  const popup = document.getElementById(popupId);
+  const overlay = document.getElementById('overlay' + popupId.replace('popup', ''));
+  const content = document.querySelector('.tent');
 
-    overlay.style.display = 'none';
-    popup.style.display = 'none';
-    content.classList.remove('blur-background');
-    document.body.classList.remove('disable-scroll');
-    document.body.classList.remove('popup-open');
+  overlay.style.display = 'none';
+  popup.style.display = 'none';
+  content.classList.remove('blur-background');
+  document.body.classList.remove('disable-scroll');
+  document.body.classList.remove('popup-open');
 }          
 
 
@@ -31,7 +31,7 @@ function hidePopup(popupId) {
 
 
 
-  
+
 
 
 
@@ -40,80 +40,80 @@ function hidePopup(popupId) {
 var textButton1 = document.getElementById("textButton1");
 if (textButton1) {
 textButton1.addEventListener("click", function (e) {
-    window.location.href = "../Helpdesk.html";
+  window.location.href = "../Helpdesk.html";
 });
 }
 
 var textButton = document.getElementById("textButton");
 if (textButton) {
 textButton.addEventListener("click", function (e) {
-    window.location.href = "../Home.html";
+  window.location.href = "../Home.html";
 });
 }
 
 var textButton2 = document.getElementById("textButton2");
 if (textButton2) {
 textButton2.addEventListener("click", function (e) {
-    window.location.href = "../About.html"; 
+  window.location.href = "../About.html"; 
 });
 }
 
 var textButton3 = document.getElementById("textButton3");
 if (textButton3) {
 textButton3.addEventListener("click", function (e) {
-    window.location.href = "../Security.html";
+  window.location.href = "../Security.html";
 });
 }
 
 var group = document.getElementById("group");
 if (group) {
 group.addEventListener("click", function (e) {
-    window.location.href = "EditProfile.html";
+  window.location.href = "EditProfile.html";
 });
 }
 
 var dbtnContainer = document.getElementById("dbtnContainer");
 if (dbtnContainer) {
 dbtnContainer.addEventListener("click", function (e) {
-    window.location.href = "Dashboard.html";
+  window.location.href = "Dashboard.html";
 });
 }
 
 var pienabtnContainer = document.getElementById("pienabtnContainer");
 if (pienabtnContainer) {
 pienabtnContainer.addEventListener("click", function (e) {
-    window.location.href = "Analysis.html";
+  window.location.href = "Analysis.html";
 });
 }
 
 var mousebtnContainer = document.getElementById("mousebtnContainer");
 if (mousebtnContainer) {
 mousebtnContainer.addEventListener("click", function (e) {
-    window.location.href = "Settings.html";
+  window.location.href = "Settings.html";
 });
 }
 
 var trendbtnContainer = document.getElementById("trendbtnContainer");
 if (trendbtnContainer) {
 trendbtnContainer.addEventListener("click", function (e) {
-    window.location.href = "History.html";
+  window.location.href = "History.html";
 });
 }
 
 var openerBtnContainer = document.getElementById("openerBtnContainer");
 if (openerBtnContainer) {
 openerBtnContainer.addEventListener("click", function (e) {
-    window.location.href = "../Home.html";
+  window.location.href = "../Home.html";
 });
 }
 
-       
-        
+     
+      
 
 
-        
       
-      
+    
+    
 
 
 
@@ -128,30 +128,30 @@ openerBtnContainer.addEventListener("click", function (e) {
 
 
 document.addEventListener('DOMContentLoaded', function() {
-    async function checkAuth() {
-        const response = await fetch('/api/landlordIsAuthenticated');
-        const data = await response.json();
+  async function checkAuth() {
+      const response = await fetch('/api/landlordIsAuthenticated');
+      const data = await response.json();
 
-        if (!data.isAuthenticated) {
-        window.location.href = '../Llogin.html';
-        } else {
-        document.getElementById('username').textContent = data.landlord.username;
-        document.getElementById('panelUsername').textContent = data.landlord.username;
-        document.getElementById('panelEmail').textContent = data.landlord.email;
-        }
-    }
+      if (!data.isAuthenticated) {
+      window.location.href = '../Llogin.html';
+      } else {
+      document.getElementById('username').textContent = data.landlord.username;
+      document.getElementById('panelUsername').textContent = data.landlord.username;
+      document.getElementById('panelEmail').textContent = data.landlord.email;
+      }
+  }
 
-    document.getElementById('openerBtnContainer').addEventListener('click', async function() {
-        const response = await fetch('/api/landlordLogout', { method: 'POST' });
+  document.getElementById('openerBtnContainer').addEventListener('click', async function() {
+      const response = await fetch('/api/landlordLogout', { method: 'POST' });
 
-        if (response.ok) {
-        window.location.href = '../Home.html';
-        } else {
-        alert('Logout failed');
-        }
-    });
+      if (response.ok) {
+      window.location.href = '../Home.html';
+      } else {
+      alert('Logout failed');
+      }
+  });
 
-    checkAuth();
+  checkAuth();
 });
 
 
@@ -166,98 +166,97 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Main popup function
 function mainpop(button) {
-  const popup = document.getElementById('pop');
-  const overlay = document.getElementById('over');
-  const content = document.querySelector('.tent');
+const popup = document.getElementById('pop');
+const overlay = document.getElementById('over');
+const content = document.querySelector('.tent');
 
-  overlay.style.display = 'flex';
-  popup.style.display = 'block';
-  content.classList.add('blur-background');
-  document.body.classList.add('disable-scroll');
-  document.body.classList.add('popup-open');
+overlay.style.display = 'flex';
+popup.style.display = 'block';
+content.classList.add('blur-background');
+document.body.classList.add('disable-scroll');
+document.body.classList.add('popup-open');
 
-  const roomContainer = button.closest('.containers');
-  const roomNumber = roomContainer.querySelector('.container-header').dataset.roomNumber;
+const roomContainer = button.closest('.containers');
+const roomNumber = roomContainer.querySelector('.container-header').dataset.roomNumber;
 
-  console.log('Room Number from button:', roomNumber);
+console.log('Room Number from button:', roomNumber);
 
-  // Store room number in the popup for deletion
-  if (roomNumber) {
-    popup.dataset.roomNumber = roomNumber;
-    console.log('Room number set in popup dataset:', popup.dataset.roomNumber);
-  } else {
-    console.error('Room number not found in button dataset');
-    hide();
-  }
+// Store room number in the popup for deletion
+if (roomNumber) {
+  popup.dataset.roomNumber = roomNumber;
+  console.log('Room number set in popup dataset:', popup.dataset.roomNumber);
+} else {
+  console.error('Room number not found in button dataset');
+  hide();
+}
 
-  overlay.onclick = function() {
-    hide();
-  };
+overlay.onclick = function() {
+  hide();
+};
 }
 
 function hide() {
-  const popup = document.getElementById('pop');
-  const overlay = document.getElementById('over');
-  const content = document.querySelector('.tent');
+const popup = document.getElementById('pop');
+const overlay = document.getElementById('over');
+const content = document.querySelector('.tent');
 
-  overlay.style.display = 'none';
-  popup.style.display = 'none';
-  content.classList.remove('blur-background');
-  document.body.classList.remove('disable-scroll');
-  document.body.classList.remove('popup-open');
+overlay.style.display = 'none';
+popup.style.display = 'none';
+content.classList.remove('blur-background');
+document.body.classList.remove('disable-scroll');
+document.body.classList.remove('popup-open');
 }
 
 function showSuccessPopup() {
-  const successPopup = document.getElementById('success-popup');
-  successPopup.style.display = 'block';
+const successPopup = document.getElementById('success-popup');
+successPopup.style.display = 'block';
 }
 
 function hideSuccessPopup() {
-  const successPopup = document.getElementById('success-popup');
-  successPopup.style.display = 'none';
+const successPopup = document.getElementById('success-popup');
+successPopup.style.display = 'none';
 }
 
 // Add event listeners to the "Yes" and "No" buttons
 document.addEventListener('DOMContentLoaded', () => {
-  const yesButton = document.querySelector('.yes1');
-  const noButton = document.querySelector('.no1');
-  const closeButton = document.querySelector('.clo-icon');
+const yesButton = document.querySelector('.yes1');
+const noButton = document.querySelector('.no1');
+const closeButton = document.querySelector('.clo-icon');
 
-  yesButton.addEventListener('click', async () => {
-    const popup = document.getElementById('pop');
-    const roomNumber = popup.dataset.roomNumber;
-    const username = localStorage.getItem('username'); // Fetch the username from local storage
+yesButton.addEventListener('click', async () => {
+  const popup = document.getElementById('pop');
+  const roomNumber = popup.dataset.roomNumber;
+  const username = localStorage.getItem('username'); // Fetch the username from local storage
 
-    console.log('Room number in popup dataset:', roomNumber);
-    console.log('Username from local storage:', username);
+  console.log('Room number in popup dataset:', roomNumber);
+  console.log('Username from local storage:', username);
 
-    if (!roomNumber || !username) {
-      console.error('Room number or username not found');
-      return;
+  if (!roomNumber || !username) {
+    console.error('Room number or username not found');
+    return;
+  }
+
+  try {
+    const response = await fetch(`/api/rooms/${roomNumber}?username=${encodeURIComponent(username)}`, {
+      method: 'DELETE'
+    });
+
+    if (response.ok) {
+      const roomContainer = document.querySelector(`.containers .container-header[data-room-number="${roomNumber}"]`).closest('.containers');
+      roomContainer.remove();
+      hide();
+      showSuccessPopup(); // Show success popup upon successful deletion
+    } else {
+      console.error('Failed to delete room:', response.statusText);
     }
-
-    try {
-      const response = await fetch(`/api/rooms/${roomNumber}?username=${encodeURIComponent(username)}`, {
-        method: 'DELETE'
-      });
-
-      if (response.ok) {
-        const roomContainer = document.querySelector(`.containers .container-header[data-room-number="${roomNumber}"]`).closest('.containers');
-        roomContainer.remove();
-        hide();
-        showSuccessPopup(); // Show success popup upon successful deletion
-      } else {
-        console.error('Failed to delete room:', response.statusText);
-      }
-    } catch (error) {
-      console.error('Error deleting room:', error);
-    }
-  });
-
-  noButton.addEventListener('click', hide);
-  closeButton.addEventListener('click', hide);
+  } catch (error) {
+    console.error('Error deleting room:', error);
+  }
 });
 
+noButton.addEventListener('click', hide);
+closeButton.addEventListener('click', hide);
+});
 
 
 
@@ -282,38 +281,43 @@ document.addEventListener('DOMContentLoaded', () => {
   const username = localStorage.getItem('username'); // Assuming the username is stored in local storage upon login
 
   fetch(`/api/rooms?username=${encodeURIComponent(username)}`)
-    .then(response => response.json())
-    .then(data => {
-      const containerWrapper = document.querySelector('.containers-wrapper');
-      containerWrapper.innerHTML = '';
+      .then(response => response.json())
+      .then(data => {
+          const containerWrapper = document.querySelector('.containers-wrapper');
+          containerWrapper.innerHTML = '';
 
-      // Calculate the total sum of readings
-      const totalSum = data.reduce((sum, room) => {
-        const lastReading = room.readings[room.readings.length - 1];
-        return sum + (lastReading ? lastReading.readingValue : 0);
-      }, 0);
+          const { rooms, totalConsumptionTwoWeeks, weeklyCost, totalConsumptionLastMonth, monthlyCost, totalConsumptionToday, dailyCost } = data;
 
-      data.forEach(room => {
-        const lastReading = room.readings[room.readings.length - 1];
-        const currentDate = new Date().toLocaleDateString();
-        const currentTime = new Date().toLocaleTimeString();
-        const lastReadingDate = lastReading ? new Date(lastReading.timestamp).toLocaleDateString() : 'N/A';
-        const lastReadingTime = lastReading ? new Date(lastReading.timestamp).toLocaleTimeString() : 'N/A';
-        const lastReadingValue = lastReading ? lastReading.readingValue : 0;
-        const cost = calculateCost(lastReadingValue);
-        const percentage = totalSum ? ((lastReadingValue / totalSum) * 100).toFixed(1) : 0;
-        const uniqueRoomId = room.uniqueRoomId;
-        localStorage.setItem('uniqueRoomId', uniqueRoomId);
+          // Calculate the total sum of readings for all rooms
+          const totalSum = rooms.reduce((sum, room) => {
+              const lastReading = room.readings[room.readings.length - 1];
+              return sum + (lastReading ? lastReading.readingValue : 0);
+          }, 0);
 
-        const now = new Date();
-        const year = now.getFullYear();
-        const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
-        const day = String(now.getDate()).padStart(2, '0');
-        const nowdate = `${day}-${month}-${year}`;
+          rooms.forEach(room => {
+              const lastReading = room.readings[room.readings.length - 1];
+              const currentDate = new Date().toLocaleDateString();
+              const currentTime = new Date().toLocaleTimeString();
+              const lastReadingDate = lastReading ? new Date(lastReading.timestamp).toLocaleDateString() : 'N/A';
+              const lastReadingTime = lastReading ? new Date(lastReading.timestamp).toLocaleTimeString() : 'N/A';
+              const lastReadingValue = lastReading ? lastReading.readingValue : 0;
 
-        const container = document.createElement('div');
-        container.className = 'containers';
-        container.innerHTML = `
+              // Calculate percentage of room consumption against total consumption today
+              const dailyConsumption = room.dailyConsumption !== undefined ? room.dailyConsumption : 'N/A';
+              const percentageOfTotalToday = totalConsumptionToday ? ((dailyConsumption / totalConsumptionToday) * 100).toFixed(1) : 0;
+            
+
+              const now = new Date();
+              const year = now.getFullYear();
+              const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+              const day = String(now.getDate()).padStart(2, '0');
+              const nowdate = `${day}-${month}-${year}`;
+
+              const container = document.createElement('div');
+              container.className = 'containers';
+              container.dataset.tenantId = room.uniqueRoomId; // Set data-tenant-id
+              
+              container.innerHTML = `
           <div class="container-header" data-room-number=${room.roomNumber}>
            <div class="container-header-inner">
             <div class="room-name-parent">
@@ -390,7 +394,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       <div class="container-data-child">
                         <div class="reading-value-parent">
                           <div class="reading-value">Reading_value :</div>
-                          <div class="kw">${lastReadingValue} kWh</div>
+                          <div class="kw">${dailyConsumption} kWh</div>
                         </div>
                       </div>
                       <div class="line3"></div>
@@ -450,9 +454,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img
                       class="rectangle-icon"
                       alt=""
-                      src="./public/rectangle-32.svg"
                     />
-
+  
                     <div class="frame-wrapper">
                       <div class="monday-parent">
                         <div class="monday">Monday</div>
@@ -533,9 +536,8 @@ document.addEventListener('DOMContentLoaded', () => {
                     <img
                       class="calendar-grid-child3"
                       alt=""
-                      src="./public/rectangle-32.svg"
                     />
-
+  
                     <div class="calendar-grid-inner4">
                       <div class="monday-group">
                         <div class="monday1">Monday</div>
@@ -609,12 +611,28 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
               </div>
             </div>
+            <div class="main-wrapper">
+                <div class="main">
+                  <h1 class="total-monthy-consumption-nak">
+                    Total_Monthy_Consumption: ${totalConsumptionLastMonth}kWh
+                  </h1>
+                  <div class="cost-ghs-000">Monthly_Cost: GHs ${monthlyCost}</div>
+               </div>
+              </div>
+              <div class="main-wrapper">
+                <div class="main">
+                  <h1 class="total-weekly-consumption-nak">
+                    Two_Weeks_Consumption: ${totalConsumptionTwoWeeks}kWh
+                  </h1>
+                  <div class="WeekCost-ghs-000">Weekly_Cost: GHs ${weeklyCost}</div>
+                </div>
+              </div>
             <div class="chart-summary">
               <div class="usage-summary-parent">
                 <div class="usage-summary">
                   <h1 class="percentage-usage">Percentage Usage</h1>
                 </div>
-
+  
                 <!-- graph -->
                 <div class="chart-content">
                   <div class="dash">
@@ -627,14 +645,14 @@ document.addEventListener('DOMContentLoaded', () => {
                   </div>
                   <div class="percentage-summary">
                     <div class="percentage">
-                      <b class="percentage-number">${percentage}%</b>
+                      <b class="percentage-number">${percentageOfTotalToday}%</b>
                       <div class="togglebtn1-wrapper" data-roomIds="${room._id}">
                       <div class="togglebtn1">
                         <div class="on">ON</div>
                       </div>
                       </div>
                       <div class="price">
-                        <b class="ghs-120">Ghs ${cost}</b>
+                        <b class="ghs-120">Ghs ${dailyCost}</b>
                       </div>
                     </div>
                   </div>
@@ -645,8 +663,8 @@ document.addEventListener('DOMContentLoaded', () => {
           `;
   
           containerWrapper.appendChild(container);
-
-
+  
+  
            // Generate the chart for this room
         generateRoomChart(`chart-${room.roomNumber}`, room.readings);
           
@@ -660,13 +678,13 @@ document.addEventListener('DOMContentLoaded', () => {
       });
           // Initialize toggles
           initializeToggles();
-
+  
         // Update date and day elements
           updateDateAndDay();
       })
       .catch(error => console.error('Error fetching rooms:', error));
     });
-
+  
   
   // Define tier rates for cost calculation
   const tierRates = [
@@ -696,15 +714,15 @@ document.addEventListener('DOMContentLoaded', () => {
       return cost.toFixed(2); // Return as string formatted to two decimal places
   }
   
-
+  
   // Function to update date and day elements
   const updateDateAndDay = () => {
     // Get today's date
     let today = new Date();
-
+  
     // Array of day names in order
     const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
+  
     // Array of elements to update in descending order
     const dateElements = [
       { dateClass: '.june', dayClass: '.sunday' },
@@ -722,21 +740,21 @@ document.addEventListener('DOMContentLoaded', () => {
       { dateClass: '.june12', dayClass: '.friday1' },
       { dateClass: '.june13', dayClass: '.saturday1' }
     ];
-
+  
     dateElements.forEach((element, index) => {
       let dateElement = document.querySelector(element.dateClass);
       let dayElement = document.querySelector(element.dayClass);
-
+  
       if (dateElement && dayElement) {
         // Calculate the date for each element (decreasing)
         let currentDate = new Date(today);
         currentDate.setDate(today.getDate() - index);
-
+  
         // Extract day and date parts
         let dayName = daysOfWeek[currentDate.getDay()];
         let dayDate = currentDate.getDate();
         let monthName = currentDate.toLocaleString('default', { month: 'long' });
-
+  
         // Update the element with the new date
         dateElement.innerText = `${dayDate} ${monthName}`;
         // Update the corresponding day name element
@@ -744,30 +762,30 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   };
-
-
-
+  
+  
+  
    // Function to initialize toggles
    const initializeToggles = () => {
     const toggles = document.querySelectorAll('.togglebtn1-wrapper');
-
+  
     toggles.forEach(toggle => {
         const roomIds = toggle.getAttribute('data-roomIds');
         let isOn = localStorage.getItem(`roomIds_${roomIds}_status`) !== 'OFF'; // Check local storage for saved state, default is ON
         toggle.classList.toggle('off', !isOn); // Initialize toggle state based on local storage
         toggle.querySelector('.on').textContent = isOn ? 'ON' : 'OFF'; // Set initial text
-
+  
         toggle.addEventListener('click', function () {
             isOn = !isOn;
             localStorage.setItem(`roomIds_${roomIds}_status`, isOn ? 'ON' : 'OFF'); // Save state to local storage
             this.classList.toggle('off', !isOn); // Toggle class
             this.querySelector('.on').textContent = isOn ? 'ON' : 'OFF'; // Update text
-
+  
             // Call the function to update the electricity status
             updateElectricityStatus(roomIds, !isOn); // Pass opposite of current state
         });
     });
-};
+  };
   
   // Function to update electricity status
   const updateElectricityStatus = (roomIds, disconnect) => {
@@ -786,30 +804,30 @@ document.addEventListener('DOMContentLoaded', () => {
       console.error('Error updating electricity status:', error);
     });
   };
-
-
-
-
-
-
-
-
-
-
-// Function to generate a chart for each room
-function generateRoomChart(roomId, readings) {
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  // Function to generate a chart for each room
+  function generateRoomChart(roomId, readings) {
   // Prepare the data for Chart.js
   let labels, dataValues;
   
   if (readings.length === 0) {
     // Dummy data for when there is no data
-    labels = ['1h', '2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', '10h'];
+    labels = ['day1', 'day2', 'day3', 'day4', 'day5', 'day6', 'day7', 'day8', 'day9', 'day10'];
     dataValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   } else {
-    labels = readings.map((_, index) => `${index + 1}h`);
+    labels = readings.map((_, index) => `d${index + 1}`);
     dataValues = readings.map(reading => reading.readingValue);
   }
-
+  
   const data = {
     labels: labels,
     datasets: [{
@@ -821,7 +839,7 @@ function generateRoomChart(roomId, readings) {
       fill: false
     }]
   };
-
+  
   const config = {
     type: 'line', // Use line chart to plot the readings
     data: data,
@@ -860,7 +878,7 @@ function generateRoomChart(roomId, readings) {
           },
           title: {
             display: true,
-            text: 'Hours',
+            text: 'Days',
             color: '#ffffff'
           }
         }
@@ -874,8 +892,8 @@ function generateRoomChart(roomId, readings) {
       }
     }
   };
-
+  
   // Create the chart
   const ctx = document.getElementById(roomId).getContext('2d');
   new Chart(ctx, config);
-}
+  }

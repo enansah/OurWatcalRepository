@@ -402,7 +402,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img
                           class="downloadbtn-child"
                           alt=""
-                          src="./images/rectangle-31.svg"
+                          ./images/DownloadBtn.png
                         />
 
                         <div class="export">Export</div>
@@ -492,7 +492,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img
                           class="rectangle-icon"
                           alt=""
-                          src="./images/rectangle-32.svg"
                         />
 
                         <div class="frame-wrapper">
@@ -575,7 +574,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         <img
                           class="week-schedule-child3"
                           alt=""
-                          src="./images/rectangle-32.svg"
                         />
 
                         <div class="week-schedule-inner4">
@@ -651,6 +649,14 @@ document.addEventListener('DOMContentLoaded', function() {
                     </div>
                   </div>
                 </div>
+                <div class="main-wrapper">
+                 <div class="main">
+                  <h1 class="total-monthy-consumption-nak">
+                    Total_Monthy_Consumption: N/AkWh
+                  </h1>
+                  <div class="cost-ghs-000">Monthly_Cost: GHs 0.00</div>
+                 </div>
+                </div>
                 <div class="frame-wrapper2">
                   <div class="frame-parent2">
                     <div class="percentage-usage-wrapper">
@@ -695,13 +701,11 @@ document.addEventListener('DOMContentLoaded', function() {
                                           class="date-label-one"
                                           loading="lazy"
                                           alt=""
-                                          src="./images/.png"
                                         />
 
                                         <img
                                           class="date-label-two"
                                           alt=""
-                                          src="./images/.png"
                                         />
 
                                         

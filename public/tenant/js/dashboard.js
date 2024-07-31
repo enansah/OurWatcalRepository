@@ -283,10 +283,10 @@ async function generateChart() {
 
     let labels, dataValues;
     if (readings.length === 0) {
-        labels = ['1h', '2h', '3h', '4h', '5h', '6h', '7h', '8h', '9h', '10h'];
+        labels = ['day1', 'day2', 'day3', 'day4', 'day5', 'day6', 'day7', 'day8', 'day9', 'day10'];
         dataValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
     } else {
-        labels = readings.map((reading, index) => `${index + 1}h`);
+        labels = readings.map((reading, index) => `d${index + 1}`);
         dataValues = readings.map(reading => reading.value);
     }
 
@@ -340,7 +340,7 @@ async function generateChart() {
                     },
                     title: {
                         display: true,
-                        text: 'Hours',
+                        text: 'Days',
                         color: '#ffffff'
                     }
                 }

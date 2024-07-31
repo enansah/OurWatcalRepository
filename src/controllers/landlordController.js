@@ -177,53 +177,6 @@ exports.forgotPasswordLandlord = async (req, res) => {
 
 
 
-    exports.getTotalReadingAndCost = async (req, res) => {
-      console.log('Received request to fetch total reading and cost');
-    
-      const { username } = req.query; // Assuming username is sent as a query parameter
-    
-      console.log('Received request to fetch total reading and cost');
-      console.log('Username from query:', username);
-    
-      if (!username) {
-        return res.status(400).json({ message: 'Username is required' });
-      }
-    
-      try {
-        const landlord = await Landlord.findOne({ username }).populate('roomIds');
-        if (!landlord) {
-          console.log('Landlord not found');
-          return res.status(404).json({ message: 'Landlord not found' });
-        }
-    
-        console.log('Landlord found:', landlord);
-    
-        const totalReading = landlord.roomIds.reduce((sum, room) => {
-          const latestReading = room.readings.slice(-1)[0]?.readingValue || 0;
-          return sum + latestReading;
-        }, 0);
-    
-        let totalCost = calculateCost(totalReading);
-        console.log('Total Cost before conversion:', totalCost, 'Type:', typeof totalCost);
-    
-        // Ensure totalCost is a number
-        totalCost = parseFloat(totalCost);
-        if (isNaN(totalCost)) {
-          totalCost = 0;
-        }
-        console.log('Total Cost after conversion:', totalCost, 'Type:', typeof totalCost);
-    
-        const formattedTotalReading = totalReading.toFixed(1);
-    
-        res.json({ totalReading: formattedTotalReading, totalCost: totalCost.toFixed(2) });
-      } catch (error) {
-        console.error('Error fetching total reading and cost:', error);
-        res.status(500).json({ message: 'Error fetching total reading and cost', error });
-      }
-    };
-
-
-
     const tierRates = [
       { upperLimit: 50, rate: 0.00 },     // Tier 1 (Lifeline)
       { upperLimit: 150, rate: 0.2460 },  // Tier 2
@@ -247,12 +200,90 @@ exports.forgotPasswordLandlord = async (req, res) => {
         }
       }
     
-      return `GHs ${cost.toFixed(2)}`; // Format to two decimal places
+      return cost; // Return numeric value
     }
-
-
-
-
-
-
-
+    
+    exports.getTotalReadingAndCost = async (req, res) => {
+      console.log('Received request to fetch total reading and cost');
+    
+      const { username } = req.query; // Assuming username is sent as a query parameter
+    
+      console.log('Username from query:', username);
+    
+      if (!username) {
+        return res.status(400).json({ message: 'Username is required' });
+      }
+    
+      try {
+        const landlord = await Landlord.findOne({ username }).populate('roomIds');
+        if (!landlord) {
+          console.log('Landlord not found');
+          return res.status(404).json({ message: 'Landlord not found' });
+        }
+    
+        const totalReading = landlord.roomIds.reduce((sum, room) => {
+          const latestReading = room.readings.slice(-1)[0]?.readingValue || 0;
+          return sum + latestReading;
+        }, 0);
+    
+        let totalCost = calculateCost(totalReading);
+        console.log('Total Cost before conversion:', totalCost, 'Type:', typeof totalCost);
+    
+        const formattedTotalReading = totalReading.toFixed(1);
+    
+        // Determine the previous month
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth();
+        const previousMonth = currentMonth === 0 ? 11 : currentMonth - 1; // Handle January case
+        const previousYear = currentMonth === 0 ? currentDate.getFullYear() - 1 : currentDate.getFullYear();
+    
+        // Calculate total monthly consumption for the previous month
+        const monthlyConsumption = landlord.roomIds.reduce((sum, room) => {
+          const monthlyReading = room.readings.reduce((monthlySum, reading) => {
+            const readingDate = new Date(reading.date);
+            const readingMonth = readingDate.getMonth();
+            const readingYear = readingDate.getFullYear();
+            if (readingMonth === previousMonth && readingYear === previousYear) {
+              return monthlySum + reading.readingValue;
+            }
+            return monthlySum;
+          }, 0);
+          return sum + monthlyReading;
+        }, 0);
+    
+        const formattedMonthlyConsumption = monthlyConsumption ? monthlyConsumption.toFixed(1) : 'N/A';
+        const monthlyCost = monthlyConsumption ? calculateCost(monthlyConsumption).toFixed(2) : 'N/A';
+    
+        // Calculate total consumption for the last two weeks inclusively the current day
+        const twoWeeksAgo = new Date(currentDate);
+        twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 13); // 13 days before today + today = 14 days total
+    
+        const twoWeeksConsumption = landlord.roomIds.reduce((sum, room) => {
+          const twoWeeksReading = room.readings.reduce((twoWeeksSum, reading) => {
+            const readingDate = new Date(reading.date);
+            if (readingDate >= twoWeeksAgo && readingDate <= currentDate) {
+              return twoWeeksSum + reading.readingValue;
+            }
+            return twoWeeksSum;
+          }, 0);
+          return sum + twoWeeksReading;
+        }, 0);
+    
+        const formattedTwoWeeksConsumption = twoWeeksConsumption ? twoWeeksConsumption.toFixed(1) : 'N/A';
+        const twoWeeksCost = twoWeeksConsumption ? calculateCost(twoWeeksConsumption).toFixed(2) : 'N/A';
+    
+        res.json({
+          totalReading: formattedTotalReading,
+          totalCost: `GHs ${totalCost.toFixed(2)}`,
+          monthlyConsumption: formattedMonthlyConsumption,
+          monthlyCost: `GHs ${monthlyCost}`,
+          twoWeeksConsumption: formattedTwoWeeksConsumption,
+          twoWeeksCost: `GHs ${twoWeeksCost}`
+        });
+      } catch (error) {
+        console.error('Error fetching total reading and cost:', error);
+        res.status(500).json({ message: 'Error fetching total reading and cost', error });
+      }
+    };
+    
+    

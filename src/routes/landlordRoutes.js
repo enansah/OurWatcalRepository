@@ -1,6 +1,6 @@
 // routes/landlordRoutes.js
 const express = require('express');
-const { registerLandlord, loginLandlord, forgotPasswordLandlord, resetPasswordLandlord, getTotalReadingAndCost, deleteRoom } = require('../controllers/landlordController');
+const { registerLandlord, loginLandlord, forgotPasswordLandlord, resetPasswordLandlord, getTotalReadingAndCost } = require('../controllers/landlordController');
 const {updateUserProfile, getUserProfile} = require('../controllers/landlordUpdate');
 const { updateElectricityStatus } = require('../controllers/LandlordRelayToggle');
 const authMiddleware = require('../middleware/authMiddleware');

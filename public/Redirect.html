@@ -11,14 +11,18 @@
     />
     <link
       rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap"
     />
   </head>
   <body>
     <div class="redirect">
-      <section class="navbar">
-        <div class="material-symbolsarrow-back-io-parent">
-          <div class="material-symbolsarrow-back-io" onclick="goBack()">
+      <section class="redirect-inner">
+        <header class="material-symbolsarrow-back-io-parent">
+          <div class="material-symbolsarrow-back-io"  onclick="goBack()">
             <img
               class="back-icon"
               loading="lazy"
@@ -26,96 +30,132 @@
               src="./images/back.svg"
             />
           </div>
-          <div class="welcome-container">
-            <div class="welcome-message">
-              <h3 class="welcome-to-your">Welcome to your dashboard</h3>
-              <h3 class="username" id="username">Username</h3>
+          <div class="frame-wrapper">
+            <div class="welcome-to-your-dashboard-parent">
+              <h2 class="welcome-to-your">Welcome to your dashboard</h2>
+              <h2 class="username">Username</h2>
             </div>
           </div>
-        </div>
+        </header>
       </section>
-      <section class="content">
+      <section class="content-wrapper-wrapper">
         <div class="content-wrapper">
-          <div class="inner-content">
-            <div class="inner-content-inner">
-              <div class="ellipse-parent">
-                <div class="frame-child"></div>
-                <img
-                  class="logo-icon"
-                  loading="lazy"
-                  alt=""
-                  src="./images/log.png"
-                />
-              </div>
+          <div class="content-wrapper-inner">
+            <div class="ellipse-parent">
+              <div class="frame-child"></div>
+              <img
+                class="logo-icon"
+                loading="lazy"
+                alt=""
+                src="./images/logo.svg"
+              />
             </div>
           </div>
-          <div class="line-parent">
-            <div class="line"></div>
-            <div class="frame-wrapper">
-              <div class="date-parent">
-                <div class="date">Date :</div>
-                <div class="empty-value-wrapper">
-                  <div class="empty-value" id="currentDate">N/A</div>
+          <div class="data-summary">
+            <div class="line-parent">
+              <div class="line"></div>
+              <div class="data-values-wrapper">
+                <div class="data-values">
+                  <a class="date">Date : </a>
+                  <div class="empty-value-wrapper">
+                    <div class="empty-value">dd/mm/yyyy</div>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div class="line1"></div>
-            <div class="frame-container">
-              <div class="reading-time-parent">
-                <div class="reading-time">Reading_time :</div>
-                <div class="div" id="readingTime">N/A</div>
-              </div>
-            </div>
-            <div class="line2"></div>
-            <div class="frame-div">
-              <div class="reading-value-parent">
-                <div class="reading-value">Reading_value :</div>
-                <div class="kw" id="readingValue">N/A</div>
-              </div>
-            </div>
-            <div class="line3"></div>
-            <div class="frame-wrapper1">
-              <div class="last-reading-time-parent">
-                <div class="last-reading-time">Last_reading_time :</div>
-                <div class="wrapper">
-                  <div class="div1" id="lastReadingTime">N/A</div>
+              <div class="line1"></div>
+              <div class="header-dividers">
+                <div class="reading-time-parent">
+                  <div class="reading-time">Reading_time :</div>
+                  <div class="div">00:00</div>
                 </div>
               </div>
-            </div>
-            <div class="line4"></div>
-            <div class="frame-wrapper2">
-              <div class="last-reading-value-parent">
-                <div class="last-reading-value">Last_reading_value :</div>
-                <b class="kw1" id="lastReadingValue">N/A</b>
-              </div>
-            </div>
-            <div class="line5"></div>
-            <div class="frame-wrapper3">
-              <div class="last-reading-date-parent">
-                <div class="last-reading-date">Last_reading_date :</div>
-                <div class="container">
-                  <div class="div2" id="lastReadingDate">N/A</div>
+              <div class="line2"></div>
+              <div class="header-dividers1">
+                <div class="reading-value-parent">
+                  <div class="reading-value">Reading_value :</div>
+                  <div class="kwh">N/AkWh</div>
                 </div>
               </div>
+              <div class="header-dividers2"></div>
+              <div class="header-dividers3">
+                <div class="frame-parent">
+                  <div class="monthly-reading-value-wrapper">
+                    <div class="monthly-reading-value">
+                      Monthly_reading_value :
+                    </div>
+                  </div>
+                  <div class="kwh1">N/AkWh</div>
+                </div>
+              </div>
+              <div class="header-dividers4"></div>
+              <div class="header-dividers5">
+                <div class="monthly-percentage-usage-parent">
+                  <div class="monthly-percentage-usage">
+                    Monthly_percentage_usage :
+                  </div>
+                  <div class="div1">0%</div>
+                </div>
+              </div>
+              <div class="line3"></div>
+              <div class="header-dividers6">
+                <div class="last-reading-time-parent">
+                  <div class="last-reading-time">Last_reading_time :</div>
+                  <div class="wrapper">
+                    <div class="div2">00:00</div>
+                  </div>
+                </div>
+              </div>
+              <div class="line4"></div>
+              <div class="header-dividers7">
+                <div class="last-reading-value-parent">
+                  <div class="last-reading-value">Last_reading_value :</div>
+                  <div class="kwh-wrapper">
+                    <b class="kwh2">N/AkWh</b>
+                  </div>
+                </div>
+              </div>
+              <div class="line5"></div>
+              <div class="header-dividers8">
+                <div class="last-reading-date-parent">
+                  <div class="last-reading-date">Last_reading_date :</div>
+                  <div class="container">
+                    <div class="div3">dd/mm/yyyy</div>
+                  </div>
+                </div>
+              </div>
+              <div class="line6"></div>
             </div>
-            <div class="line6"></div>
           </div>
         </div>
       </section>
-      <section class="usage-wrapper-wrapper">
-        <div class="usage-wrapper">
-          <div class="percentage-usage">Percentage Usage</div>
+      <div class="dash">
+        <h2 class="total-electricity-consumption">
+          Total electricity consumption
+        </h2>
+        <div class="chart-container">
+          <canvas id="myChart"></canvas>
+        </div>
+      </div>
+      <section class="usage-details-wrapper">
+        <div class="usage-details">
+          <h3 class="percentage-usage">Percentage Usage</h3>
           <div class="percentage">
-            <b class="b">0.0%</b>
-            <div class="amount-wrapper">
-              <b class="ghs-12000">Ghs 0.00</b>
+            <b class="b">0%</b>
+            <div class="bill-values">
+              <b class="daily-bills-ghs">Daily bills: Ghs 0.00</b>
+            </div>
+            <div class="bill-values1">
+              <h2 class="total-cost-per1"> Cost per two weeks: Ghs 0.00</h2>
+            </div>
+            <div class="bill-values1">
+              <h2 class="total-cost-per">Total cost per month: Ghs 0.00</h2>
             </div>
           </div>
         </div>
       </section>
       <section class="footer-section">
         <div class="footer-content">
-          <div class="social-buttons">
+          <div class="app-info">
             <img
               class="logo-icon1"
               loading="lazy"
@@ -123,11 +163,11 @@
               src="./images/biglogo.svg"
             />
 
-            <div class="watcal">WatCal</div>
+            <h3 class="watcal">WatCal</h3>
           </div>
         </div>
         <div class="navigation">
-          <div class="navigation-buttons">
+          <div class="social-buttons">
             <div class="text-button" id="textButton">Home</div>
             <div class="text-button1" id="textButton1">Help Desk</div>
             <div class="text-button2" id="textButton2">About</div>
@@ -135,10 +175,10 @@
           </div>
         </div>
         <div class="line7"></div>
-        <div class="action-buttons-wrapper">
-          <div class="action-buttons">
+        <div class="navigation-buttons-wrapper">
+          <div class="navigation-buttons">
             <div class="button">
-              <div class="icon-button-containers">
+              <div class="button-item-containers">
                 <img
                   class="icon"
                   loading="lazy"
@@ -163,10 +203,10 @@
         </div>
         <div class="line8"></div>
         <footer class="container1">
-          <div class="navigation-label">
+          <div class="contact-details">
             <div class="contact-message">WatCal All Rights Reserved</div>
           </div>
-          <div class="navigation-icons">
+          <div class="social-links">
             <div class="button2">
               <img
                 class="icon2"
@@ -192,8 +232,8 @@
               />
             </div>
           </div>
-          <div class="secondary-buttons">
-            <div class="button-pair">
+          <div class="additional-actions">
+            <div class="navigation-icons">
               <div class="text-button6" id="textButton6">Privacy Policy</div>
               <div class="line9"></div>
               <div class="text-button7" id="textButton7">Terms of Service</div>
@@ -202,118 +242,7 @@
         </footer>
       </section>
     </div>
-
-    <script>
-          function goBack() {
-      window.history.back();
-    }
-      var textButton1 = document.getElementById("textButton1");
-      if (textButton1) {
-        textButton1.addEventListener("click", function (e) {
-            window.location.href = "Helpdesk.html";
-        });
-      }
-      
-      var textButton = document.getElementById("textButton");
-      if (textButton) {
-        textButton.addEventListener("click", function (e) {
-            window.location.href = "Home.html";
-        });
-      }
-      
-      var textButton2 = document.getElementById("textButton2");
-      if (textButton2) {
-        textButton2.addEventListener("click", function (e) {
-            window.location.href = "About.html"; 
-        });
-      }
-      
-      var textButton3 = document.getElementById("textButton3");
-      if (textButton3) {
-        textButton3.addEventListener("click", function (e) {
-            window.location.href = "Security.html";
-        });
-      }
-      
-      var textButton6 = document.getElementById("textButton6");
-      if (textButton6) {
-        textButton6.addEventListener("click", function (e) {
-            window.location.href = "Privacy.html";
-        });
-      }
-      
-      var textButton7 = document.getElementById("textButton7");
-      if (textButton7) {
-        textButton7.addEventListener("click", function (e) {
-            window.location.href = "Terms.html";
-        });
-      }
-
-
-
-
-
-
-      document.addEventListener('DOMContentLoaded', async function() {
-    const tenantId = localStorage.getItem('tenantId');
-
-    if (!tenantId) {
-        console.error('Tenant ID not found in localStorage');
-        return;
-    }
-
-    try {
-        const response = await fetch('/api/viewTenantData', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ tenantId })
-        });
-
-        if (!response.ok) {
-            console.error('Failed to fetch tenant data');
-            return;
-        }
-
-        const tenantData = await response.json();
-
-        const currentTime = new Date();
-        const lastAccessTime = new Date(tenantData.lastAccessTime);
-
-        // Display current reading time as the current time
-        document.getElementById('readingTime').textContent = currentTime.toLocaleTimeString();
-
-        // Display the last access time as the last reading time
-        document.getElementById('lastReadingTime').textContent = lastAccessTime.toLocaleTimeString();
-
-        if (tenantData.readings.length > 0) {
-            const lastReading = tenantData.readings[tenantData.readings.length - 1];
-            document.getElementById('readingValue').textContent = `${lastReading.readingValue}KW`;
-
-            const previousReading = tenantData.readings[tenantData.readings.length - 2];
-            if (previousReading) {
-                document.getElementById('lastReadingValue').textContent = `${previousReading.readingValue}KW`;
-            } else {
-                document.getElementById('lastReadingValue').textContent = 'N/A';
-            }
-        } else {
-            document.getElementById('readingValue').textContent = 'N/A';
-            document.getElementById('lastReadingValue').textContent = 'N/A';
-        }
-
-        document.querySelector('.percentage .b').textContent = `${tenantData.percentageUsage}%`;
-        document.querySelector('.amount-wrapper .ghs-12000').textContent = `Ghs ${tenantData.cost}`;
-
-        // Display the tenant's room number
-        document.getElementById('username').textContent = tenantData.roomNumber;
-    } catch (error) {
-        console.error('Error fetching tenant data:', error);
-    }
-});
-
-
-
-      </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./js/Redirect.js"></script>
   </body>
 </html>

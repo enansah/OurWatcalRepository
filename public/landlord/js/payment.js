@@ -135,11 +135,12 @@ function processMtnPayment() {
         console.error('Username is not available in local storage');
         return;
     }
+
     try {
         const response = await fetch(`/api/rooms/total?username=${encodeURIComponent(username)}`);
         const data = await response.json();
 
-        const totalCost = data.totalCost !== undefined ? data.totalCost : 'GHs 0.00';
+        const totalCost = data.monthlyCost !== undefined ? data.monthlyCost : 'GHs 0.00';
 
         document.querySelector('.gh-2400000').textContent = totalCost;
     } catch (error) {
@@ -149,3 +150,4 @@ function processMtnPayment() {
 
 // Initialize data fetch on page load
 document.addEventListener('DOMContentLoaded', fetchTotalReadingAndCost);
+
