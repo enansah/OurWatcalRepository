@@ -305,7 +305,9 @@ document.addEventListener('DOMContentLoaded', () => {
               // Calculate percentage of room consumption against total consumption today
               const dailyConsumption = room.dailyConsumption !== undefined ? room.dailyConsumption : 'N/A';
               const percentageOfTotalToday = totalConsumptionToday ? ((dailyConsumption / totalConsumptionToday) * 100).toFixed(1) : 0;
-            
+
+              const uniqueRoomId = room.uniqueRoomId;
+              localStorage.setItem('uniqueRoomId', uniqueRoomId);
 
               const now = new Date();
               const year = now.getFullYear();
@@ -315,8 +317,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
               const container = document.createElement('div');
               container.className = 'containers';
-              container.dataset.tenantId = room.uniqueRoomId; // Set data-tenant-id
-              
               container.innerHTML = `
           <div class="container-header" data-room-number=${room.roomNumber}>
            <div class="container-header-inner">

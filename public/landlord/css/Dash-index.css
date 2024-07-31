@@ -1663,6 +1663,13 @@ canvas {
     justify-content: flex-start;
     gap: var(--gap-xl);
   }
+   .main1 {
+    color: #06cc02;
+    width: 800px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: var(--gap-xl);
+  }
   .main-wrapper {
     border:1px solid #06cc02;
     padding: 5px 5px;
