@@ -278,46 +278,58 @@ closeButton.addEventListener('click', hide);
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  const username = localStorage.getItem('username'); // Assuming the username is stored in local storage upon login
+    const username = localStorage.getItem('username'); // Assuming the username is stored in local storage upon login
 
-  fetch(`/api/rooms?username=${encodeURIComponent(username)}`)
-      .then(response => response.json())
-      .then(data => {
-          const containerWrapper = document.querySelector('.containers-wrapper');
-          containerWrapper.innerHTML = '';
+    fetch(`/api/rooms?username=${encodeURIComponent(username)}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            console.log('Fetched data:', data); // Log fetched data for debugging
+            const containerWrapper = document.querySelector('.containers-wrapper');
+            containerWrapper.innerHTML = '';
 
-          const { rooms, totalConsumptionTwoWeeks, weeklyCost, totalConsumptionLastMonth, monthlyCost, totalConsumptionToday, dailyCost } = data;
+            const { rooms, totalConsumptionTwoWeeks, weeklyCost, totalConsumptionLastMonth, monthlyCost, totalConsumptionToday, dailyCost } = data;
 
-          // Calculate the total sum of readings for all rooms
-          const totalSum = rooms.reduce((sum, room) => {
-              const lastReading = room.readings[room.readings.length - 1];
-              return sum + (lastReading ? lastReading.readingValue : 0);
-          }, 0);
+            if (!rooms) {
+                throw new Error('Rooms data is undefined');
+            }
 
-          rooms.forEach(room => {
-              const lastReading = room.readings[room.readings.length - 1];
-              const currentDate = new Date().toLocaleDateString();
-              const currentTime = new Date().toLocaleTimeString();
-              const lastReadingDate = lastReading ? new Date(lastReading.timestamp).toLocaleDateString() : 'N/A';
-              const lastReadingTime = lastReading ? new Date(lastReading.timestamp).toLocaleTimeString() : 'N/A';
-              const lastReadingValue = lastReading ? lastReading.readingValue : 0;
+            // Calculate the total sum of readings for all rooms
+            const totalSum = rooms.reduce((sum, room) => {
+                const lastReading = room.readings[room.readings.length - 1];
+                return sum + (lastReading ? lastReading.readingValue : 0);
+            }, 0);
 
-              // Calculate percentage of room consumption against total consumption today
-              const dailyConsumption = room.dailyConsumption !== undefined ? room.dailyConsumption : 'N/A';
-              const percentageOfTotalToday = totalConsumptionToday ? ((dailyConsumption / totalConsumptionToday) * 100).toFixed(1) : 0;
+            rooms.forEach(room => {
+                const lastReading = room.readings[room.readings.length - 1];
+                const currentDate = new Date().toLocaleDateString();
+                const currentTime = new Date().toLocaleTimeString();
+                const lastReadingDate = lastReading ? new Date(lastReading.timestamp).toLocaleDateString() : 'N/A';
+                const lastReadingTime = lastReading ? new Date(lastReading.timestamp).toLocaleTimeString() : 'N/A';
+                const lastReadingValue = lastReading ? lastReading.readingValue : 0;
+                const cost = room.cost;
 
-              const uniqueRoomId = room.uniqueRoomId;
-              localStorage.setItem('uniqueRoomId', uniqueRoomId);
+                // Calculate percentage of room consumption against total consumption today
+                const dailyConsumption = room.dailyConsumption !== undefined ? room.dailyConsumption : 'N/A';
+                const percentageOfTotalToday = totalConsumptionToday && dailyConsumption !== 'N/A' ? ((dailyConsumption / totalConsumptionToday) * 100).toFixed(1) : 'N/A';
+                const percentageOfTotalAllTime = totalSum && lastReadingValue !== 0 ? ((lastReadingValue / totalSum) * 100).toFixed(1) : 'N/A';
 
-              const now = new Date();
-              const year = now.getFullYear();
-              const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
-              const day = String(now.getDate()).padStart(2, '0');
-              const nowdate = `${day}-${month}-${year}`;
+                const uniqueRoomId = room.uniqueRoomId;
+                localStorage.setItem('uniqueRoomId', uniqueRoomId);
 
-              const container = document.createElement('div');
-              container.className = 'containers';
-              container.innerHTML = `
+                const now = new Date();
+                const year = now.getFullYear();
+                const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+                const day = String(now.getDate()).padStart(2, '0');
+                const nowdate = `${day}-${month}-${year}`;
+
+                const container = document.createElement('div');
+                container.className = 'containers';
+                container.innerHTML = `
           <div class="container-header" data-room-number=${room.roomNumber}>
            <div class="container-header-inner">
             <div class="room-name-parent">

@@ -57,34 +57,6 @@ exports.getRooms = async (req, res) => {
             return sum + roomConsumption;
         }, 0);
 
-        const roomsWithCalculations = rooms.map(room => {
-            const lastReading = room.readings[room.readings.length - 1];
-            const lastReadingValue = lastReading ? lastReading.readingValue : 0;
-            const cost = calculateCost(lastReadingValue);
-            const percentage = totalSum ? ((lastReadingValue / totalSum) * 100).toFixed(1) : 0;
-            const lastReadingDate = lastReading ? lastReading.timestamp : 'N/A';
-            const lastReadingTime = lastReading ? lastReading.timestamp : 'N/A';
-
-            // Calculate the daily percentage for each room
-            const dailyReadings = room.readings.filter(reading => reading.timestamp.startsWith(today));
-            const dailyConsumption = dailyReadings.reduce((roomSum, reading) => roomSum + reading.readingValue, 0);
-            const dailyPercentage = totalConsumptionToday ? ((dailyConsumption / totalConsumptionToday) * 100).toFixed(1) : 0;
-
-            return {
-                ...room,
-                lastReadingValue,
-                cost,
-                percentage,
-                lastReadingDate,
-                lastReadingTime,
-                totalSum,
-                totalCost: calculateCost(totalSum),
-                dailyConsumption,
-                dailyCost: calculateCost(dailyConsumption),
-                dailyPercentage
-            };
-        });
-
         // Calculate total reading and cost for the past 2 weeks
         const twoWeeksAgo = new Date();
         twoWeeksAgo.setDate(twoWeeksAgo.getDate() - 13); // 13 days before today + today = 14 days total
@@ -105,6 +77,39 @@ exports.getRooms = async (req, res) => {
         }, 0);
         const monthlyCost = calculateCost(totalConsumptionLastMonth);
 
+        // Calculate and assign data for each room
+        const roomsWithCalculations = rooms.map(room => {
+            const lastReading = room.readings[room.readings.length - 1];
+            const lastReadingValue = lastReading ? lastReading.readingValue : 0;
+            const cost = calculateCost(lastReadingValue);
+            const percentage = totalSum ? ((lastReadingValue / totalSum) * 100).toFixed(1) : 0;
+            const lastReadingDate = lastReading ? lastReading.timestamp : 'N/A';
+            const lastReadingTime = lastReading ? lastReading.timestamp : 'N/A';
+
+            // Calculate the daily percentage for each room
+            const dailyReadings = room.readings.filter(reading => reading.timestamp.startsWith(today));
+            const dailyConsumption = dailyReadings.reduce((roomSum, reading) => roomSum + reading.readingValue, 0);
+            const dailyPercentage = totalConsumptionToday ? ((dailyConsumption / totalConsumptionToday) * 100).toFixed(1) : 'N/A';
+
+            return {
+                ...room,
+                lastReadingValue,
+                cost,
+                percentage,
+                lastReadingDate,
+                lastReadingTime,
+                totalSum,
+                totalCost: calculateCost(totalSum),
+                dailyConsumption: dailyConsumption || 'N/A',
+                dailyCost: calculateCost(dailyConsumption),
+                dailyPercentage,
+                totalConsumptionTwoWeeks,
+                weeklyCost,
+                totalConsumptionLastMonth,
+                monthlyCost
+            };
+        });
+
         res.json({
             rooms: roomsWithCalculations,
             totalConsumptionTwoWeeks,
@@ -115,9 +120,11 @@ exports.getRooms = async (req, res) => {
             dailyCost: calculateCost(totalConsumptionToday)
         });
     } catch (err) {
+        console.error('Error fetching rooms:', err);
         res.status(500).json({ message: err.message });
     }
 };
+
 
 
 
