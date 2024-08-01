@@ -252,7 +252,7 @@ exports.forgotPasswordLandlord = async (req, res) => {
         }, 0);
     
         const formattedMonthlyConsumption = monthlyConsumption ? monthlyConsumption.toFixed(1) : 'N/A';
-        const monthlyCost = monthlyConsumption ? calculateCost(monthlyConsumption).toFixed(2) : 'N/A';
+        const monthlyCost = monthlyConsumption ? calculateCost(monthlyConsumption).toFixed(2) : 0.00;
     
         // Calculate total consumption for the last two weeks inclusively the current day
         const twoWeeksAgo = new Date(currentDate);

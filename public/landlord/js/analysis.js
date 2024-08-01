@@ -278,58 +278,43 @@ closeButton.addEventListener('click', hide);
 
 
 document.addEventListener('DOMContentLoaded', () => {
-    const username = localStorage.getItem('username'); // Assuming the username is stored in local storage upon login
-
-    fetch(`/api/rooms?username=${encodeURIComponent(username)}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Fetched data:', data); // Log fetched data for debugging
-            const containerWrapper = document.querySelector('.containers-wrapper');
-            containerWrapper.innerHTML = '';
-
-            const { rooms, totalConsumptionTwoWeeks, weeklyCost, totalConsumptionLastMonth, monthlyCost, totalConsumptionToday, dailyCost } = data;
-
-            if (!rooms) {
-                throw new Error('Rooms data is undefined');
-            }
-
-            // Calculate the total sum of readings for all rooms
-            const totalSum = rooms.reduce((sum, room) => {
-                const lastReading = room.readings[room.readings.length - 1];
-                return sum + (lastReading ? lastReading.readingValue : 0);
-            }, 0);
-
-            rooms.forEach(room => {
-                const lastReading = room.readings[room.readings.length - 1];
-                const currentDate = new Date().toLocaleDateString();
-                const currentTime = new Date().toLocaleTimeString();
-                const lastReadingDate = lastReading ? new Date(lastReading.timestamp).toLocaleDateString() : 'N/A';
-                const lastReadingTime = lastReading ? new Date(lastReading.timestamp).toLocaleTimeString() : 'N/A';
-                const lastReadingValue = lastReading ? lastReading.readingValue : 0;
-                const cost = room.cost;
-
-                // Calculate percentage of room consumption against total consumption today
-                const dailyConsumption = room.dailyConsumption !== undefined ? room.dailyConsumption : 'N/A';
-                const percentageOfTotalToday = totalConsumptionToday && dailyConsumption !== 'N/A' ? ((dailyConsumption / totalConsumptionToday) * 100).toFixed(1) : 'N/A';
-                const percentageOfTotalAllTime = totalSum && lastReadingValue !== 0 ? ((lastReadingValue / totalSum) * 100).toFixed(1) : 'N/A';
-
-                const uniqueRoomId = room.uniqueRoomId;
-                localStorage.setItem('uniqueRoomId', uniqueRoomId);
-
-                const now = new Date();
-                const year = now.getFullYear();
-                const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
-                const day = String(now.getDate()).padStart(2, '0');
-                const nowdate = `${day}-${month}-${year}`;
-
-                const container = document.createElement('div');
-                container.className = 'containers';
-                container.innerHTML = `
+  const username = localStorage.getItem('username'); // Assuming the username is stored in local storage upon login
+  
+  fetch(`/api/rooms?username=${encodeURIComponent(username)}`)
+    .then(response => response.json())
+    .then(data => {
+      const containerWrapper = document.querySelector('.containers-wrapper');
+      containerWrapper.innerHTML = '';
+  
+      // Calculate the total sum of readings
+      const totalSum = data.reduce((sum, room) => {
+        const lastReading = room.readings[room.readings.length - 1];
+        return sum + (lastReading ? lastReading.readingValue : 0);
+      }, 0);
+  
+      data.forEach(room => {
+        const lastlastReading = room.readings[room.readings.length - 2];
+        const lastReading = room.readings[room.readings.length - 1];
+        const currentDate = new Date().toLocaleDateString();
+        const currentTime = new Date().toLocaleTimeString();
+        const lastReadingDate = lastReading ? new Date(lastReading.timestamp).toLocaleDateString() : 'N/A';
+        const lastReadingTime = lastReading ? new Date(lastReading.timestamp).toLocaleTimeString() : 'N/A';
+        const lastReadingValue = lastReading ? lastReading.readingValue : 0;
+        const lastlastReadingValue = lastlastReading ? lastlastReading.readingValue : 0;
+        const cost = calculateCost(lastReadingValue);
+        const percentage = totalSum ? ((lastReadingValue / totalSum) * 100).toFixed(1) : 0;
+        const uniqueRoomId = room.uniqueRoomId;
+        localStorage.setItem('uniqueRoomId', uniqueRoomId);
+  
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0'); // Months are 0-based
+        const day = String(now.getDate()).padStart(2, '0');
+        const nowdate = `${day}-${month}-${year}`;
+  
+        const container = document.createElement('div');
+        container.className = 'containers';
+        container.innerHTML = `
           <div class="container-header" data-room-number=${room.roomNumber}>
            <div class="container-header-inner">
             <div class="room-name-parent">
@@ -406,7 +391,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       <div class="container-data-child">
                         <div class="reading-value-parent">
                           <div class="reading-value">Reading_value :</div>
-                          <div class="kw">${dailyConsumption} kWh</div>
+                          <div class="kw">${lastReadingValue} kWh</div>
                         </div>
                       </div>
                       <div class="line3"></div>
@@ -422,7 +407,7 @@ document.addEventListener('DOMContentLoaded', () => {
                       <div class="container-data-inner1">
                         <div class="last-reading-value-parent">
                           <div class="last-reading-value">Last_reading_value :</div>
-                          <b class="kw1">${lastReadingValue} kWh</b>
+                          <b class="kw1">${lastlastReadingValue} kWh</b>
                         </div>
                       </div>
                       <div class="line5"></div>
@@ -626,17 +611,17 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="main-wrapper">
                 <div class="main">
                   <h1 class="total-monthy-consumption-nak">
-                    Total_Monthy_Consumption: ${totalConsumptionLastMonth}kWh
+                    Total_Monthy_Consumption: N/AkWh
                   </h1>
-                  <div class="cost-ghs-000">Monthly_Cost: GHs ${monthlyCost}</div>
+                  <div class="cost-ghs-000">Monthly_Cost: GHs 0.00</div>
                </div>
               </div>
               <div class="main-wrapper">
                 <div class="main">
                   <h1 class="total-weekly-consumption-nak">
-                    Two_Weeks_Consumption: ${totalConsumptionTwoWeeks}kWh
+                    Two_Weeks_Consumption: N/AkWh
                   </h1>
-                  <div class="WeekCost-ghs-000">Weekly_Cost: GHs ${weeklyCost}</div>
+                  <div class="WeekCost-ghs-000">Weekly_Cost: GHs 0.00</div>
                 </div>
               </div>
             <div class="chart-summary">
@@ -657,14 +642,14 @@ document.addEventListener('DOMContentLoaded', () => {
                   </div>
                   <div class="percentage-summary">
                     <div class="percentage">
-                      <b class="percentage-number">${percentageOfTotalToday}%</b>
+                      <b class="percentage-number">${percentage}%</b>
                       <div class="togglebtn1-wrapper" data-roomIds="${room._id}">
                       <div class="togglebtn1">
                         <div class="on">ON</div>
                       </div>
                       </div>
                       <div class="price">
-                        <b class="ghs-120">Ghs ${dailyCost}</b>
+                        <b class="ghs-120">Ghs ${cost}</b>
                       </div>
                     </div>
                   </div>
@@ -833,8 +818,8 @@ document.addEventListener('DOMContentLoaded', () => {
   
   if (readings.length === 0) {
     // Dummy data for when there is no data
-    labels = ['day1', 'day2', 'day3', 'day4', 'day5', 'day6', 'day7', 'day8', 'day9', 'day10'];
-    dataValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+    labels = ['d1', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'd11', 'd12', 'd13', 'd14'];
+    dataValues = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
   } else {
     labels = readings.map((_, index) => `d${index + 1}`);
     dataValues = readings.map(reading => reading.readingValue);

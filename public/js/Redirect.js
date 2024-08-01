@@ -93,11 +93,11 @@ function goBack() {
             // Display current reading time as the current time
             document.querySelector('.reading-time-parent .div').textContent = currentTime.toLocaleTimeString();
       
-            if (tenantData.readings.length >= 0) {
-                const lastReading = tenantData.readings[tenantData.readings.length - 0];
+            if (tenantData.readings.length > 0) {
+                const lastReading = tenantData.readings[tenantData.readings.length - 1];
                 document.querySelector('.reading-value-parent .kwh').textContent = `${lastReading.readingValue}kWh`;
       
-                const previousReading = tenantData.readings[tenantData.readings.length - 1];
+                const previousReading = tenantData.readings[tenantData.readings.length - 2];
                 if (previousReading) {
                     document.querySelector('.last-reading-value-parent .kwh2').textContent = `${previousReading.readingValue}kWh`;
                 } else {

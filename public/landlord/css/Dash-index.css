@@ -144,7 +144,7 @@ body {
 }
 .june {
   display: inline-block;
-  min-width: 43px;
+  min-width: 60px;
 }
 .june-wrapper {
   flex-direction: row;
@@ -208,7 +208,7 @@ body {
 }
 .june1 {
   display: inline-block;
-  min-width: 43px;
+  min-width: 60px;
 }
 .june-container {
   flex-direction: row;
@@ -274,7 +274,7 @@ body {
 }
 .june2 {
   display: inline-block;
-  min-width: 43px;
+  min-width: 60px;
 }
 .june-frame {
   flex-direction: row;
@@ -343,7 +343,7 @@ body {
 }
 .june3 {
   display: inline-block;
-  min-width: 43px;
+  min-width: 60px;
 }
 .june-wrapper1 {
   display: flex;
@@ -409,7 +409,7 @@ body {
 }
 .june4 {
   display: inline-block;
-  min-width: 43px;
+  min-width: 60px;
 }
 .june-wrapper2 {
   flex-direction: row;
