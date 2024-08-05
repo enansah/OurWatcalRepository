@@ -140,8 +140,6 @@ document.addEventListener('DOMContentLoaded', function() {
             resultElement.innerHTML = `<p>Login failed</p>`;
             resultElement.style.fontSize = '16px';
             resultElement.style.color = 'red';
-            resultElement.style.marginLeft = '70px';
-            resultElement.style.top = '50px';
         }
     });
 });

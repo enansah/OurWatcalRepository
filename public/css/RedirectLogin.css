@@ -305,7 +305,7 @@
     width: 1026px;
     flex-direction: column;
     align-items: flex-start;
-    gap: 69.5px;
+    gap: 30px;
     text-align: left;
     font-size: var(--font-size-sm);
     color: var(--grey-75);
